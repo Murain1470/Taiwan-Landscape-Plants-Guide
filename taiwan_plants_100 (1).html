@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台灣常見景觀植物 265 種</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f7f3ed;
+  --parchment: #ede8df;
+  --bark: #6b5240;
+  --moss: #4a6741;
+  --sage: #7a9e72;
+  --fern: #a8c49e;
+  --leaf: #c8dbbf;
+  --soil: #3d2b1f;
+  --amber: #c4812a;
+  --dusk: #8c6b5a;
+  --ink: #1e1208;
+  --mist: #e8f0e5;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--cream); color: var(--ink); }
+
+header {
+  background: var(--soil);
+  color: var(--cream);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(135deg,transparent,transparent 20px,rgba(255,255,255,.02) 20px,rgba(255,255,255,.02) 40px);
+}
+.leaf-deco  { font-size:4rem;opacity:.12;position:absolute;top:10px;left:30px;transform:rotate(-20deg); }
+.leaf-deco2 { font-size:3rem;opacity:.08;position:absolute;bottom:10px;right:40px;transform:rotate(30deg); }
+header h1 { font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:700;letter-spacing:.1em;position:relative; }
+header p  { margin-top:.6rem;font-size:.9rem;opacity:.7;letter-spacing:.05em;position:relative; }
+.stat-bar { display:flex;justify-content:center;gap:2.5rem;margin-top:1.4rem;position:relative; }
+.stat-bar span { font-size:.78rem;opacity:.6;letter-spacing:.08em; }
+.stat-bar strong { display:block;font-size:1.4rem;font-family:'Playfair Display',serif;color:var(--fern);opacity:1; }
+
+.controls {
+  background:var(--parchment);border-bottom:2px solid var(--fern);
+  padding:1.2rem 1.5rem;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+.controls-inner { max-width:1300px;margin:0 auto;display:flex;flex-wrap:wrap;gap:.8rem;align-items:center; }
+.search-wrap { position:relative;flex:1;min-width:200px; }
+.search-wrap input {
+  width:100%;padding:.55rem 1rem .55rem 2.4rem;
+  border:1.5px solid var(--fern);border-radius:6px;
+  background:var(--cream);font-family:'Noto Sans TC',sans-serif;
+  font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;
+}
+.search-wrap input:focus { border-color:var(--moss); }
+.search-wrap::before { content:'🔍';position:absolute;left:.6rem;top:50%;transform:translateY(-50%);font-size:.85rem;pointer-events:none; }
+.filter-tabs { display:flex;flex-wrap:wrap;gap:.4rem; }
+.filter-tabs button {
+  padding:.4rem .85rem;border:1.5px solid var(--fern);border-radius:20px;
+  background:transparent;font-family:'Noto Sans TC',sans-serif;
+  font-size:.78rem;color:var(--moss);cursor:pointer;transition:all .18s;white-space:nowrap;
+}
+.filter-tabs button.active,.filter-tabs button:hover { background:var(--moss);color:#fff;border-color:var(--moss); }
+.count-label { font-size:.8rem;color:var(--dusk);white-space:nowrap;margin-left:auto; }
+
+.grid-wrap { max-width:1300px;margin:2rem auto;padding:0 1.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.6rem; }
+
+.card { background:#fff;border-radius:12px;border:1px solid #e0d8d0;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s; }
+.card:hover { transform:translateY(-4px);box-shadow:0 10px 32px rgba(74,103,65,.18); }
+
+.card-img-wrap { position:relative;height:200px;overflow:hidden;background:#f0ece6; }
+.card-img-wrap img { width:100%;height:100%;object-fit:cover;transition:transform .4s, opacity .4s; }
+.card:hover .card-img-wrap img { transform:scale(1.05); }
+.card-img-wrap .cat-stripe { position:absolute;bottom:0;left:0;right:0;height:4px; }
+.img-placeholder { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#f0ece6;font-size:3.5rem;opacity:.5; }
+.cat-1  .cat-stripe { background:linear-gradient(90deg,#e05c2a,#f08050); }
+.cat-2  .cat-stripe { background:linear-gradient(90deg,#3a7a3a,#5aaa5a); }
+.cat-3  .cat-stripe { background:linear-gradient(90deg,#1a5a1a,#3a8a3a); }
+.cat-10 .cat-stripe { background:linear-gradient(90deg,#c05000,#e07020); }
+.cat-11 .cat-stripe { background:linear-gradient(90deg,#8ab800,#aad820); }
+.cat-4  .cat-stripe { background:linear-gradient(90deg,#7ab87a,#a8d4a8); }
+.cat-6  .cat-stripe { background:linear-gradient(90deg,#40a040,#70c070); }
+.cat-12 .cat-stripe { background:linear-gradient(90deg,#b8a000,#d8c020); }
+.cat-13 .cat-stripe { background:linear-gradient(90deg,#208060,#40a080); }
+.cat-7  .cat-stripe { background:linear-gradient(90deg,#b87ab8,#d4a8d4); }
+.cat-5  .cat-stripe { background:linear-gradient(90deg,#7ab8b8,#a8d4d4); }
+.cat-8  .cat-stripe { background:linear-gradient(90deg,#b8a87a,#d4c8a0); }
+.cat-14 .cat-stripe { background:linear-gradient(90deg,#4888c8,#78a8e8); }
+
+.card-body { padding:1.1rem 1.2rem;flex:1;display:flex;flex-direction:column;gap:.7rem; }
+
+.card-header { display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem; }
+.card-name { font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;color:var(--soil); }
+.card-badge { font-size:.65rem;padding:.2rem .5rem;border-radius:12px;white-space:nowrap;font-weight:500;margin-top:2px;flex-shrink:0; }
+.cat-1  .card-badge { background:#fde0d0;color:#8b2a0a; }
+.cat-2  .card-badge { background:#d0f0d0;color:#1a4a1a; }
+.cat-3  .card-badge { background:#c8e8c8;color:#0a3a0a; }
+.cat-10 .card-badge { background:#ffe0c0;color:#803000; }
+.cat-11 .card-badge { background:#e8f8c0;color:#486000; }
+.cat-4  .card-badge { background:#e0f0e0;color:#2a5c2a; }
+.cat-6  .card-badge { background:#d0ecd0;color:#1a4a1a; }
+.cat-12 .card-badge { background:#f8f0c0;color:#604800; }
+.cat-13 .card-badge { background:#c8f0e0;color:#085040; }
+.cat-7  .card-badge { background:#f0e0f0;color:#5a1a5a; }
+.cat-5  .card-badge { background:#d8f0f0;color:#1a4a4a; }
+.cat-8  .card-badge { background:#f0ead8;color:#4a3810; }
+.cat-14 .card-badge { background:#d8eaf8;color:#1a3a6a; }
+
+.card-sci { font-size:.72rem;color:var(--dusk);font-style:italic; }
+.card-desc { font-size:.8rem;color:#555;line-height:1.7; }
+
+.care-grid { display:grid;grid-template-columns:1fr 1fr;gap:.35rem .5rem; }
+.care-item { display:flex;align-items:flex-start;gap:.3rem;font-size:.74rem;color:#444; }
+.care-icon { flex-shrink:0;font-size:.85rem;margin-top:1px; }
+.care-label { color:var(--bark);font-weight:600;font-size:.68rem;white-space:nowrap;margin-top:1px; }
+
+/* Propagation section */
+.prop-section { border-top:1px dashed var(--leaf);padding-top:.7rem; }
+.prop-title { font-size:.72rem;font-weight:700;color:var(--moss);margin-bottom:.4rem;display:flex;align-items:center;gap:.3rem; }
+.prop-content { font-size:.75rem;color:#444;line-height:1.75; }
+.prop-content ol { padding-left:1.2rem; }
+.prop-content ol li { margin-bottom:.2rem; }
+
+.tag-row { display:flex;flex-wrap:wrap;gap:.3rem; }
+.tag { font-size:.65rem;padding:.15rem .45rem;border-radius:10px;background:var(--mist);color:var(--moss);border:1px solid var(--leaf); }
+
+.card.hidden { display:none; }
+.no-result { text-align:center;padding:4rem 2rem;color:var(--dusk);font-size:1rem;display:none;grid-column:1/-1; }
+
+footer { text-align:center;padding:2rem;font-size:.78rem;color:var(--dusk);border-top:1px solid var(--parchment);margin-top:2rem; }
+footer a { color:var(--moss); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="leaf-deco">🌿</div>
+  <div class="leaf-deco2">🍃</div>
+  <h1>台灣常見景觀植物 265 種</h1>
+  <p>Taiwan Landscape Plants Guide · 栽種方式 × 養護要點 × 詳細繁殖說明</p>
+  <div class="stat-bar">
+    <span><strong>265</strong>種植物</span>
+    <span><strong>7</strong>大類別</span>
+    <span><strong>詳細</strong>繁殖說明</span>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="搜尋植物名稱、學名、特色…">
+    </div>
+    <div class="filter-tabs">
+      <button class="active" data-cat="all">全部</button>
+      <button data-cat="1">🌸 觀花喬木</button>
+      <button data-cat="4">🌿 觀賞灌木</button>
+      <button data-cat="6">🍀 地被植物</button>
+      <button data-cat="7">🌸 花卉植物</button>
+      <button data-cat="5">🌱 蔓藤植物</button>
+      <button data-cat="8">🌿 香草植物</button>
+      <button data-cat="9">🌵 觀葉與多肉</button>
+    </div>
+    <span class="count-label" id="countLabel">顯示 96 / 96 種</span>
+  </div>
+</div>
+
+<div id="plantGrid" class="grid-wrap">
+  <div class="no-result" id="noResult">😔 找不到符合的植物，換個關鍵字試試？</div>
+</div>
+
+<footer>
+  資料參考：<a href="https://tlpg.hsiliu.org.tw/" target="_blank">台灣景觀植物介紹 · 財團法人台北市錫瑠環境綠化基金會</a>
+</footer>
+
+<script>
+const PLANTS = [
+
+  // ══════════════════ 觀花與功能性喬木 cat:1 ══════════════════
+  { name:'阿勃勒', sci:'Cassia fistula', cat:1, catName:'觀花喬木',
+    desc:'又稱「黃金雨」，春末夏初大量黃花串狀垂掛，氣勢磅礡，為知名行道樹。',
+    sun:'全日照', water:'中等', soil:'排水良好壤土', fert:'春季施緩效複合肥', tags:['落葉喬木','黃花','夏季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採成熟黑色莢果，種子以60°C溫水浸泡24小時，播於疏鬆介質，覆土0.5公分，約2〜3週發芽。</li><li><strong>扦插法：</strong>春至夏初取半木質化枝條15〜20公分，沾生根粉插入排水良好介質，約4〜6週發根。</li></ol>` },
+
+  { name:'火焰木', sci:'Spathodea campanulata', cat:1, catName:'觀花喬木',
+    desc:'常綠大喬木，橘紅色花朵鮮豔醒目，花期春夏，具強烈熱帶風情，適合行道樹。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'每季施複合肥', tags:['常綠喬木','橘紅花','熱帶植物','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>取成熟翅果即播，保持25〜30°C，約1〜2週發芽。</li><li><strong>扦插法：</strong>春季取半木質化枝條沾生根粉，插入蛭石混河砂，約4〜8週發根。</li></ol>` },
+
+  { name:'鳳凰木', sci:'Delonix regia', cat:1, catName:'觀花喬木',
+    desc:'夏季綻放火紅花朵，為台灣最具代表性的景觀喬木，常見於校園與公園，樹冠如傘形展開。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春季施磷鉀肥', tags:['落葉喬木','紅花','夏季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>種子以砂紙磨破種臍或沸水浸泡後自然冷卻24小時，播於排水良好砂質土，約1〜2週發芽，發芽率80%以上。</li></ol>` },
+
+  { name:'黃花風鈴木', sci:'Tabebuia chrysantha', cat:1, catName:'觀花喬木',
+    desc:'落葉喬木，早春先開花後長葉，金黃色花朵滿樹，花期約2〜3週，為近年熱門景觀樹。',
+    sun:'全日照', water:'少量', soil:'排水良好砂壤土', fert:'花後補充磷鉀肥', tags:['落葉喬木','黃花','春季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採成熟莢果取帶翅種子立即播種（壽命短），保持溫暖濕潤，約1〜2週發芽。</li><li><strong>扦插法：</strong>夏季取充實枝條10〜15公分，沾生根粉插於河砂，約6〜8週發根。</li></ol>` },
+
+  { name:'粉紅風鈴木', sci:'Tabebuia rosea', cat:1, catName:'觀花喬木',
+    desc:'與黃花風鈴木同屬，花色粉紅至淡紫，花期略晚，近年廣泛種植於公路旁。',
+    sun:'全日照', water:'少量', soil:'排水良好壤土', fert:'春季施緩效肥', tags:['落葉喬木','粉紅花','春季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採熟莢取帶翅種子立即播種，適溫25〜30°C，約1〜2週出芽。</li><li><strong>嫁接法：</strong>以黃花風鈴木實生苗為砧木進行切接或芽接，可縮短開花年份至3〜5年。</li></ol>` },
+
+  { name:'台灣欒樹', sci:'Koelreuteria elegans subsp. formosana', cat:1, catName:'觀花喬木',
+    desc:'台灣原生特有種，秋季黃花、紅色果實相互輝映，四季均具觀賞價值，重要行道樹。',
+    sun:'全日照', water:'中等', soil:'適應力強', fert:'春秋各施一次緩效肥', tags:['落葉喬木','黃花','秋季觀果','台灣原生','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採成熟紅色蒴果取黑色種子，溫水浸泡24小時後播種，覆土1公分，約3〜4週發芽，發芽率70〜80%。</li></ol>` },
+
+  { name:'木棉', sci:'Bombax ceiba', cat:1, catName:'觀花喬木',
+    desc:'早春葉落時大量紅橘花朵盛開，象徵英雄精神，為南部城市代表性樹木，花後棉絮飛揚。',
+    sun:'全日照', water:'少量', soil:'排水良好壤土', fert:'春季施肥一次', tags:['落葉喬木','紅花','春季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>春季花後立即採種播種（種子壽命僅數天），不覆土，保持濕潤，約3〜5天發芽。必須在採收後48小時內播種，否則發芽率趨近於零。</li></ol>` },
+
+  { name:'梅花', sci:'Prunus mume', cat:1, catName:'觀花喬木',
+    desc:'冬末春初盛開，重要年節花卉，花色有白、粉、紅，花香清雅，台灣以武陵農場最盛名。',
+    sun:'全日照', water:'中等', soil:'微酸性排水良好', fert:'秋冬施基肥', tags:['落葉喬木','白粉花','冬季開花','香花'],
+    prop:`<ol><li><strong>嫁接法（最常用）：</strong>以毛桃為砧木，春季切接，接穗取帶2〜3芽充實枝條削楔形，對齊形成層綁緊套袋，約3〜4週成活，成功率90%以上。</li><li><strong>扦插法：</strong>冬季落葉後取充實枝條15〜20公分，春季插入肥沃土壤，發根率約30〜50%。</li></ol>` },
+
+  { name:'山櫻花', sci:'Prunus campanulata', cat:1, catName:'觀花喬木',
+    desc:'台灣原生種，春節前後盛開，深粉紅色吊鐘狀花朵，花後結小紅果，是綠繡眼等鳥類的重要食源。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃微酸性壤土', fert:'花後施氮肥', tags:['落葉喬木','粉紅花','春季開花','台灣原生'],
+    prop:`<ol><li><strong>播種法：</strong>夏季採收成熟紅色小果洗去果肉，即播或低溫濕藏至秋季播種，覆土0.5公分，約2〜4週發芽。</li><li><strong>嫁接法：</strong>以山桃為砧木春季切接，約3〜4週成活，開花期縮短至2〜3年。</li></ol>` },
+
+  { name:'流蘇樹', sci:'Chionanthus retusus', cat:1, catName:'觀花喬木',
+    desc:'春季開白色流蘇狀花朵，花量豐盛猶如白雪，又稱「四月雪」，具淡香，近年廣受歡迎。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'春秋施緩效肥', tags:['半落葉喬木','白花','春季開花','香花'],
+    prop:`<ol><li><strong>播種法：</strong>秋季採收藍黑色核果洗去果肉，低溫層積（4°C，3〜4個月）後春季播種，約3〜4週發芽。不做層積處理則發芽率極低。</li><li><strong>嫁接法：</strong>以白蠟樹或女貞為砧木，春季切接，可縮短開花年份。</li></ol>` },
+
+  { name:'緬梔（雞蛋花）', sci:'Plumeria rubra', cat:1, catName:'觀花喬木',
+    desc:'熱帶風情十足，花色多樣，花香濃郁，台灣夏季盛開，冬季落葉休眠，常種於庭園。',
+    sun:'全日照', water:'少量', soil:'排水極佳砂質土', fert:'生長期每月施複合肥', tags:['落葉喬木','香花','熱帶植物','庭園樹'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取頂端15〜30公分，切口讓乳汁流出後晾乾2〜5天，插入乾燥砂質介質，初期少澆水，約4〜6週從頂端冒出新芽即表示發根成功。</li></ol>` },
+
+  { name:'洋紫荊', sci:'Bauhinia variegata', cat:1, catName:'觀花喬木',
+    desc:'春季開放大型粉紅至紫紅花朵，葉形如牛蹄，花期長，為優美的行道與庭園喬木。',
+    sun:'全日照', water:'中等', soil:'壤土', fert:'春季施磷鉀肥', tags:['落葉喬木','粉紫花','春季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採黑色莢果取種，溫水（60°C）浸泡24小時，播於排水良好壤土，約2〜3週發芽，3〜5年開花。</li><li><strong>扦插法：</strong>春末夏初取半木質化枝條15公分，沾IBA生根粉，插入蛭石，套袋，約4〜6週發根。</li></ol>` },
+
+  { name:'艷紫荊', sci:'Bauhinia blakeana', cat:1, catName:'觀花喬木',
+    desc:'花朵碩大深紫紅色，花期長達秋至春，為香港市花，不結果，台灣各地廣泛種植於行道及公園。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'春季施磷鉀肥', tags:['落葉喬木','紫紅花','秋至春開花','行道樹'],
+    prop:`<ol><li><strong>扦插法（唯一方式）：</strong>艷紫荊不結果，僅能靠扦插或高壓繁殖。春末夏初取半木質化枝條15公分，沾IBA生根粉，插入蛭石介質，套袋保濕，約4〜6週發根，成功率約60〜70%。</li><li><strong>高壓法：</strong>在充實枝條環狀剝皮2公分，包覆濕水苔，約4〜6週生根後剪下移植。</li></ol>` },
+
+  { name:'羊蹄甲', sci:'Bauhinia purpurea', cat:1, catName:'觀花喬木',
+    desc:'春季開放粉紫色花朵，可結莢果，葉形如羊蹄，與洋紫荊同屬，常見於公園及行道，秋冬開花。',
+    sun:'全日照', water:'中等', soil:'排水良好壤土', fert:'春季施磷鉀肥', tags:['落葉喬木','粉紫花','秋冬開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟莢果取種，溫水浸泡24小時，播於排水良好壤土，約2〜3週發芽，發芽率高。</li><li><strong>扦插法：</strong>春末取半木質化枝條，沾生根粉插入蛭石，約4〜6週發根。</li></ol>` },
+
+  { name:'落羽松', sci:'Taxodium distichum', cat:10, catName:'色葉喬木',
+    desc:'秋冬葉片轉為橙紅至磚紅色後飄落，為台灣近年最熱門的秋冬景觀樹，常群植於水岸形成壯觀景色。',
+    sun:'全日照', water:'多量', soil:'保濕壤土或濕地', fert:'春季施緩效有機肥', tags:['落葉喬木','秋冬紅葉','水岸植物','熱門景觀樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採收成熟毬果取種子，低溫層積（4°C，60天）後春季播種，覆土1公分，保持濕潤，約2〜4週發芽。</li><li><strong>扦插法：</strong>冬季取充實硬枝15〜20公分，插入濕潤土壤，春暖後發根，成功率約50〜60%。</li></ol>` },
+
+  { name:'藍花楹', sci:'Jacaranda mimosifolia', cat:1, catName:'觀花喬木',
+    desc:'春末夏初盛開大量藍紫色花朵，整樹呈現浪漫紫色花海，為近年台灣各地搶種的熱門景觀喬木。',
+    sun:'全日照', water:'少量', soil:'排水良好砂壤土', fert:'春季施磷鉀肥', tags:['落葉喬木','藍紫花','春夏開花','熱門景觀樹'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟扁平莢果取種，溫水浸泡24小時，播於疏鬆砂質壤土，保持25〜30°C，約2〜3週發芽，發芽率約60〜80%。</li><li><strong>扦插法：</strong>夏季取半木質化枝條10〜15公分，沾生根粉，插入蛭石，約4〜6週發根，成功率約50〜65%。</li></ol>` },
+
+  { name:'楓香', sci:'Liquidambar formosana', cat:10, catName:'色葉喬木',
+    desc:'台灣原生喬木，秋冬葉片轉為橙黃至深紅色，為低海拔最優美的秋色樹種，球形果實具觀賞價值。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'春季施有機肥', tags:['落葉喬木','秋冬紅葉','台灣原生','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採收成熟球形果實取帶翅種子，即播或低溫層積後春季播種，覆土0.5公分，約2〜3週發芽，發芽率高，幼苗生長快速。</li></ol>` },
+
+  { name:'青楓', sci:'Acer serrulatum', cat:10, catName:'色葉喬木',
+    desc:'台灣原生楓樹，五裂葉片精緻優美，秋冬轉為橙紅色，為中高海拔庭園及盆景的重要觀葉樹種。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃微酸性壤土', fert:'春秋施有機肥', tags:['落葉喬木','秋冬紅葉','台灣原生','庭園樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋季採收帶翅種子，低溫層積（4°C，60〜90天）後春季播種，覆土0.5公分，約3〜4週發芽。</li><li><strong>扦插法：</strong>梅雨季取當年生嫩枝，沾高濃度IBA生根粉，插入蛭石，保持高濕度，約4〜8週發根，成功率約30〜50%。</li></ol>` },
+
+  { name:'烏桕', sci:'Triadica sebifera', cat:10, catName:'色葉喬木',
+    desc:'菱形葉片秋冬轉為鮮紅色，種子外有白色蠟質，四季皆具觀賞價值，為優良的秋色景觀樹。',
+    sun:'全日照', water:'中等', soil:'適應力強', fert:'春季施有機肥', tags:['落葉喬木','秋冬紅葉','觀果植物','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採收成熟白色種子，去除蠟質後即播或低溫層積後春季播種，覆土1公分，約2〜3週發芽，幼苗生長迅速。</li><li><strong>扦插法：</strong>春季取充實枝條，插入濕潤土壤，約3〜4週發根。</li></ol>` },
+
+  { name:'樟樹', sci:'Cinnamomum camphora', cat:2, catName:'觀葉喬木',
+    desc:'台灣重要原生常綠大喬木，葉片搓揉有樟腦香氣，耐污染耐修剪，為全台最普遍的行道樹之一。',
+    sun:'全日照', water:'少量', soil:'適應力強', fert:'春季施有機肥', tags:['常綠喬木','香葉','台灣原生','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋季採收成熟黑色核果，洗去果肉，即播或低溫層積後春季播種，覆土1公分，約2〜4週發芽，發芽率高。</li><li><strong>扦插法：</strong>春夏取半木質化枝條，沾生根粉，插入蛭石，約4〜6週發根，成功率約50〜65%。</li></ol>` },
+
+  { name:'茄苳', sci:'Bischofia javanica', cat:2, catName:'觀葉喬木',
+    desc:'台灣原生大型常綠喬木，樹冠開展，遮蔭效果極佳，老樹具有壯觀的板根，為重要的生態景觀樹。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'春季施有機肥', tags:['常綠喬木','遮蔭樹','台灣原生','生態樹種'],
+    prop:`<ol><li><strong>播種法：</strong>夏季採收成熟漿果，洗去果肉，即播於排水良好肥沃土壤，覆土0.5公分，保持濕潤，約2〜3週發芽。</li></ol>` },
+
+  { name:'光蠟樹', sci:'Fraxinus griffithii', cat:2, catName:'觀葉喬木',
+    desc:'又名白雞油，台灣原生喬木，夏季開白色小花，為獨角仙和鍬形蟲喜愛的樹種，具重要生態價值。',
+    sun:'全日照', water:'中等', soil:'排水良好壤土', fert:'春季施有機肥', tags:['常綠喬木','台灣原生','誘蟲植物','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採收成熟帶翅種子，低溫層積（4°C，60天）後春季播種，覆土0.5公分，約3〜4週發芽，幼苗生長快速。</li></ol>` },
+
+  { name:'小葉欖仁', sci:'Terminalia mantaly', cat:2, catName:'觀葉喬木',
+    desc:'層層水平展開的枝條極具特色，葉片小巧，秋冬落葉前轉橙紅，為近年台灣最受歡迎的行道喬木之一。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐貧瘠', fert:'春季施緩效肥', tags:['落葉喬木','層狀枝條','秋冬色葉','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實取種子，溫水浸泡24小時，播於疏鬆排水良好土壤，覆土1公分，約2〜4週發芽。</li><li><strong>扦插法：</strong>春夏取半木質化枝條，沾生根粉，插入蛭石介質，約4〜8週發根，成功率約40〜60%。</li></ol>` },
+
+  { name:'大葉欖仁', sci:'Terminalia catappa', cat:2, catName:'觀葉喬木',
+    desc:'濱海常用大喬木，秋冬葉片轉為橙紅後飄落，層狀水平枝條優美，耐鹽抗風，為重要的海岸防護樹。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐貧瘠耐鹽', fert:'春季施複合肥', tags:['落葉喬木','秋冬色葉','耐鹽抗風','海岸植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實，取出種子，乾燥後播於砂質壤土，覆土2公分，約2〜4週發芽，發芽率高，幼苗生長快速。</li></ol>` },
+
+  { name:'水黃皮', sci:'Pongamia pinnata', cat:1, catName:'觀花喬木',
+    desc:'春季盛開粉紫色花朵，耐鹽抗風，為優良的海岸景觀樹，台語稱「掛錢樹」，豆莢形態特殊。',
+    sun:'全日照', water:'少量', soil:'適應力強，耐鹽鹼', fert:'春季施複合肥', tags:['半落葉喬木','粉紫花','耐鹽抗風','海岸植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟褐色豆莢取種子，直接播種不需處理，覆土2公分，約1〜2週發芽，發芽率高，為主要繁殖方式。</li></ol>` },
+
+  { name:'大葉山欖', sci:'Palaquium formosanum', cat:2, catName:'觀葉喬木',
+    desc:'台灣原生常綠大喬木，葉片厚實深綠，耐強風耐鹽，為東部及海岸常見的景觀防護樹種。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐鹽', fert:'春季施有機肥', tags:['常綠喬木','台灣原生','耐鹽抗風','海岸植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實洗去果肉，即播於肥沃土壤，覆土1〜2公分，保持濕潤，約2〜4週發芽，種子壽命短，需新鮮播種。</li></ol>` },
+
+  { name:'福木', sci:'Garcinia subelliptica', cat:2, catName:'觀葉喬木',
+    desc:'常綠喬木，葉片厚實深綠有光澤，耐鹽抗風，生長緩慢，適合作綠籬或孤植，為傳統豪宅常用樹種。',
+    sun:'全日照至半日照', water:'少量', soil:'排水良好，耐鹽', fert:'每年施有機肥', tags:['常綠喬木','耐鹽抗風','綠籬植物','傳統景觀'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟黃色果實洗去果肉，即播於排水良好土壤，覆土1公分，保持溫暖濕潤，約1〜2個月發芽，幼苗生長極緩慢。</li></ol>` },
+
+  { name:'菩提樹', sci:'Ficus religiosa', cat:2, catName:'觀葉喬木',
+    desc:'宗教聖樹，心形葉片尾端有細長尖尾，樹冠廣大，遮蔭效果佳，為佛教聖地及公園常見的大型景觀樹。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'春季施有機肥', tags:['落葉喬木','宗教植物','遮蔭樹','庭園樹'],
+    prop:`<ol><li><strong>扦插法：</strong>春夏季取充實枝條15〜20公分，去下葉，沾生根粉，插入排水良好土壤，約3〜4週發根，成活率高。</li><li><strong>播種法：</strong>採收成熟小無花果，洗去果肉取種子，即播於肥沃土壤，約1〜2週發芽。</li></ol>` },
+
+  { name:'垂柳', sci:'Salix babylonica', cat:1, catName:'觀花喬木',
+    desc:'細長枝條垂掛如簾，飄逸動人，為親水景觀常用樹種，常植於湖岸、溪邊，隨風搖曳極具詩意。',
+    sun:'全日照', water:'多量', soil:'保濕壤土，耐濕', fert:'春季施有機肥', tags:['落葉喬木','垂枝造型','水岸植物','親水景觀'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>全年均可，以春季最佳。取充實枝條20〜30公分，插入濕潤土壤至1/2深，充分澆水，約1〜2週萌芽發根，垂柳發根能力極強，幾乎不需特別處理，成活率達95%以上。</li></ol>` },
+
+  { name:'羅漢松', sci:'Podocarpus macrophyllus', cat:3, catName:'針葉樹',
+    desc:'常綠針葉喬木，葉片細長深綠，耐修剪可塑造各種造型，為傳統豪宅、廟宇標配的高級景觀樹。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'春秋施緩效肥', tags:['常綠喬木','耐修剪','傳統景觀','豪宅標配'],
+    prop:`<ol><li><strong>播種法：</strong>秋季採收成熟紫紅色假種皮果實，取出種子，去除假種皮，即播於肥沃微酸性土壤，覆土1公分，約1〜2個月發芽。</li><li><strong>扦插法：</strong>春至夏季取充實頂芽10〜15公分，沾IBA生根粉，插入泥炭土混蛭石，套袋保濕，約2〜3個月發根，成功率約50〜65%，羅漢松發根較慢需有耐心。</li></ol>` },
+
+  { name:'黑松', sci:'Pinus thunbergii', cat:3, catName:'針葉樹',
+    desc:'日式禪風庭園必備，雙針束，樹形蒼勁有力，耐鹽抗風，為盆景製作及傳統庭園造景的重要針葉樹。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土', fert:'春秋施緩效肥', tags:['常綠喬木','日式禪風','耐鹽抗風','盆景植物'],
+    prop:`<ol><li><strong>播種法：</strong>春季採收成熟毬果，取出帶翅種子，播於砂質微酸性土壤，覆土0.5公分，約2〜3週發芽，發芽率高，幼苗需充足日照。</li><li><strong>嫁接法（盆景用）：</strong>以實生苗為砧木，進行切接或腹接，可保留優良樹形枝條，縮短造型培育時間。</li></ol>` },
+
+  { name:'真柏', sci:'Juniperus chinensis var. sargentii', cat:3, catName:'針葉樹',
+    desc:'常綠針葉灌木至小喬木，葉片細密，耐修剪，香氣宜人，為台灣最重要的盆景樹種之一，也用於庭園造景。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土', fert:'春秋施緩效肥', tags:['常綠喬木','盆景植物','香葉','日式庭園'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>全年均可，以秋至春季最佳。取充實頂芽枝條10〜15公分，去除下部葉片，插入排水極佳砂質介質，不套袋，每3〜4天澆水，置於通風全日照處，約6〜10週發根，成功率約60〜75%。</li></ol>` },
+
+  { name:'龍柏', sci:'Juniperus chinensis "Kaizuka"', cat:3, catName:'針葉樹',
+    desc:'枝條螺旋扭轉向上，樹形如火焰，對稱美感強，常用於校園門首或公園入口兩側，為傳統景觀喬木。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每年施緩效肥', tags:['常綠喬木','螺旋樹形','傳統景觀','對稱種植'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實頂芽枝條10〜12公分，去下葉，插入排水良好砂質介質，不套袋，約6〜10週發根，方法同真柏。</li></ol>` },
+
+  { name:'五葉松', sci:'Pinus morrisonicola', cat:3, catName:'針葉樹',
+    desc:'台灣原生松樹，五針束，葉質柔軟，樹形高雅，為高山景觀及盆景製作的珍貴材料，質感高雅。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質微酸性土', fert:'春秋施緩效肥', tags:['常綠喬木','台灣原生','盆景植物','高山景觀'],
+    prop:`<ol><li><strong>播種法：</strong>秋季採收成熟毬果，取出帶翅種子，播於砂質微酸性土壤，約2〜3週發芽，幼苗生長緩慢，需耐心培育。</li><li><strong>嫁接法：</strong>以黑松實生苗為砧木，春季進行切接，可縮短培育時間並保留優良品系特性。</li></ol>` },
+
+  { name:'河津櫻', sci:'Prunus × kanzakura "Kawazu-zakura"', cat:1, catName:'觀花喬木',
+    desc:'早春盛開深粉紅色花朵，花期早於其他品種，花量豐盛，為近年台灣最受歡迎的賞櫻品種之一。',
+    sun:'全日照', water:'中等', soil:'肥沃微酸性壤土', fert:'花後施氮肥', tags:['落葉喬木','深粉紅花','早春開花','賞花樹種'],
+    prop:`<ol><li><strong>嫁接法（唯一實用方式）：</strong>以山桃或台灣野桃為砧木，春季進行切接或秋季進行芽接，成活後生長旺盛，2〜3年即可開花。河津櫻為雜交品種，不能以播種繁殖保持品種特性。</li></ol>` },
+
+  { name:'吉野櫻', sci:'Prunus × yedoensis', cat:1, catName:'觀花喬木',
+    desc:'淡粉白色花朵，花量豐盛，為日本最具代表性的賞花品種，台灣以阿里山、武陵農場大量種植。',
+    sun:'全日照', water:'中等', soil:'肥沃微酸性壤土', fert:'花後施有機肥', tags:['落葉喬木','淡粉白花','春季開花','賞花樹種'],
+    prop:`<ol><li><strong>嫁接法：</strong>以山桃或實生吉野櫻為砧木，春季切接或秋季芽接，成活率約70〜80%，2〜3年後開花。為雜交品種，需以嫁接繁殖保持品種特性。</li></ol>` },
+
+  { name:'八重櫻', sci:'Prunus lannesiana', cat:1, catName:'觀花喬木',
+    desc:'重瓣花型豐滿，花色深粉紅，比一般單瓣櫻花花期略晚，觀賞期較長，極具觀賞價值。',
+    sun:'全日照', water:'中等', soil:'肥沃微酸性壤土', fert:'花後施有機肥', tags:['落葉喬木','深粉紅重瓣花','春季開花','賞花樹種'],
+    prop:`<ol><li><strong>嫁接法：</strong>以山桃或吉野櫻為砧木，春季切接，成活後2〜3年開花。重瓣品種需嫁接繁殖，無法以播種保持品種特性。</li></ol>` },
+
+  { name:'臘腸樹', sci:'Cassia fistula', cat:1, catName:'觀花喬木',
+    desc:'果實為長圓柱形深棕色豆莢，形如臘腸，長達30〜60公分，懸掛於樹梢，果形奇特極具觀賞價值。',
+    sun:'全日照', water:'少量', soil:'排水良好壤土', fert:'春季施複合肥', tags:['落葉喬木','觀果植物','奇特果形','熱帶植物'],
+    prop:`<ol><li><strong>播種法：</strong>採成熟圓柱形豆莢，取出種子，溫水浸泡24小時，播於排水良好壤土，覆土1公分，約2〜3週發芽，幼苗生長快速。</li></ol>` },
+
+  { name:'美人樹', sci:'Ceiba speciosa', cat:1, catName:'觀花喬木',
+    desc:'樹幹上有錐形刺，秋季開放大型粉紅花朵，花朵碩大壯觀，落花滿地亦美，為南部常見景觀喬木。',
+    sun:'全日照', water:'少量', soil:'排水良好壤土', fert:'春季施磷鉀肥', tags:['落葉喬木','粉紅花','秋季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實取出棉絮包裹的種子，立即播種於排水良好壤土，覆薄土，保持溫暖，約5〜7天發芽，種子壽命短，需盡快播種。</li><li><strong>扦插法：</strong>春季取充實粗枝，晾乾切口後插入砂質土壤，約3〜4週萌芽發根。</li></ol>` },
+
+  { name:'白千層', sci:'Melaleuca leucadendra', cat:1, catName:'觀花喬木',
+    desc:'樹皮層層剝離如紙張，觸感柔軟，夏季開白色瓶刷狀花序，耐鹽抗風，為海濱常見景觀喬木。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐貧瘠耐鹽', fert:'每年施一次有機肥', tags:['常綠喬木','白花','耐鹽抗風','特殊樹皮'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟蒴果，在容器中搖晃收集細小種子，撒播於砂質土壤，不覆土，約1〜2週發芽，種子細小操作需細心。</li></ol>` },
+
+  { name:'黃槿', sci:'Talipariti tiliaceum', cat:1, catName:'觀花喬木',
+    desc:'台灣原生濱海喬木，全年開放黃色錦葵形花朵，午後轉橙紅，耐鹽抗風，為台灣海岸重要景觀樹種。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐鹽', fert:'春季施複合肥', tags:['常綠喬木','黃花','台灣原生','海岸植物'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>全年均可，取充實枝條15〜20公分，插入濕潤排水良好土壤，約2〜3週發根，黃槿扦插成活率極高（90%以上），幾乎不需特別處理。</li><li><strong>播種法：</strong>採收成熟蒴果取種，溫水浸泡24小時播種，約1〜2週發芽。</li></ol>` },
+
+  { name:'大王椰子', sci:'Roystonea regia', cat:11, catName:'棕櫚科',
+    desc:'樹幹筆直高聳，葉片大型羽狀，宏偉壯麗，常用於大型公共空間入口兩側對植，具強烈熱帶風情。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每季施複合肥', tags:['常綠喬木','棕櫚科','熱帶風情','公共空間'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>採收成熟紫黑色核果，洗去果肉，即播於排水良好砂質土，覆土2公分，保持25〜30°C，約1〜3個月發芽，棕櫚科植物均不能扦插，播種為唯一繁殖方式。</li></ol>` },
+
+  { name:'狐尾椰子', sci:'Wodyetia bifurcata', cat:11, catName:'棕櫚科',
+    desc:'羽狀葉片向四周蓬鬆展開如狐尾，樹形現代感強，為近年台灣高端建案和景觀設計最常用的椰子樹。',
+    sun:'全日照', water:'中等', soil:'排水良好砂壤土', fert:'每季施棕櫚專用肥', tags:['常綠喬木','棕櫚科','現代風景觀','熱帶植物'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>採收成熟橙紅色核果，洗去果肉，即播於排水良好砂質土，覆土3公分，保持高溫（28〜32°C），約1〜3個月發芽。</li></ol>` },
+
+  { name:'黃椰子', sci:'Dypsis lutescens', cat:11, catName:'棕櫚科',
+    desc:'叢生型椰子，莖幹金黃色，羽狀葉片弓形展開，室外室內均適合，為台灣最常見的中型椰子植物之一。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好肥沃', fert:'每季施複合肥', tags:['常綠喬木','棕櫚科','室內室外','熱帶植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實，洗去果肉，即播於砂質肥沃土，保持高溫高濕，約1〜2個月發芽。</li><li><strong>分株法：</strong>黃椰子為叢生型，可於春季將基部萌發的側芽帶根分離移植，成活率高。</li></ol>` },
+
+  { name:'觀音棕竹', sci:'Rhapis excelsa', cat:11, catName:'棕櫚科',
+    desc:'叢生棕竹，葉片深裂如手掌，耐陰性強，具禪意，為傳統東方庭園及現代室內景觀設計的重要植物。',
+    sun:'半日照至全陰', water:'中等', soil:'排水良好肥沃', fert:'春夏施緩效肥', tags:['常綠叢生','棕櫚科','耐陰','禪意庭園'],
+    prop:`<ol><li><strong>分株法（最主要）：</strong>春季將叢生株從基部切分，每叢帶3〜5枝並保留完整根系，移植後充分澆水，置於半遮蔭處，約1〜2個月恢復生長。</li><li><strong>播種法：</strong>採收成熟白色核果，洗去果肉，即播於保濕土壤，約1〜3個月發芽，幼苗生長極緩慢。</li></ol>` },
+
+  { name:'中東海棗', sci:'Phoenix dactylifera', cat:11, catName:'棕櫚科',
+    desc:'樹幹高聳，葉片大型灰綠色羽狀，形象壯觀，為高級建案及度假村常用的中東風情景觀椰子樹。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土，耐鹽', fert:'每季施棕櫚專用肥', tags:['常綠喬木','棕櫚科','中東風情','耐旱耐鹽'],
+    prop:`<ol><li><strong>播種法：</strong>以棗椰種子（去果肉）播於砂質土壤，保持高溫（28〜35°C），約1〜2個月發芽。</li><li><strong>分蘗法：</strong>母株基部萌發的側芽（蘗芽），待其高度達50〜80公分後帶根切離移植，為商業生產常用方式，且能保持品種特性。</li></ol>` },
+
+  { name:'酒瓶椰子', sci:'Hyophorbe lagenicaulis', cat:11, catName:'棕櫚科',
+    desc:'樹幹中段膨大如酒瓶，造型獨特，為庭園及建築入口的吸睛焦點植物，頂端羽狀葉片優雅開展。',
+    sun:'全日照', water:'少量', soil:'排水良好砂壤土', fert:'每季施棕櫚專用肥', tags:['常綠喬木','棕櫚科','獨特造型','庭園焦點'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>採收成熟核果，洗去果肉，即播於排水良好砂質土，保持28〜32°C，約2〜4個月發芽，發芽率不穩定（30〜60%），幼苗生長緩慢，需耐心培育。</li></ol>` },
+
+  // ══════════════════ 觀賞灌木 cat:11 ══════════════════
+  { name:'杜鵑花', sci:'Rhododendron spp.', cat:4, catName:'觀賞灌木',
+    desc:'台灣最普遍的景觀灌木，品種繁多，花色豐富，春季盛開，廣泛用於公園綠化及校園植栽。',
+    sun:'半日照至全日照', water:'中等', soil:'微酸性肥沃壤土', fert:'花後施酸性肥', tags:['常綠灌木','多色花','春季開花','公園綠化'],
+    prop:`<ol><li><strong>扦插法：</strong>花後5〜6月取當年生半木質化枝條6〜10公分，保留頂部3〜4片葉（各剪半），沾IBA生根粉（1500〜2000ppm），插入酸性泥炭土+珍珠石，套袋保95%以上濕度，置於明亮遮蔭處，約6〜8週發根，成功率60〜80%。</li><li><strong>播種法：</strong>秋季播於酸性泥炭土，種子極細不覆土，噴霧保濕，約2〜4週發芽，幼苗需2〜3年開花。</li></ol>` },
+
+  { name:'九重葛', sci:'Bougainvillea spectabilis', cat:4, catName:'觀賞灌木',
+    desc:'花苞色彩豐富，有紫、紅、橘、白等色，耐旱耐熱，生長旺盛，全年幾乎都可見花。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['常綠灌木','多色花','全年開花','耐旱'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取半木質化或木質化枝條15〜20公分，沾生根粉，插入排水良好砂質介質，不套袋，每2〜3天澆水，約4〜6週發根，成功率70〜85%。</li><li><strong>高壓法：</strong>環狀剝皮包覆濕水苔加塑膠袋，約3〜5週見根後剪下移植。</li></ol>` },
+
+  { name:'茉莉花', sci:'Jasminum sambac', cat:4, catName:'觀賞灌木',
+    desc:'白色小花香氣清雅濃郁，夏季為花期高峰，可製花茶，為台灣重要的香花灌木。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施肥', tags:['常綠灌木','白花','夏季開花','香花'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實枝條10〜15公分，去下葉保留2〜3片上葉，沾生根粉，插入疏鬆肥沃介質，約3〜4週發根，成功率85%以上。</li><li><strong>分株法：</strong>春季換盆時將根部萌生的側芽帶根分離，直接移植，成活率極高。</li></ol>` },
+
+  { name:'山茶花', sci:'Camellia japonica', cat:4, catName:'觀賞灌木',
+    desc:'冬春季節開花，花朵碩大，花色有紅、粉、白、複色，觀賞價值極高，適合庭園種植。',
+    sun:'半日照', water:'中等', soil:'微酸性肥沃壤土', fert:'秋冬施基肥', tags:['常綠灌木','多色花','冬春開花','庭園植物'],
+    prop:`<ol><li><strong>扦插法：</strong>梅雨季取當年生充實枝條8〜12公分，沾IBA（2000〜3000ppm），插入酸性介質，套袋保濕，約8〜12週發根，成功率50〜70%。</li><li><strong>嫁接法：</strong>以油茶或茶樹實生苗為砧木，春季切接，成活率80%以上，植株生長旺盛。</li></ol>` },
+
+  { name:'玫瑰', sci:'Rosa hybrida', cat:4, catName:'觀賞灌木',
+    desc:'花卉之王，品種繁多，花色豐富，香氣宜人，春秋為盛花期，為最重要的切花植物之一。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好壤土', fert:'每月施有機肥', tags:['半落葉灌木','多色花','春秋開花','香花'],
+    prop:`<ol><li><strong>扦插法：</strong>春秋花後取充實枝條15〜20公分，去下葉保留1〜2片葉，削斜切口，沾生根粉，插入肥沃排水良好土壤，約3〜5週發根，成功率60〜80%。</li><li><strong>嫁接法：</strong>以野薔薇實生苗為砧木，春秋進行芽接，成功率高，植株壽命長。</li></ol>` },
+
+  { name:'變葉木', sci:'Codiaeum variegatum', cat:4, catName:'觀賞灌木',
+    desc:'葉色豐富多彩，有黃、橘、紅、綠等斑紋，以觀葉為主，常作熱帶風情的庭園植物。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃壤土', fert:'生長期每月施肥', tags:['常綠灌木','觀葉植物','熱帶植物','庭園植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取頂芽枝條10〜15公分，切口讓乳汁流出晾乾30分鐘，去下葉，沾生根粉，插入疏鬆保濕介質，套袋，約3〜4週發根，成功率約70%。</li><li><strong>高壓法：</strong>在充實枝條環狀剝皮2〜3公分，包覆濕水苔套袋，約4〜6週生根後剪下移植。</li></ol>` },
+
+  { name:'仙丹花', sci:'Ixora chinensis', cat:4, catName:'觀賞灌木',
+    desc:'花朵密集成球形花序，花色有紅、橘、黃、粉，全年均可開花，為常見的公園綠化灌木。',
+    sun:'全日照', water:'中等', soil:'肥沃微酸性壤土', fert:'每月施肥', tags:['常綠灌木','多色花','全年開花','公園綠化'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，沾IBA生根粉，插入微酸性泥炭土混蛭石，套袋保高濕度，置於25〜28°C，約6〜8週發根。</li></ol>` },
+
+  { name:'黃金露花', sci:'Duranta erecta', cat:4, catName:'觀賞灌木',
+    desc:'藍紫色小花成串，花後結黃色漿果，觀花觀果兼具，常用於綠籬修剪造型，耐熱耐修剪。',
+    sun:'全日照', water:'中等', soil:'適應力強', fert:'每季施複合肥', tags:['常綠灌木','藍紫花','黃果','綠籬植物'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取半木質化枝條10〜15公分，去下葉，沾生根粉，插入排水良好介質，約3〜4週發根，成功率高。</li></ol>` },
+
+  { name:'朱槿（扶桑花）', sci:'Hibiscus rosa-sinensis', cat:4, catName:'觀賞灌木',
+    desc:'全年幾乎均可開花，花朵碩大豔麗，花色多樣，耐熱耐修剪，為台灣最常見庭園灌木之一。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'每月施磷鉀肥', tags:['常綠灌木','多色花','全年開花','耐熱'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取充實枝條15〜20公分，去下葉，沾生根粉，插入肥沃排水良好土壤，約2〜3週發根，成功率超過90%，為台灣最容易扦插成活的灌木之一。</li></ol>` },
+
+  { name:'繡球花', sci:'Hydrangea macrophylla', cat:4, catName:'觀賞灌木',
+    desc:'花球碩大，花色因土壤酸鹼度而異，從藍紫到粉紅均有，春夏為盛花期，台灣陽明山最盛名。',
+    sun:'半日照', water:'多量', soil:'肥沃微酸性壤土', fert:'春季施肥', tags:['落葉灌木','藍粉花','夏季開花','庭園植物'],
+    prop:`<ol><li><strong>扦插法：</strong>花後6〜8月取當年生嫩枝8〜12公分，沾IBA（1000〜2000ppm），插入疏鬆保濕介質，套袋保高濕度，約3〜5週發根，成功率70〜85%。</li><li><strong>花色控制：</strong>酸性土（pH 4.5〜5.5）使花色偏藍，中鹼性土使花色偏粉紅。</li></ol>` },
+
+  { name:'馬纓丹', sci:'Lantana camara', cat:4, catName:'觀賞灌木',
+    desc:'花色多彩，同一花序可見黃、橙、紅等漸層，全年開花，耐旱耐熱，適合坡地綠化，蝴蝶喜愛訪花。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每季施緩效肥', tags:['常綠灌木','多色花','全年開花','耐旱','耐熱'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取半木質化枝條10〜15公分，直接插入排水良好土壤，約2〜3週發根，成功率極高。</li></ol>` },
+
+  { name:'日本女貞', sci:'Ligustrum japonicum', cat:4, catName:'觀賞灌木',
+    desc:'常綠灌木，葉色深綠有光澤，耐修剪，廣泛用於綠籬、造型樹及公園綠化，夏季開白色小花。',
+    sun:'全日照至半日照', water:'中等', soil:'適應力強', fert:'春秋施有機肥', tags:['常綠灌木','觀葉植物','綠籬植物','耐修剪'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取半木質化枝條10〜15公分，沾生根粉，插入排水良好介質，約3〜4週發根，成功率高達80%以上。</li></ol>` },
+
+  { name:'福建茶', sci:'Carmona retusa', cat:4, catName:'觀賞灌木',
+    desc:'葉小濃密，耐修剪，可塑造各種造型，為台灣最常見的盆景樹種，小白花後結小紅果，四季可賞。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施肥', tags:['常綠灌木','觀葉植物','盆景植物','綠籬植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，沾生根粉後插入疏鬆介質，置於半遮蔭保濕處，約4〜6週發根，發根速度偏慢需保持穩定溫濕度。</li></ol>` },
+
+  { name:'桂花', sci:'Osmanthus fragrans', cat:4, catName:'觀賞灌木',
+    desc:'秋季開放金黃或白色小花，花香濃郁遠傳，可製桂花茶、桂花釀，是重要的香花植物。',
+    sun:'半日照至全日照', water:'中等', soil:'排水良好肥沃', fert:'春秋施有機肥', tags:['常綠灌木','白黃花','秋季開花','香花'],
+    prop:`<ol><li><strong>扦插法：</strong>梅雨季6〜7月取當年生半木質化枝條8〜12公分，沾IBA（2000〜3000ppm），插入酸性泥炭土混珍珠石，套袋保濕，置於明亮無直射光環境，約8〜10週發根，成功率50〜70%。</li><li><strong>嫁接法：</strong>以女貞或小葉女貞為砧木，春季切接，可縮短開花年份，成活率約70〜80%。</li></ol>` },
+
+  { name:'使君子', sci:'Quisqualis indica', cat:5, catName:'蔓藤植物',
+    desc:'攀援灌木，花朵由白轉粉再轉紅，同一花序多色並存，夏季為盛花期，花香迷人。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'春夏施磷鉀肥', tags:['攀援灌木','多色花','夏季開花','香花'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條15公分，去下葉，沾生根粉，插入肥沃排水良好土壤，約4〜6週發根，成功率約60〜70%。</li><li><strong>分株法：</strong>老株基部萌發根蘗苗，春季帶根分離移植，成活率高且最快速。</li></ol>` },
+
+  { name:'含笑花', sci:'Michelia figo', cat:4, catName:'觀賞灌木',
+    desc:'木蘭科含笑屬灌木，學名Michelia figo，與同屬的烏心石（No.191）為近親，後者舊稱「台灣含笑」。兩者區別：含笑花為灌木，花朵淡黃帶紫邊常含苞不全開，具特殊香蕉奶香；烏心石為高大喬木。春末夏初盛開，為優雅的庭園香花植物。',
+    sun:'半日照', water:'中等', soil:'微酸性肥沃壤土', fert:'春秋施有機肥', tags:['常綠灌木','黃白花','香花','庭園植物'],
+    prop:`<ol><li><strong>扦插法：</strong>6〜8月梅雨季後，取充實枝條10〜12公分，保留頂端2〜3片葉（剪半），沾IBA（3000ppm），插入酸性泥炭土，套袋，置於25〜30°C高濕度環境，約8〜12週發根，成功率約40〜60%。</li><li><strong>嫁接法：</strong>以白蘭或木蘭科樹種為砧木，春季切接，成活率80%以上。</li></ol>` },
+
+  { name:'梔子花', sci:'Gardenia jasminoides', cat:4, catName:'觀賞灌木',
+    desc:'純白花朵香氣濃郁，初夏盛開，為台灣重要的香花灌木，花可製花茶或作為頭飾，又名玉堂春。',
+    sun:'半日照至全日照', water:'中等', soil:'微酸性肥沃壤土', fert:'春夏施酸性肥', tags:['常綠灌木','白花','夏季開花','香花'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條10〜15公分，去下葉保留2〜3片葉各剪半，沾IBA生根粉，插入微酸性泥炭土，套袋保濕，約4〜6週發根，成功率65〜80%。</li></ol>` },
+
+  { name:'七里香', sci:'Murraya paniculata', cat:4, catName:'觀賞灌木',
+    desc:'又名月橘，白色小花香氣飄遠，全年多次開花，耐修剪性強，為台灣最常見的綠籬植物之一。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好壤土', fert:'每季施複合肥', tags:['常綠灌木','白花','香花','綠籬植物','耐修剪'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取半木質化枝條10〜15公分，沾生根粉，插入排水良好介質，約3〜5週發根，成功率高達80%以上，為主要商業繁殖方式。</li></ol>` },
+
+  { name:'春不老', sci:'Ardisia squamulosa', cat:4, catName:'觀賞灌木',
+    desc:'又名萬年青，葉片光亮波浪狀，秋冬結紅色或黑色漿果，觀葉觀果兼具，耐陰性強。',
+    sun:'半日照至全陰', water:'中等', soil:'肥沃排水良好', fert:'春秋施有機肥', tags:['常綠灌木','觀葉植物','觀果植物','耐陰'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採收成熟果實，洗去果肉，即播於肥沃微酸性培養土，約1〜2個月發芽，幼苗生長緩慢。</li><li><strong>扦插法：</strong>春夏取頂芽枝條8〜12公分，沾生根粉，插入保濕介質，約4〜6週發根，成功率約50〜65%。</li></ol>` },
+
+  { name:'鵝掌藤', sci:'Schefflera arboricola', cat:4, catName:'觀賞灌木',
+    desc:'掌狀複葉小巧可愛，耐陰性強，生命力旺盛，為台灣公園、辦公室及家庭最常見的觀葉植物之一。',
+    sun:'半日照至全陰', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施肥', tags:['常綠灌木','觀葉植物','耐陰','室內外通用'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽枝條10〜15公分，去下葉，沾生根粉，插入排水良好介質，約3〜4週發根，成功率極高（85%以上）。</li><li><strong>高壓法：</strong>在充實枝條環狀剝皮，包覆濕水苔，約3〜4週生根，適合快速獲得較大植株。</li></ol>` },
+
+  { name:'厚葉石斑木', sci:'Rhaphiolepis indica var. umbellata', cat:4, catName:'觀賞灌木',
+    desc:'葉片厚實深綠，春季開放白色或粉紅色花朵，耐鹽抗風，果實深藍色，為海濱地區常用的景觀灌木。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐鹽', fert:'春季施複合肥', tags:['常綠灌木','白粉花','耐鹽抗風','海岸植物'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採收成熟深藍色核果，洗去果肉，即播或低溫層積後春季播種，約2〜4個月發芽，發芽率不穩定。</li><li><strong>扦插法：</strong>梅雨季取半木質化枝條，沾IBA生根粉，插入蛭石，約6〜8週發根。</li></ol>` },
+
+  { name:'紅花繼木', sci:'Loropetalum chinense var. rubrum', cat:4, catName:'觀賞灌木',
+    desc:'葉片終年呈紫紅色，春季開粉紅色流蘇狀花朵，為極受歡迎的彩色葉片灌木，常用於色塊造景。',
+    sun:'全日照', water:'中等', soil:'微酸性排水良好', fert:'春季施酸性肥', tags:['常綠灌木','紫紅葉','粉花','色塊植栽'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，沾IBA生根粉，插入微酸性泥炭土混蛭石，套袋保濕，約4〜6週發根，成功率65〜80%。</li></ol>` },
+
+  { name:'雪茄花', sci:'Cuphea ignea', cat:4, catName:'觀賞灌木',
+    desc:'細長管狀花朵橘紅色，頂端有黑紫色環如點燃的雪茄，全年開花，耐熱耐旱，為可愛的小型觀花灌木。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['常綠灌木','橘紅花','全年開花','耐熱','耐旱'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽枝條8〜10公分，去下葉，插入排水良好介質，約2〜3週發根，成功率高達85%以上。</li><li><strong>播種法：</strong>春季播種，覆薄土，約7〜10天發芽，幼苗生長快速。</li></ol>` },
+
+  { name:'藍蝴蝶', sci:'Rotheca myricoides', cat:4, catName:'觀賞灌木',
+    desc:'花型獨特如藍色蝴蝶展翅，藍色花瓣中央有一片白色大瓣，花期長，為觀賞價值極高的特殊灌木。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好肥沃', fert:'每月施磷鉀肥', tags:['常綠灌木','藍白花','長花期','特殊花形'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，沾生根粉，插入排水良好介質，保持半遮蔭，約3〜5週發根，成功率約65〜75%。</li></ol>` },
+
+  { name:'煙火樹', sci:'Clerodendrum quadriloculare', cat:4, catName:'觀賞灌木',
+    desc:'冬至春季開放大型白色花序，花瓣細長如煙火噴發，葉背紫色，觀花觀葉皆宜，為近年流行景觀灌木。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'秋冬施磷鉀肥', tags:['常綠灌木','白花','冬春開花','葉背紫色'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條15公分，沾生根粉，插入排水良好介質，套袋保濕，約4〜6週發根，成功率約60〜75%。</li><li><strong>分株法：</strong>老株基部萌發根蘗苗，春季帶根分離移植，成活率高，為最快速的繁殖方式。</li></ol>` },
+
+  { name:'串錢柳', sci:'Callistemon viminalis', cat:4, catName:'觀賞灌木',
+    desc:'枝條細長下垂，花序如紅色試管刷，全年多次開花，耐鹽抗風，為海濱及公園常見的觀花灌木。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐貧瘠', fert:'每季施磷鉀肥', tags:['常綠灌木','紅花','全年開花','耐鹽抗風'],
+    prop:`<ol><li><strong>扦插法：</strong>春夏取半木質化枝條10〜15公分，沾生根粉，插入排水良好砂質介質，約4〜6週發根，成功率約60〜70%。</li><li><strong>播種法：</strong>蒴果在容器中搖晃收集細小種子，春季撒播於砂質培養土，不覆土，約2〜3週發芽。</li></ol>` },
+
+  { name:'黃蝦花', sci:'Pachystachys lutea', cat:4, catName:'觀賞灌木',
+    desc:'金黃色苞片密集堆疊如蝦形，白色花朵自苞片間伸出，花期長，觀賞效果獨特，耐陰性佳。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施複合肥', tags:['常綠灌木','黃色苞片','長花期','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽帶花苞枝條8〜12公分，去下葉，插入保濕介質，套袋，置於半遮蔭處，約3〜4週發根，成功率高達80%以上。</li></ol>` },
+
+  { name:'澳洲朱蕉', sci:'Cordyline australis', cat:4, catName:'觀賞灌木',
+    desc:'葉片細長劍形，有綠、紫紅、斑葉等多種品種，株形挺立優雅，適合現代風格庭園及容器栽植。',
+    sun:'全日照至半日照', water:'少量', soil:'排水良好', fert:'每季施緩效肥', tags:['常綠灌木','劍形葉','多色品種','現代景觀'],
+    prop:`<ol><li><strong>扦插法：</strong>春夏季取老莖切段5〜10公分，平放或斜插於保濕介質，約4〜6週從莖段長出新芽並發根，成功率約60〜75%。</li><li><strong>分株法：</strong>老株基部萌發側芽，帶根分離移植，成活率高。</li></ol>` },
+
+  { name:'朱蕉', sci:'Cordyline fruticosa', cat:4, catName:'觀賞灌木',
+    desc:'葉片寬大，有紅、粉、綠、複色等多種品種，紅葉效果強烈，為台灣公園及庭園常見的觀葉灌木。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施氮肥', tags:['常綠灌木','觀葉植物','紅色葉片','公園景觀'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>春夏取帶葉頂芽10〜15公分，或取老莖切段5〜10公分，插入排水良好保濕介質，約3〜5週發根，成功率高達85%以上。</li></ol>` },
+
+  { name:'龍吐珠', sci:'Clerodendrum thomsoniae', cat:5, catName:'蔓藤植物',
+    desc:'白色萼片包覆深紅色花冠，對比強烈如口含紅珠，花量豐富，夏季盛開，為攀援性觀賞灌木。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施磷鉀肥', tags:['攀援灌木','紅白花','夏季開花','特殊花形'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條10〜15公分，沾生根粉，插入保濕介質，套袋，置於半遮蔭溫暖處，約3〜5週發根，成功率約65〜75%。</li></ol>` },
+
+  { name:'馬利筋', sci:'Asclepias curassavica', cat:4, catName:'觀賞灌木',
+    desc:'橘紅色與黃色對比花朵，為樺斑蝶的幼蟲食草及成蟲蜜源，具重要生態功能，全年幾乎均可開花。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每季施磷鉀肥', tags:['多年生灌木','橘黃花','蝴蝶食草','全年開花'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟絲棉莢果取種子，春季播於排水良好土壤，覆薄土，約7〜10天發芽，幼苗生長快速，播種後約60天開花。</li><li><strong>扦插法：</strong>取頂芽10〜15公分，插入濕潤介質，約2〜3週發根，成功率約65〜75%。</li></ol>` },
+
+  { name:'非洲茉莉', sci:'Faradaya splendida', cat:4, catName:'觀賞灌木',
+    desc:'葉片厚綠油亮，夜間開放白色花朵香氣宜人，耐陰性佳，為室內外空間常用的清新香花灌木。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施有機肥', tags:['常綠灌木','白花','香花','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化頂芽枝條8〜12公分，沾生根粉，插入保濕介質，套袋，約4〜6週發根，成功率約60〜70%。</li></ol>` },
+
+  // ══════════════════ 地被植物 cat:6 ══════════════════
+  { name:'蔓花生', sci:'Arachis pintoi', cat:6, catName:'地被植物',
+    desc:'葉色翠綠，黃色小花點綴，匍匐生長快速，耐踩踏，廣泛用於路邊及停車場綠化，固氮能力強。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'偶爾施氮肥', tags:['常綠地被','黃花','耐踩踏','耐旱'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，剪取帶數個節點的匍匐莖10〜15公分，平鋪於濕潤土壤，稍覆土壓緊，約1〜2週從節點生根萌芽，成活率接近100%。</li></ol>` },
+
+  { name:'麥冬草', sci:'Ophiopogon japonicus', cat:6, catName:'地被植物',
+    desc:'葉片細長深綠，耐陰耐旱，生長緩慢但整齊，常用於樹下陰影處及步道邊緣的地被植栽。',
+    sun:'半日照至全陰', water:'中等', soil:'適應力強', fert:'春季施緩效肥', tags:['常綠地被','耐陰','耐旱','樹下植栽'],
+    prop:`<ol><li><strong>分株法（唯一實用方式）：</strong>春秋季將叢生株挖起，分成每叢3〜5株的小束，按10〜15公分間距種植，澆透水，約1〜2個月恢復生長。</li></ol>` },
+
+  { name:'沿階草', sci:'Ophiopogon japonicus var.', cat:6, catName:'地被植物',
+    desc:'台灣景觀界常與麥冬草（Ophiopogon japonicus）通用，學術上屬同屬近緣種，葉片略寬、色澤略深。耐陰耐濕，生長強健，常用於台階邊緣、林下地被或石縫間的植栽。',
+    sun:'半日照至全陰', water:'中等', soil:'適應各種土壤', fert:'春季施有機肥', tags:['常綠地被','耐陰','林下植栽'],
+    prop:`<ol><li><strong>分株法：</strong>春秋季將叢生株分成小叢，每叢3〜5株，按間距種植，方法同麥冬草，生長略快，約1個月恢復旺盛生長。</li></ol>` },
+
+  { name:'腎蕨', sci:'Nephrolepis auriculata', cat:6, catName:'地被植物',
+    desc:'台灣原生蕨類，葉片翠綠羽狀，耐陰耐濕，生命力強，常用於林下、牆角及吊盆。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕排水兼具', fert:'生長期施氮肥', tags:['常綠地被','蕨類','耐陰','台灣原生'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，腎蕨靠走莖向外延伸產生子株，待子株長出4〜5片葉後，從走莖切斷帶根移植，約1〜2週恢復生長，成活率極高。</li><li><strong>孢子繁殖：</strong>刮下葉背孢子囊的孢子，撒播於保濕無菌泥炭土，套袋保濕，約2〜3個月見原葉體，整個發育過程需6個月以上。</li></ol>` },
+
+  { name:'翠蘆莉', sci:'Ruellia brittoniana', cat:6, catName:'地被植物',
+    desc:'紫色小花量大且持續盛開，耐旱耐熱，生長旺盛，常見於路邊花圃及大面積地被栽植。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每季施磷鉀肥', tags:['常綠地被','紫花','耐旱','耐熱'],
+    prop:`<ol><li><strong>分株法：</strong>春季整叢挖起，分成每叢3〜5枝，按20〜30公分間距種植，約1〜2週恢復生長，成活率接近100%。</li><li><strong>扦插及播種：</strong>扦插取充實枝條約2〜3週發根；種子也可自播，收集後春季播種約1〜2週發芽。</li></ol>` },
+
+  { name:'大花咸豐草', sci:'Bidens pilosa var. radiata', cat:6, catName:'地被植物',
+    desc:'白色舌狀花配黃色管狀花，全年開花，強健易生長，為蜜蜂和蝴蝶的重要蜜源植物。',
+    sun:'全日照', water:'少量', soil:'適應力強', fert:'不需特別施肥', tags:['地被','白黃花','全年開花','蜜源植物'],
+    prop:`<ol><li><strong>播種法（自然繁殖）：</strong>果實上的刺狀構造可附著於人和動物身上傳播，幾乎不需人工繁殖即可大量自播。人工播種時直接將帶刺瘦果撒於濕潤土壤，輕壓後澆水，約1週發芽，發芽率極高。</li></ol>` },
+
+  { name:'白花三葉草', sci:'Trifolium repens', cat:6, catName:'地被植物',
+    desc:'葉形可愛，白色球狀花，固氮能力強，常與草坪混植或用於生態復育，幸運草的原型，耐踩踏。',
+    sun:'全日照至半日照', water:'中等', soil:'適應力強', fert:'固氮植物，少施肥', tags:['地被','白花','固氮植物','草坪混植'],
+    prop:`<ol><li><strong>播種法：</strong>春秋季與細砂混合撒播，輕耙覆薄土，充分澆水，約1〜2週發芽。</li><li><strong>匍匐莖分株：</strong>剪取帶節莖段直接鋪植於濕潤土面，壓緊澆水，約1〜2週生根蔓延。</li></ol>` },
+
+  { name:'黃金葛', sci:'Epipremnum aureum', cat:6, catName:'地被植物',
+    desc:'葉片黃綠斑紋，耐陰性極強，可作地被或垂掛，生命力頑強，室內外均適合種植。',
+    sun:'半日照至全陰', water:'中等', soil:'排水良好', fert:'生長期每月施肥', tags:['常綠地被','觀葉植物','耐陰','室內植物'],
+    prop:`<ol><li><strong>扦插法（最簡單）：</strong>全年均可，剪取帶節莖段，每段留1〜2片葉，直接插入濕潤土或放入水中水培，約1〜2週見根，成功率接近100%。</li></ol>` },
+
+  { name:'野薑花', sci:'Hedychium coronarium', cat:13, catName:'大型草本',
+    desc:'台灣原生植物，白色花朵極香，夏秋盛開，常見於溪邊濕地，為蝴蝶重要蜜源。',
+    sun:'半日照', water:'多量', soil:'保濕壤土', fert:'春季施有機肥', tags:['地被','白花','香花','台灣原生','夏秋開花'],
+    prop:`<ol><li><strong>根莖分株法：</strong>秋冬花期結束後挖起根莖，切成帶2〜3個芽點的段約10〜15公分，切口塗草木灰防腐，橫向種植覆土5〜8公分，春季氣溫回暖後萌芽，當年即可開花。</li></ol>` },
+
+  { name:'台灣芒草', sci:'Miscanthus sinensis var. formosanus', cat:12, catName:'觀賞草',
+    desc:'台灣原生觀賞草，秋季花穗銀白飄逸，葉色碧綠，常用於生態造景或坡地綠化，耐旱耐貧瘠。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春季施緩效肥', tags:['觀賞草','台灣原生','秋季觀賞','坡地綠化'],
+    prop:`<ol><li><strong>播種法：</strong>春季撒播，覆薄土，保持濕潤，約1〜2週發芽，幼苗生長快速，當年可達30〜50公分高。</li><li><strong>分株法：</strong>早春2〜3月將老叢齊地剪除後挖起，分成帶3〜5個芽的叢，按50〜60公分間距種植。</li></ol>` },
+
+  { name:'韓國草（台北草／結縷草）', sci:'Zoysia tenuifolia', cat:6, catName:'地被植物',
+    desc:'正式名稱「結縷草」（Zoysia tenuifolia），「韓國草」與「台北草」均為台灣常見俗名，指同一植物。葉片細密柔軟，踩踏後彈性佳，耐熱耐旱，為台灣最常用的暖季型草坪草種。',
+    sun:'全日照', water:'中等', soil:'排水良好', fert:'生長期施氮肥', tags:['草坪','耐踩踏','耐熱','耐旱'],
+    prop:`<ol><li><strong>草皮鋪植法：</strong>整地施基肥整平後，緊密鋪設草皮卷，交錯排列，滾輪壓緊後充分澆水，每日澆水2〜3週至根系扎穩，約1個月形成緻密草坪。</li><li><strong>分株點播：</strong>分成每束3〜5株，按10〜15公分間距種植，約2〜3個月全面覆蓋。</li></ol>` },
+
+  { name:'紫花酢漿草', sci:'Oxalis corymbosa', cat:6, catName:'地被植物',
+    desc:'葉片心形三出，紫紅色花朵小巧可愛，生命力強健，常自然蔓延於草地和路旁，花期長。',
+    sun:'全日照至半日照', water:'中等', soil:'適應各種土壤', fert:'不需特別施肥', tags:['地被','紫花','全年開花','球根植物'],
+    prop:`<ol><li><strong>球根分株法：</strong>地下鱗莖會不斷分裂，春秋季挖取球根，覆土2〜3公分，澆水保濕，約1〜2週萌芽，繁殖係數高，種植後往往自行大量繁殖。</li></ol>` },
+
+  { name:'巴西鳶尾', sci:'Neomarica gracilis', cat:6, catName:'地被植物',
+    desc:'白色花朵帶藍紫斑紋，極具特色，葉片直立扇狀，耐陰耐旱，常用於庭園地被植栽。',
+    sun:'半日照', water:'少量', soil:'排水良好', fert:'春秋施緩效肥', tags:['常綠地被','白藍花','耐陰','庭園植物'],
+    prop:`<ol><li><strong>子株分株法：</strong>花梗頂端開花後長出子株，待子株長出根芽後切下，移植至新位置，澆透水置於半遮蔭處，約2〜3週恢復生長，成活率高。</li><li><strong>根部分株：</strong>春季將母株挖起，分成帶5〜6片葉的小叢，修剪葉片至1/3長度，重新種植。</li></ol>` },
+
+  { name:'嫣紅蔓', sci:'Hypoestes phyllostachya', cat:6, catName:'地被植物',
+    desc:'葉片布滿粉紅或紅色斑點，色彩鮮豔，耐陰性好，是陰涼處的優秀彩色地被植物。',
+    sun:'半日照', water:'中等', soil:'肥沃排水良好', fert:'每月施氮肥', tags:['常綠地被','觀葉植物','耐陰','彩色地被'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽8〜10公分，去下葉，插入保濕介質，套袋，置於明亮遮蔭處，約2〜3週發根，成功率高。</li><li><strong>播種法：</strong>春季撒播於細緻保濕培養土，不覆土，噴霧保濕，約1〜2週發芽，需充足散射光葉色才能鮮豔。</li></ol>` },
+
+  { name:'筆筒樹', sci:'Sphaeropteris lepifera', cat:13, catName:'大型草本',
+    desc:'台灣原生木本蕨類，葉片大型羽狀，具熱帶雨林氛圍，常用於遮蔭庭園，為知名台灣蕨類。',
+    sun:'半日照', water:'多量', soil:'保濕肥沃壤土', fert:'春夏施氮肥', tags:['常綠地被','蕨類','台灣原生','遮蔭植物'],
+    prop:`<ol><li><strong>孢子繁殖法（唯一方式）：</strong>採集葉背孢子囊尚未開裂的葉片，陰乾後收集孢子，播於無菌保濕泥炭土，套密封容器保持高濕度，25〜28°C恆溫，約2〜3個月長出原葉體，再過2〜4個月長出孢子體，整個過程需6〜12個月。</li></ol>` },
+
+  { name:'紫葉狼尾草', sci:'Pennisetum setaceum "Rubrum"', cat:12, catName:'觀賞草',
+    desc:'葉片終年呈深紫紅色，夏秋抽出紫色花穗飄逸，為近年台灣景觀市場最熱門的觀賞草之一。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春季施緩效肥', tags:['觀賞草','紫紅葉','夏秋觀賞','耐旱','熱門景觀草'],
+    prop:`<ol><li><strong>分株法（唯一實用方式）：</strong>紫葉狼尾草為不孕性品種，種子無法發芽，僅能靠分株繁殖。春季將整叢挖起，用鋒利工具分成每叢帶3〜5枝的小叢，按50〜60公分間距種植，澆透水，約2〜3週恢復生長。</li></ol>` },
+
+  { name:'藍星花', sci:'Evolvulus glomeratus', cat:6, catName:'地被植物',
+    desc:'蔚藍色小花如繁星般每天開放，幾乎全年有花，耐熱耐旱，植株低矮，為台灣極受歡迎的地被花卉。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生地被','藍花','全年開花','耐熱','耐旱'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽枝條8〜10公分，去下葉，插入排水良好介質，約2〜3週發根，成功率高達85%以上。</li></ol>` },
+
+  { name:'蟛蜞菊', sci:'Sphagneticola trilobata', cat:6, catName:'地被植物',
+    desc:'黃色菊形小花，匍匐蔓延速度快，耐鹽耐旱耐踩踏，全年開花，廣泛用於海濱及坡地覆蓋綠化。',
+    sun:'全日照', water:'少量', soil:'適應力極強', fert:'不需特別施肥', tags:['地被','黃花','全年開花','耐鹽','耐旱'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，剪取帶節莖段10〜15公分，直接鋪放於濕潤土面，壓緊覆薄土，澆水後約1〜2週從節點發根蔓延，成活率接近100%。</li></ol>` },
+
+  { name:'山蘇（巢蕨）', sci:'Asplenium antiquum', cat:6, catName:'地被植物',
+    desc:'葉片大型光亮，輻射狀排列如鳥巢，耐陰性極強，為台灣重要的原生蕨類，常用於林下或室內景觀。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕排水兼具', fert:'春夏施氮肥', tags:['常綠地被','蕨類','台灣原生','耐陰','室內植物'],
+    prop:`<ol><li><strong>孢子繁殖法：</strong>採葉背成熟孢子囊刮下孢子，播於無菌保濕泥炭土，套袋保持高濕度，置於25°C明亮處，約2〜3個月長出原葉體，再過2〜4個月長出孢子體幼苗，整個過程需6〜12個月。</li><li><strong>分株法：</strong>大型植株基部偶爾萌發側芽，春季帶根分離移植，成活率高。</li></ol>` },
+
+  { name:'蔥蘭', sci:'Zephyranthes candida', cat:6, catName:'地被植物',
+    desc:'純白色花朵在颱風後大量盛開，葉片細長如蔥，球根植物，耐踩踏耐濕，常大面積種植於步道邊緣。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好壤土', fert:'春季施磷鉀肥', tags:['球根地被','白花','雨後盛開','耐踩踏'],
+    prop:`<ol><li><strong>球根分株法：</strong>春秋季將叢生球根整叢挖起，分成每3〜5個球根的小叢，按10〜15公分間距種植，覆土3公分，約1〜2週萌芽，繁殖係數高，種植後迅速蔓延覆蓋。</li></ol>` },
+
+  { name:'韭蘭', sci:'Zephyranthes carinata', cat:6, catName:'地被植物',
+    desc:'粉紅色花朵在颱風後或夏季雨後大量盛開，又稱「風雨蘭」，球根植物，生命力強，全台低地常見。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好壤土', fert:'春季施磷鉀肥', tags:['球根地被','粉紅花','雨後盛開','球根植物'],
+    prop:`<ol><li><strong>球根分株法：</strong>方法與蔥蘭完全相同，春秋季分球，每叢3〜5個球根，按10〜15公分間距種植。也可收集成熟種子播種，但需2〜3年才能開花，一般以分球繁殖為主。</li></ol>` },
+
+  { name:'石菖蒲', sci:'Acorus gramineus', cat:6, catName:'地被植物',
+    desc:'葉片細長直立有光澤，清雅翠綠，耐濕耐陰，常用於水岸邊緣或禪意庭園，有清香氣息。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕或水生土壤', fert:'春季施緩效肥', tags:['常綠地被','觀葉植物','水岸植物','禪意庭園','耐陰'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，以春秋最佳。將整叢挖起，分成每叢帶3〜5枝的小叢，按10〜15公分間距種植，充分澆水，約1〜2週恢復生長。也可直接種於淺水容器中，為水景造景的重要素材。</li></ol>` },
+
+  { name:'射干', sci:'Iris domestica', cat:6, catName:'地被植物',
+    desc:'橘色花朵帶深色斑點，葉片扁平如扇，夏季盛開，為優雅的宿根草本植物，適合自然風格庭園。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好壤土', fert:'春季施磷鉀肥', tags:['宿根草本','橘花','夏季開花','自然風格'],
+    prop:`<ol><li><strong>分株法：</strong>春季或秋末，將根莖叢挖起，用刀切分成帶2〜3個芽點的段，種植覆土5公分，澆透水，約2〜3週萌芽，當年或隔年春夏可開花。</li><li><strong>播種法：</strong>採收成熟種子春季播種，覆土1公分，約2〜4週發芽，實生苗需2〜3年開花。</li></ol>` },
+
+  { name:'佛甲草', sci:'Sedum lineare', cat:6, catName:'地被植物',
+    desc:'多肉質葉片細長翠綠，黃色小花春季盛開，極耐旱耐貧瘠，為屋頂綠化及岩石庭園的優選地被植物。',
+    sun:'全日照至半日照', water:'極少', soil:'排水良好砂質土', fert:'少量緩效肥', tags:['多肉地被','黃花','耐旱','屋頂綠化'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>全年均可，取帶葉莖段3〜5公分，放置於砂質土壤表面，不需特別澆水，約1〜2週自然發根蔓延，佛甲草幾乎不需任何照顧即可繁殖，成活率接近100%。</li></ol>` },
+
+  { name:'吊竹草', sci:'Tradescantia zebrina', cat:6, catName:'地被植物',
+    desc:'葉片具銀紫色條紋，垂掛生長優美，耐陰性強，可作地被或吊盆，生長迅速，管理容易。',
+    sun:'半日照至全陰', water:'中等', soil:'排水良好', fert:'每月施氮肥', tags:['常綠地被','觀葉植物','耐陰','吊盆植物'],
+    prop:`<ol><li><strong>扦插法（極容易）：</strong>全年均可，取帶葉莖段5〜10公分，插入水中或濕潤介質，約5〜7天即可見白色根系，成功率接近100%，為最容易繁殖的觀葉植物之一。</li></ol>` },
+
+  { name:'馬蹄金', sci:'Dichondra micrantha', cat:6, catName:'地被植物',
+    desc:'葉片圓形如馬蹄，翠綠可愛，匍匐生長，耐踩踏耐陰，為優良的草坪替代植物，也常用於容器垂吊。',
+    sun:'半日照至全日照', water:'中等', soil:'排水良好', fert:'偶爾施氮肥', tags:['常綠地被','圓形葉','耐踩踏','草坪替代'],
+    prop:`<ol><li><strong>播種法：</strong>春秋季撒播於整平的土面，覆薄土，澆透水，約7〜10天發芽，發芽整齊，約1〜2個月即可形成覆蓋。</li><li><strong>分株法：</strong>匍匐莖節點自然發根，剪取帶根莖段直接鋪植，約1〜2週恢復蔓延。</li></ol>` },
+
+  { name:'虎耳草', sci:'Saxifraga stolonifera', cat:6, catName:'地被植物',
+    desc:'葉片圓形具白色脈紋，葉背紅紫色，春季開白色小花，耐陰耐濕，為台灣原生的優美地被植物。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕肥沃', fert:'春季施氮肥', tags:['常綠地被','觀葉植物','耐陰','台灣原生'],
+    prop:`<ol><li><strong>走莖分株法：</strong>植株會長出細長走莖，頂端產生子株，待子株長出3〜5片葉後剪下移植，成活率高，為主要繁殖方式。</li><li><strong>播種法：</strong>春季播於保濕培養土，覆薄土，約2〜3週發芽。</li></ol>` },
+
+  { name:'嬰兒淚', sci:'Soleirolia soleirolii', cat:6, catName:'地被植物',
+    desc:'葉片極細小圓形，植株矮小密集如地毯，耐陰耐濕，在潮濕環境下生長旺盛，為容器及苔庭的優選植物。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕肥沃', fert:'偶爾施稀薄液肥', tags:['常綠地被','細小葉','耐陰','苔庭植物'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，將植株分成小叢，按適當間距種植於保濕土壤，充分澆水，約1〜2週恢復蔓延覆蓋，在高濕度環境下生長迅速。</li></ol>` },
+
+  { name:'天門冬', sci:'Asparagus cochinchinensis', cat:6, catName:'地被植物',
+    desc:'葉狀枝細碎如羽毛，株形輕盈飄逸，耐陰耐旱，常作為切花配葉或地被植栽，根部具球狀塊根。',
+    sun:'半日照至全陰', water:'少量', soil:'排水良好', fert:'春季施緩效肥', tags:['常綠地被','羽狀葉','耐陰','切花配葉'],
+    prop:`<ol><li><strong>分株法：</strong>春季將叢生株挖起，用鋒利刀具切分成帶2〜3枝並保留塊根的小叢，種植後充分澆水，約1〜2週恢復生長。</li><li><strong>播種法：</strong>採收成熟紅色果實洗去果肉，即播於肥沃土壤，約1〜2個月發芽。</li></ol>` },
+
+  { name:'吊蘭', sci:'Chlorophytum comosum', cat:6, catName:'地被植物',
+    desc:'葉片細長有中心白色條紋，植株向外伸出走莖產生小子株，極耐陰，為室內外通用的優良觀葉植物。',
+    sun:'半日照至全陰', water:'中等', soil:'排水良好', fert:'每月施氮肥', tags:['常綠地被','觀葉植物','耐陰','室內植物'],
+    prop:`<ol><li><strong>走莖子株分株法：</strong>吊蘭走莖頂端產生的子株（帶葉小植株），待其長出根系後剪下，移植至新盆，充分澆水，約1〜2週恢復生長，成活率極高。這是最常用也最快速的繁殖方式。</li></ol>` },
+
+  { name:'鐵線蕨', sci:'Adiantum capillus-veneris', cat:6, catName:'地被植物',
+    desc:'葉片精緻扇形，莖幹細如鐵絲，清雅秀麗，耐陰性強，為觀賞蕨類的代表植物，常用於室內盆栽或林下地被。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕肥沃微酸性', fert:'生長期施稀薄氮肥', tags:['落葉地被','蕨類','耐陰','精緻葉形'],
+    prop:`<ol><li><strong>分株法：</strong>春季換盆時，將根莖分成帶3〜5片葉的小叢，種植於保濕微酸性土壤，套袋保濕1〜2週，待新葉長出後逐漸適應正常環境。</li><li><strong>孢子繁殖：</strong>採集葉背孢子，播於無菌保濕泥炭土，套袋，約2〜3個月見原葉體，整個發育過程需6個月以上。</li></ol>` },
+
+  // ══════════════════ 花卉植物 cat:7 ══════════════════
+  { name:'波斯菊', sci:'Cosmos sulphureus', cat:7, catName:'花卉植物',
+    desc:'花朵輕盈，有橘、黃、紅各色，生長快速易栽培，秋冬為盛花期，適合大面積撒播，台灣各地常見花海景點。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'播種時施基肥', tags:['一年生','多色花','秋冬開花','切花'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜10月）為台灣最佳播種期。整地施基肥後撒播，覆薄土約0.5公分，充分澆水，約3〜5天發芽。幼苗長出3〜4片葉後間苗，每株保持20〜30公分間距，播種後約50〜60天開花。施氮肥過多會造成徒長而不開花。</li></ol>` },
+
+  { name:'向日葵', sci:'Helianthus annuus', cat:7, catName:'花卉植物',
+    desc:'金黃色大型花朵朝向太陽，夏季為盛花期，具強烈視覺衝擊力，常大面積種植成花海景觀，也是重要切花。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'播種後施緩效肥', tags:['一年生','黃花','夏季開花','切花'],
+    prop:`<ol><li><strong>播種法：</strong>春至夏季（3〜6月）點播，每穴2〜3粒，覆土約2公分，約5〜7天發芽，幼苗長出2片本葉後每穴留1株，播種後約60〜90天開花。高莖品種需插立支架固定。</li></ol>` },
+
+  { name:'百日草', sci:'Zinnia elegans', cat:7, catName:'花卉植物',
+    desc:'花朵豔麗、花期極長（春到秋），花色多樣，不畏炎熱，為夏季花壇的明星花卉，也是優良的切花材料。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['一年生','多色花','長花期','耐熱'],
+    prop:`<ol><li><strong>播種法：</strong>春至夏季（3〜7月）直播或育苗，覆土0.5公分，約3〜5天發芽，幼苗長出3〜4片葉後移植，間距30〜40公分。定期摘除殘花（DeadHeading）是維持持續開花的關鍵。</li></ol>` },
+
+  { name:'矮牽牛', sci:'Petunia hybrida', cat:7, catName:'花卉植物',
+    desc:'花色豐富，花型有單瓣、重瓣，春秋為盛花期，常用於花壇邊緣或吊盆，觀賞效果佳。',
+    sun:'全日照', water:'中等', soil:'排水良好肥沃', fert:'每兩週施磷鉀液肥', tags:['一年生','多色花','春秋開花','吊盆植物'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜10月）為台灣最佳時機。種子極細與細砂混合撒播，不覆土，噴霧保濕，約5〜7天發芽。幼苗長出4〜6片葉後移植，間距15〜20公分。</li><li><strong>扦插法：</strong>取頂芽5〜8公分，插入濕潤介質，約2〜3週發根，適合擴大珍稀品種數量。摘心促分枝可讓植株更豐滿。</li></ol>` },
+
+  { name:'長春花', sci:'Catharanthus roseus', cat:7, catName:'花卉植物',
+    desc:'全年幾乎均可開花，耐熱耐旱，花色有粉、白、紫、紅，是台灣夏季花壇的主力植物，管理容易。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生','多色花','全年開花','耐熱','耐旱'],
+    prop:`<ol><li><strong>播種法：</strong>全年均可，以春季最佳。覆土0.5公分，保持25°C以上，約5〜7天發芽，播種後約45〜60天開花。注意全株有毒，操作後需洗手。</li><li><strong>扦插法：</strong>取充實枝條8〜12公分，約2〜3週發根，適合特定顏色品種快速繁殖。</li></ol>` },
+
+  { name:'鳳仙花', sci:'Impatiens walleriana', cat:7, catName:'花卉植物',
+    desc:'耐陰性優良的花卉植物，花色豐富，在遮蔭處也能開花良好，株形緊湊，適合花壇前緣及室內盆栽。',
+    sun:'半日照', water:'多量', soil:'保濕肥沃', fert:'每兩週施液肥', tags:['一年生','多色花','耐陰','花壇前緣'],
+    prop:`<ol><li><strong>播種法：</strong>春季撒播，不覆土，噴霧保濕，約7〜14天發芽，幼苗脆嫩移植時需小心，間距15〜20公分。</li><li><strong>扦插法：</strong>取頂芽6〜8公分，插入水中或濕潤介質，約5〜10天即可見根，成功率接近100%。</li></ol>` },
+
+  { name:'雞冠花', sci:'Celosia argentea var. cristata', cat:7, catName:'花卉植物',
+    desc:'花形如雞冠，有紅、橘、黃、紫等色，花形奇特，觀賞期長，秋季為主要花期，也適合製作乾燥花。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['一年生','多色花','秋季開花','乾燥花'],
+    prop:`<ol><li><strong>播種法：</strong>春至夏季（4〜7月）點播，每穴2〜3粒，覆薄土，約5〜7天發芽，間距20〜30公分，播種後約60〜70天開花。不耐移植，建議直播。</li></ol>` },
+
+  { name:'非洲鳳仙花', sci:'Impatiens hawkeri', cat:7, catName:'花卉植物',
+    desc:'花色豐富亮麗，耐陰、耐濕，幾乎全年開花，是室外遮蔭花壇的最佳選擇之一，也適合室內盆栽。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕肥沃', fert:'每兩週施液肥', tags:['多年生','多色花','全年開花','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽5〜8公分，插入水或濕潤介質，約7〜14天發根，成功率極高（90%以上），為保留特定花色品種最有效的方式。</li></ol>` },
+
+  { name:'金盞花', sci:'Calendula officinalis', cat:7, catName:'花卉植物',
+    desc:'橘黃色花朵溫暖明亮，冬春為盛花期，花瓣可食用，也可入藥，兼具觀賞與實用價值。',
+    sun:'全日照', water:'中等', soil:'排水良好', fert:'播種時施基肥', tags:['一年生','橘黃花','冬春開花','可食花瓣'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜11月）點播或條播，覆土1公分，約7〜10天發芽，幼苗長出3〜4片葉後移植，間距20〜25公分，播種後約50〜60天開花。定期摘除殘花可延長花期。</li></ol>` },
+
+  { name:'三色堇', sci:'Viola tricolor', cat:7, catName:'花卉植物',
+    desc:'花朵小巧可愛，花色多樣，常有「笑臉」斑紋，冬春為主要花期，耐寒性佳，為台灣秋冬重要花壇植物。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'每兩週施磷鉀肥', tags:['一年生','多色花','冬春開花','耐寒'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜10月）播種，需涼爽（15〜20°C）環境，約7〜14天發芽。溫度超過25°C發芽率大幅下降。定期摘除殘花可促進持續開花，施磷鉀為主，過多氮肥會減少花量。</li></ol>` },
+
+  { name:'美女櫻', sci:'Verbena hybrida', cat:7, catName:'花卉植物',
+    desc:'花小密集成傘形花序，花色豐富，低矮匍匐生長，適合花壇邊緣或岩石庭園裝飾，秋春為盛花期。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生','多色花','春秋開花','花壇邊緣'],
+    prop:`<ol><li><strong>播種法：</strong>種子先以溫水浸泡12〜24小時，或冷藏層積7〜10天可將發芽率從20%提升至60%以上，播於疏鬆土壤，約10〜14天發芽。</li><li><strong>扦插法：</strong>取頂芽5〜8公分，約2〜3週發根，定期摘心可增加花量。</li></ol>` },
+
+  { name:'天竺葵', sci:'Pelargonium hortorum', cat:7, catName:'花卉植物',
+    desc:'花朵繁密，有紅、粉、白、橘等色，部分品種具香氣，適合花壇、陽台或窗台盆栽種植，春季盛開。',
+    sun:'全日照至半日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生','多色花','春季開花','香葉品種'],
+    prop:`<ol><li><strong>扦插法：</strong>春秋季花後取頂芽8〜12公分，切口晾乾1〜2小時，去下葉，不沾生根粉，直接插入乾爽排水良好土壤，每2〜3天澆水，約3〜4週發根。天竺葵怕潮濕悶熱，絕不可套袋保濕。</li></ol>` },
+
+  { name:'千日紅', sci:'Gomphrena globosa', cat:7, catName:'花卉植物',
+    desc:'球形花朵乾燥後不褪色，有粉、紫、白等色，耐熱耐旱，是優良的乾燥花材料，夏秋為盛花期。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['一年生','粉紫花','夏秋開花','乾燥花','耐熱'],
+    prop:`<ol><li><strong>播種法：</strong>春至夏季（4〜7月）播種，種子先溫水浸泡24小時，覆土0.5〜1公分，約7〜10天發芽，播種後約60〜70天開花。花朵倒掛陰涼通風處2〜3週可製成持久乾燥花。</li></ol>` },
+
+  { name:'大理花', sci:'Dahlia pinnata', cat:7, catName:'花卉植物',
+    desc:'花朵碩大豔麗，花型多樣（球型、蓮座型等），花色豐富，秋季為主要花期，為重要的切花和庭園花卉。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施磷鉀肥', tags:['球根植物','多色花','秋季開花','切花'],
+    prop:`<ol><li><strong>球根分株法：</strong>秋冬花後挖起塊根，每塊需帶1〜2個芽眼，切口塗草木灰防腐，春季種植，覆土5〜8公分。</li><li><strong>扦插法：</strong>春季球根萌芽後，待嫩芽長5〜8公分時帶一小段球根組織切下，插入濕潤介質，約2〜3週發根，一個球根可產多支插穗。</li></ol>` },
+
+  { name:'孤挺花', sci:'Hippeastrum vittatum', cat:7, catName:'花卉植物',
+    desc:'大型喇叭狀花朵，花色有紅、粉、白、條紋等，花梗高挺，春季盛開，觀賞效果極佳。',
+    sun:'全日照至半日照', water:'少量', soil:'排水良好砂壤土', fert:'開花前施磷鉀肥', tags:['球根植物','多色花','春季開花','切花'],
+    prop:`<ol><li><strong>側球分株法：</strong>母球每年產生側球，待直徑達2〜3公分後休眠期分離，晾乾傷口後種植，頂部露出土面1/3，需3〜4年達成球規格。夏季花葉枯萎後停水讓球根休眠6〜8週，秋季重新澆水促再次開花。</li></ol>` },
+
+  { name:'蘭嶼秋海棠', sci:'Begonia fenicis', cat:7, catName:'花卉植物',
+    desc:'台灣特有種，粉紅小花，耐陰耐濕，適合半遮蔭花壇，葉片光亮肥厚，觀花觀葉兼具，觀賞期長。',
+    sun:'半日照', water:'多量', soil:'保濕肥沃', fert:'每月施液肥', tags:['多年生','粉花','台灣原生','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取帶1〜2節莖段，插入保濕介質，約2〜3週發根，成功率80%以上。</li><li><strong>葉插法：</strong>剪取健壯葉片連葉柄插入濕潤介質，約3〜4週從葉柄基部長出小芽，一次可獲得較多子株。</li></ol>` },
+
+  { name:'百合花', sci:'Lilium spp.', cat:7, catName:'花卉植物',
+    desc:'花朵碩大優雅，花色有白、粉、橘、黃等，花香馥郁，春夏盛開，為重要的切花植物，也適合庭園盆栽。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好微酸性', fert:'生長期每月施磷鉀肥', tags:['球根植物','多色花','春夏開花','香花','切花'],
+    prop:`<ol><li><strong>鱗片扦插法：</strong>秋季將鱗莖外層鱗片剝下，斜插於濕潤蛭石中，置於15〜20°C，約1〜2個月鱗片基部長出小鱗莖，再種植培育，2〜3年可開花。</li><li><strong>分球法：</strong>每年秋季地上部枯萎後挖起鱗莖，將側球分離另行種植，1〜2年後開花。</li></ol>` },
+
+  { name:'非洲菊', sci:'Gerbera jamesonii', cat:7, catName:'花卉植物',
+    desc:'花朵色彩繽紛，有紅、橘、黃、粉、白等色，花型端正，切花壽命長，春秋為盛花期，為台灣重要切花。',
+    sun:'全日照', water:'中等', soil:'排水良好砂壤土', fert:'每月施磷鉀肥', tags:['多年生','多色花','春秋開花','切花'],
+    prop:`<ol><li><strong>分株法：</strong>春秋季將老株分成每叢帶3〜5片葉的小叢，種植時根莖不可深埋（頂部與土面齊平），否則容易腐爛，約1〜2個月恢復生長並開始開花。</li><li><strong>播種法：</strong>播於疏鬆培養土，覆薄土，約10〜14天發芽，幼苗生長緩慢，需4〜6個月才能開花。</li></ol>` },
+
+  { name:'石竹', sci:'Dianthus caryophyllus', cat:7, catName:'花卉植物',
+    desc:'花朵鮮豔，有紅、粉、白、複色等，部分品種花香宜人，冬春為盛花期，耐寒性佳，也是重要的切花植物。',
+    sun:'全日照', water:'少量', soil:'排水良好鹼性壤土', fert:'每月施磷鉀肥', tags:['多年生','多色花','冬春開花','香花','切花'],
+    prop:`<ol><li><strong>扦插法：</strong>秋至春季取充實頂芽8〜12公分，從節下切斷，去下葉，插入排水良好砂質介質，約3〜4週發根，成功率70〜80%。</li><li><strong>播種法：</strong>秋季播種，覆薄土，置於涼爽明亮處（15〜20°C），約7〜10天發芽，約3〜4個月後開花。</li></ol>` },
+
+  { name:'鬱金香', sci:'Tulipa gesneriana', cat:7, catName:'花卉植物',
+    desc:'花型優雅，色彩豐富，春季盛開，為世界最知名的球根花卉，台灣以冷藏球根方式讓其在冬春季開花。',
+    sun:'全日照', water:'中等', soil:'排水良好砂壤土', fert:'種球種植前施基肥', tags:['球根植物','多色花','春季開花','切花'],
+    prop:`<ol><li><strong>冷藏種球法（台灣必要步驟）：</strong>購入進口種球後，放入冰箱蔬果格（4〜7°C）冷藏4〜6週，11〜12月取出種植，覆土5公分，置於涼爽環境，春節前後即可開花，花期約2〜3週。鬱金香在台灣平地不易自然越夏，通常每年需購入新的冷藏種球重新種植。</li></ol>` },
+
+  { name:'文心蘭', sci:'Oncidium spp.', cat:7, catName:'花卉植物',
+    desc:'花朵如翩翩起舞的舞孃，花色多為黃色帶棕紅斑紋，花期長，是台灣重要的外銷切花之一，適合盆栽觀賞。',
+    sun:'半日照（散射光）', water:'少量', soil:'蘭花介質（樹皮、蛇木屑）', fert:'生長期每月施蘭花液肥', tags:['多年生','黃花','春夏開花','切花','蘭花'],
+    prop:`<ol><li><strong>分株法：</strong>春季換盆時，將假球莖分成每叢帶3〜4個假球莖的小叢，確保每叢至少有1〜2個健康假球莖和新芽，切口塗炭粉防菌，種植於蘭花介質，約1〜2個月恢復生長，1〜2年後重新開花。</li><li><strong>高芽繁殖：</strong>部分植株在花梗或假球莖上長出高芽，待高芽根長2〜3公分後切下，種植於蘭花介質，成活率高。</li></ol>` },
+
+  { name:'天使花', sci:'Angelonia angustifolia', cat:7, catName:'花卉植物',
+    desc:'紫色或粉白色小花密集開放，花期極長（春至秋），耐熱性強，為近年台灣景觀市場最受歡迎的花卉之一。',
+    sun:'全日照', water:'中等', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生','紫白花','長花期','耐熱','熱門花卉'],
+    prop:`<ol><li><strong>播種法：</strong>春至夏季播於疏鬆培養土，覆薄土，置於25〜30°C，約7〜10天發芽，播種後約45〜60天開花。</li><li><strong>扦插法：</strong>取頂芽8〜10公分，插入濕潤介質，約2〜3週發根，適合特定顏色品種快速繁殖。</li></ol>` },
+
+  { name:'粉萼鼠尾草', sci:'Salvia farinacea', cat:7, catName:'花卉植物',
+    desc:'藍紫色穗狀花序，花期長，遠觀有薰衣草的效果，耐熱性佳，為台灣秋冬春季最常用的花壇背景植物。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生','藍紫花','長花期','秋冬春開花'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜10月）播種，覆薄土，約7〜14天發芽，幼苗長出4〜6片葉後移植，間距25〜30公分，播種後約50〜70天開花。</li><li><strong>扦插法：</strong>取頂芽8〜12公分，約2〜3週發根，成功率約70%。</li></ol>` },
+
+  { name:'瑪格麗特', sci:'Argyranthemum frutescens', cat:7, catName:'花卉植物',
+    desc:'又名木春菊，白色或粉色花朵中心黃色，株形優雅，冬春為盛花期，為台灣秋冬重要的切花及花壇植物。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['多年生','白粉花','冬春開花','切花'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>秋至春季取充實頂芽8〜12公分，去下葉，插入排水良好介質，置於涼爽（15〜20°C）明亮處，約3〜4週發根，成功率約70〜80%。</li><li><strong>播種法：</strong>秋季播種，覆薄土，置於涼爽環境，約10〜14天發芽，幼苗生長較扦插苗慢。</li></ol>` },
+
+  { name:'勳章菊', sci:'Gazania rigens', cat:7, catName:'花卉植物',
+    desc:'花朵中心具精美的深色斑紋，花色有橘、黃、紅、白等，耐旱耐貧瘠，秋冬春為盛花期，適合岩石庭園。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土', fert:'少量磷鉀肥', tags:['多年生','多色花','秋冬春開花','耐旱'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜11月）播種，種子帶羽毛狀絨毛，覆薄土，置於全日照，約7〜10天發芽，幼苗長出4〜6片葉後移植，間距20〜25公分。</li><li><strong>分株法：</strong>老株春季可分叢移植，快速更新植株。</li></ol>` },
+
+  { name:'孔雀草', sci:'Tagetes patula', cat:7, catName:'花卉植物',
+    desc:'橘黃色花朵色彩鮮豔，花期長，耐熱耐乾，根部分泌物可驅除土壤線蟲，兼具生態功能，全年幾乎可種。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['一年生','橘黃花','長花期','驅蟲植物','耐熱'],
+    prop:`<ol><li><strong>播種法：</strong>全年可播，春至秋最佳。點播，每穴2〜3粒，覆土0.5公分，約5〜7天發芽，幼苗長出3〜4片葉後間苗，每株保持20〜25公分，播種後約35〜45天即可開花。</li></ol>` },
+
+  { name:'萬壽菊', sci:'Tagetes erecta', cat:7, catName:'花卉植物',
+    desc:'橘黃色大型球狀花朵，花期長，具特殊香氣，為台灣重要的切花及花壇植物，也用於染料和祭祀用花。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['一年生','橘黃花','長花期','切花','祭祀用花'],
+    prop:`<ol><li><strong>播種法：</strong>春至夏季播種，點播於排水良好土壤，覆土0.5〜1公分，約5〜7天發芽，播種後約50〜60天開花。定期摘除殘花延長花期。</li></ol>` },
+
+  { name:'金魚草', sci:'Antirrhinum majus', cat:7, catName:'花卉植物',
+    desc:'花朵如張口金魚，花色多樣，花期長，冬春為台灣主要開花期，為重要的切花及花壇植物，具高低層次感。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['一年生','多色花','冬春開花','切花','耐寒'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜10月）播種，種子細小撒播後不覆土，噴霧保濕，置於涼爽（15〜20°C）明亮處，約7〜14天發芽，幼苗長出4〜6片葉後移植，間距20〜25公分。苗高10〜15公分時摘頂可促進側枝分生，增加花莖數量。</li></ol>` },
+
+  { name:'一串紅', sci:'Salvia splendens', cat:7, catName:'花卉植物',
+    desc:'鮮紅色花序整齊直立，色彩喜氣，全年均可開花，為傳統節慶及公共花壇最常用的植物之一。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['多年生','紅花','全年開花','節慶植物'],
+    prop:`<ol><li><strong>播種法：</strong>全年均可，春季最佳。播於疏鬆培養土，覆薄土，約7〜10天發芽，幼苗長出4〜6片葉後移植，間距20〜25公分，播種後約60〜75天開花。</li><li><strong>扦插法：</strong>取頂芽8〜10公分，插入濕潤介質，約2〜3週發根，可延續優良老株。</li></ol>` },
+
+  { name:'四季海棠', sci:'Begonia semperflorens', cat:7, catName:'花卉植物',
+    desc:'花朵小巧密集，有紅、粉、白等色，幾乎全年有花，耐熱耐陰，為台灣公園花壇最穩定的地被花卉之一。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['多年生','多色花','全年開花','耐陰','穩定花卉'],
+    prop:`<ol><li><strong>播種法：</strong>種子細小與細砂混合後撒播，不覆土，噴霧保濕，置於明亮處，約7〜14天發芽，幼苗脆弱需小心管理，間距15〜20公分。</li><li><strong>扦插法：</strong>取頂芽5〜8公分，插入水中或濕潤介質，約1〜2週發根，成功率高，適合快速繁殖特定葉色品種（綠葉或銅葉）。</li></ol>` },
+
+  { name:'鳶尾花', sci:'Iris germanica', cat:7, catName:'花卉植物',
+    desc:'花朵優雅，有藍、紫、白、黃等多種色彩，春季盛開，葉片直立劍形，為重要的切花和庭園宿根草本。',
+    sun:'全日照', water:'少量', soil:'排水良好鹼性壤土', fert:'春季施磷鉀肥', tags:['宿根草本','多色花','春季開花','切花'],
+    prop:`<ol><li><strong>根莖分株法（最主要）：</strong>夏季花後將根莖叢挖起，切成帶1〜2個葉扇的段，切口晾乾後種植，根莖半露出土面（不可深埋），澆水後約2〜3週恢復生長，隔年春季開花。</li></ol>` },
+
+  { name:'石蒜', sci:'Lycoris radiata', cat:7, catName:'花卉植物',
+    desc:'又稱彼岸花，秋季先開鮮紅色花朵後才長葉，花葉永不相見，具神秘美感，球根植物，耐旱耐貧瘠。',
+    sun:'半日照至全日照', water:'少量', soil:'排水良好壤土', fert:'花後施磷鉀肥', tags:['球根植物','紅花','秋季開花','神秘美感'],
+    prop:`<ol><li><strong>鱗莖分球法（最主要）：</strong>夏季葉片枯萎後為休眠期，此時挖起鱗莖，將自然分生的子球分離，晾乾傷口後種植，鱗莖頂部覆土約3公分，秋季即可開花。石蒜種子幾乎不育，主要靠鱗莖自然分球繁殖。</li></ol>` },
+
+  { name:'小蒼蘭', sci:'Freesia refracta', cat:7, catName:'花卉植物',
+    desc:'管狀花朵成排開放，花色有白、黃、粉、紫等，花香濃郁，冬春為盛花期，為重要的切花球根植物。',
+    sun:'全日照', water:'中等', soil:'排水良好砂壤土', fert:'生長期每月施磷鉀肥', tags:['球根植物','多色花','冬春開花','香花','切花'],
+    prop:`<ol><li><strong>球莖種植法：</strong>秋季（9〜10月）將球莖種植於排水良好砂壤土，覆土3〜5公分，置於涼爽（10〜15°C）環境，約3〜4週萌芽，冬至春季開花。</li><li><strong>分球法：</strong>花後地上部枯萎後挖起球莖，將子球分離，乾燥後儲存至秋季再種植。</li></ol>` },
+
+  // ══════════════════ 蔓藤植物 cat:5 ══════════════════
+  { name:'爬牆虎', sci:'Parthenocissus tricuspidata', cat:5, catName:'蔓藤植物',
+    desc:'強力攀附藤本，秋季葉色轉為鮮紅，覆蓋牆面後極具美感，耐陰耐寒耐旱，適應力強，為優良的牆面綠化植物。',
+    sun:'全日照至半日照', water:'少量', soil:'適應力強', fert:'春季施有機肥', tags:['落葉藤本','秋季紅葉','牆面綠化','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>冬至春季取充實硬枝條15〜20公分，插入濕潤土壤，春暖後約3〜4週萌芽發根，成功率高。夏季亦可取半木質化枝條扦插，需保濕遮蔭。</li><li><strong>播種法：</strong>秋季採收藍黑色果實，洗去果肉，低溫層積（4°C，60天）後春季播種，約2〜4週發芽。</li></ol>` },
+
+  { name:'藍花鐘藤', sci:'Thunbergia grandiflora', cat:5, catName:'蔓藤植物',
+    desc:'天藍色喇叭狀大花，花量豐富，夏季盛開，攀爬力強，適合花架、圍籬或棚架造景，台灣南部常見。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['常綠藤本','藍花','夏季開花','棚架植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春夏季取半木質化枝條10〜15公分，去下葉，沾生根粉，插入肥沃排水良好介質，套袋保濕，約3〜5週發根，成功率約70〜80%。</li><li><strong>播種法：</strong>採收成熟種子，浸泡24小時後即播，覆土1公分，約2〜3週發芽，幼苗生長旺盛。</li></ol>` },
+
+  { name:'紫藤', sci:'Wisteria sinensis', cat:5, catName:'蔓藤植物',
+    desc:'春季盛開紫色串狀花朵，花香濃郁，為最具詩意的攀援植物，需大型棚架支撐，台灣中北部較易栽培。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'花後施磷鉀肥', tags:['落葉藤本','紫花','春季開花','香花','棚架植物'],
+    prop:`<ol><li><strong>嫁接法（縮短開花最有效）：</strong>以實生苗為砧木，進行切接或劈接，可將開花年份縮短至3〜5年，為苗圃最常用的商業繁殖方式。</li><li><strong>扦插法：</strong>夏季取半木質化嫩枝10〜15公分，沾高濃度生根粉，插入蛭石介質，高濕度保濕，約4〜8週發根，成功率約40〜60%。</li></ol>` },
+
+  { name:'金銀花', sci:'Lonicera japonica', cat:5, catName:'蔓藤植物',
+    desc:'花朵初開白色後轉金黃，花香宜人，夏秋開花，具清熱解毒藥用價值，耐寒耐旱，生長旺盛。',
+    sun:'全日照至半日照', water:'少量', soil:'排水良好', fert:'春秋施有機肥', tags:['半常綠藤本','白黃花','夏秋開花','香花','藥用'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實枝條15〜20公分，去下葉，保留上葉，插入濕潤排水良好土壤，約2〜3週發根，成功率高達85%以上。</li></ol>` },
+
+  { name:'軟枝黃蟬', sci:'Allamanda cathartica', cat:5, catName:'蔓藤植物',
+    desc:'大型金黃色喇叭狀花朵，花量豐盛，全年均可開花，耐熱耐濕，廣泛用於南部庭園棚架及圍籬。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'每月施磷鉀肥', tags:['常綠藤本','黃花','全年開花','熱帶植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條10〜15公分，切口讓乳汁流出晾乾30分鐘，去下葉，沾生根粉，插入排水良好介質，置於溫暖半遮蔭套袋，約3〜4週發根，成功率約70%。注意全株有毒，操作時請戴手套。</li></ol>` },
+
+  { name:'炮仗花', sci:'Pyrostegia venusta', cat:5, catName:'蔓藤植物',
+    desc:'冬春季節滿布橘紅色管狀花，如炮仗串串，極為壯觀，常覆蓋橋梁或圍牆，台灣南部冬季盛開。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'秋季施磷鉀肥', tags:['常綠藤本','橘紅花','冬春開花','圍牆植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春季花後取充實枝條15〜20公分，去下葉，沾生根粉，插入排水良好砂質介質，約4〜6週發根，成功率約60〜75%。秋季適度控水可促進冬春季大量開花。</li></ol>` },
+
+  { name:'薜荔', sci:'Ficus pumila', cat:5, catName:'蔓藤植物',
+    desc:'攀附牆壁生長，不定根抓附力強，葉片細緻常綠，果實可製台灣傳統仙草凍，耐陰耐熱。',
+    sun:'半日照至全陰', water:'中等', soil:'適應力強', fert:'不需特別施肥', tags:['常綠藤本','牆面綠化','耐陰','可食果實'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取帶有不定根的莖段10〜15公分，插入濕潤排水良好土壤，成活率極高（90%以上），幾乎不需特別處理。</li></ol>` },
+
+  { name:'百香果', sci:'Passiflora edulis', cat:5, catName:'蔓藤植物',
+    desc:'西番蓮屬（Passiflora）食用種，學名P. edulis，果實香甜可口，為台灣重要的熱帶果樹。有別於同屬觀賞用的「西番蓮」（P. caerulea），本種兼具觀花（花朵同樣奇特）與食用價值，適合棚架栽培。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['常綠藤本','白花','可食果實','棚架植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實取種子洗淨，立即播種（新鮮種子發芽率高），播於排水良好肥沃土壤，覆土1公分，約7〜14天發芽，約6〜9個月後開花結果。</li><li><strong>扦插法：</strong>春季取充實枝條10〜15公分，插入濕潤介質，約3〜4週發根，扦插苗比播種苗更快開花結果（提早2〜3個月）。</li></ol>` },
+
+  { name:'西番蓮', sci:'Passiflora caerulea', cat:5, catName:'蔓藤植物',
+    desc:'西番蓮屬（Passiflora）觀賞品種，學名P. caerulea，以藍白紫相間的複雜花構造著稱。有別於同屬的「百香果」（P. edulis，食用種），本種以觀花為主，果實雖可食但品質較差，在景觀上適合棚架或圍籬。',
+    sun:'全日照', water:'中等', soil:'排水良好壤土', fert:'生長期施磷鉀肥', tags:['常綠藤本','藍白花','夏季開花','觀賞藤本'],
+    prop:`<ol><li><strong>播種法：</strong>春季播種，種子以溫水浸泡24小時，播於肥沃排水良好土壤，覆土1公分，約2〜4週發芽，幼苗需充足日照。</li><li><strong>扦插法：</strong>夏季取半木質化枝條10〜15公分，沾生根粉，插入濕潤介質，約3〜4週發根，成功率約60〜75%。</li></ol>` },
+
+  { name:'凌霄花', sci:'Campsis radicans', cat:5, catName:'蔓藤植物',
+    desc:'橘紅色喇叭狀花朵成串開放，夏秋盛花，藉氣根攀牆，為傳統庭園常見的觀賞藤本，耐熱耐旱。',
+    sun:'全日照', water:'中等', soil:'排水良好壤土', fert:'春季施磷鉀肥', tags:['落葉藤本','橘紅花','夏秋開花','棚架植物'],
+    prop:`<ol><li><strong>扦插法：</strong>冬季取充實硬枝條10〜15公分（硬枝扦插），或夏季取半木質化枝條，均可發根，硬枝扦插插入砂質土後直接越冬，翌春發根萌芽，成功率高達80%以上。</li><li><strong>根插法：</strong>冬季挖取側根，剪成5〜8公分段，水平埋入土中約2〜3公分深，春季即可從根段萌發新芽，成功率高。</li></ol>` },
+
+  { name:'薔薇', sci:'Rosa multiflora', cat:5, catName:'蔓藤植物',
+    desc:'攀援性薔薇，春季開小白花成串，花量豐盛，花香迷人，常覆蓋圍籬或拱門生長，也是玫瑰的嫁接砧木。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'春秋施有機肥', tags:['攀援灌木','白花','春季開花','香花','圍籬植物'],
+    prop:`<ol><li><strong>扦插法：</strong>秋冬剪枝時取充實硬枝條15〜20公分，每段3〜4節，插入濕潤土壤，春暖後發根，成功率高達85%以上，薔薇發根能力強，不需生根粉。</li></ol>` },
+
+  { name:'蒜香藤', sci:'Mansoa alliacea', cat:5, catName:'蔓藤植物',
+    desc:'花朵粉紫至白色漸層，搓揉葉片有大蒜氣味因而得名，花量豐富，秋冬為盛花期，台灣南部廣泛種植。',
+    sun:'全日照', water:'中等', soil:'排水良好壤土', fert:'每月施磷鉀肥', tags:['常綠藤本','粉紫花','秋冬開花','特殊氣味'],
+    prop:`<ol><li><strong>扦插法：</strong>春季花後取半木質化枝條10〜15公分，去下葉，沾生根粉，插入排水良好介質，套袋保濕，約3〜5週發根，成功率約70%。</li></ol>` },
+
+  { name:'葛藤', sci:'Pueraria montana', cat:5, catName:'蔓藤植物',
+    desc:'台灣原生植物，紫紅色蝶形花，根部可製葛粉，是天然的坡地保護植物，生長極為旺盛，需嚴格管理。',
+    sun:'全日照', water:'少量', soil:'適應力強', fert:'不需特別施肥', tags:['落葉藤本','紫花','台灣原生','坡地植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟莢果取種子，以砂紙磨破種皮，或溫水浸泡24小時，春季播種，約1〜2週發芽，幼苗生長迅速。注意生長極旺盛，需嚴格控制範圍，防止覆蓋其他植物。</li></ol>` },
+
+  { name:'異葉爬森藤', sci:'Parthenocissus heterophylla', cat:5, catName:'蔓藤植物',
+    desc:'台灣原生藤本，秋季葉片轉為橙紅色，吸盤攀附牆面力強，是優良的牆面綠化植物，生態價值高。',
+    sun:'全日照至半日照', water:'少量', soil:'適應力強', fert:'春季施有機肥', tags:['落葉藤本','秋季紅葉','台灣原生','牆面綠化'],
+    prop:`<ol><li><strong>扦插法：</strong>冬春季取充實枝條15〜20公分，插入濕潤土壤，約3〜5週發根，成功率約70〜80%。</li><li><strong>播種法：</strong>秋季採收成熟黑藍色果實，洗去果肉，低溫層積（4°C，60天）後春季播種，約3〜4週發芽。</li></ol>` },
+
+  { name:'錫葉藤', sci:'Petrea volubilis', cat:5, catName:'蔓藤植物',
+    desc:'又名許願藤，紫色喇叭形花朵成串盛開，花期長，攀爬力強，為近年台灣景觀市場最熱門的蔓藤植物之一。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['常綠藤本','紫花','長花期','熱門蔓藤'],
+    prop:`<ol><li><strong>扦插法：</strong>春夏季取半木質化枝條10〜15公分，去下葉，沾IBA生根粉，插入排水良好介質，套袋保濕，置於半遮蔭溫暖處，約4〜6週發根，成功率約60〜70%。</li></ol>` },
+
+  { name:'珊瑚藤', sci:'Antigonon leptopus', cat:5, catName:'蔓藤植物',
+    desc:'粉紅色心形花朵成串大量開放，被稱為「蔓藤之后」，台灣全年均可開花，生長旺盛，攀爬力強。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每季施磷鉀肥', tags:['常綠藤本','粉紅花','全年開花','耐旱'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟三角形果實取種子，溫水浸泡24小時，播於排水良好土壤，覆土1公分，約2〜3週發芽，幼苗生長快速。</li><li><strong>扦插法：</strong>春夏取半木質化枝條10〜15公分，沾生根粉，插入砂質介質，約3〜5週發根，成功率約60〜70%。</li></ol>` },
+
+  { name:'錦屏藤', sci:'Cissus sicyoides', cat:5, catName:'蔓藤植物',
+    desc:'氣生根大量垂掛如一簾幽夢，新葉紅色，成熟後轉綠，景觀效果獨特，為台灣庭園棚架的熱門選擇。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'春夏施複合肥', tags:['常綠藤本','觀根植物','紅嫩葉','棚架植物'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>全年均可，取帶有氣根的莖段10〜15公分，插入排水良好土壤，錦屏藤本身氣根發達，扦插成活率極高（85%以上），幾乎不需特別處理。</li></ol>` },
+
+  { name:'牽牛花', sci:'Ipomoea purpurea', cat:5, catName:'蔓藤植物',
+    desc:'朝開暮謝的喇叭形花朵，花色有藍紫、粉紅、白等，生長旺盛，易栽培，為台灣常見的短期觀花蔓藤。',
+    sun:'全日照', water:'中等', soil:'排水良好', fert:'播種時施基肥', tags:['一年生藤本','多色花','夏季開花','易栽培'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>春至夏季播種，種子先以砂紙輕磨或溫水浸泡24小時，點播於排水良好土壤，覆土1〜2公分，約5〜7天發芽，幼苗生長快速，需及早提供攀爬支架，播種後約30〜40天即可開花。</li></ol>` },
+
+  { name:'球蘭', sci:'Hoya carnosa', cat:5, catName:'蔓藤植物',
+    desc:'葉片厚實光亮，花朵蠟質光澤，成球形花序，有甜香，生長緩慢但壽命長，為室內外攀援觀賞植物。',
+    sun:'半日照至散射光', water:'少量', soil:'排水良好疏鬆', fert:'生長期每月施液肥', tags:['常綠藤本','蠟質花','香花','室內植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實枝條10〜15公分，去下葉，插入排水良好砂質介質，或直接水插，置於半遮蔭明亮處，約4〜6週發根，成功率約70〜80%。注意老花梗不可剪除，每年同一花梗可重複開花。</li></ol>` },
+
+  { name:'蔦蘿', sci:'Ipomoea quamoclit', cat:5, catName:'蔓藤植物',
+    desc:'葉片羽狀細裂，紅色五角星形小花精緻可愛，生長快速，適合籬笆或花架，為台灣常見的夏季觀花蔓藤。',
+    sun:'全日照', water:'中等', soil:'排水良好', fert:'每月施磷鉀肥', tags:['一年生藤本','紅花','夏季開花','輕盈纖細'],
+    prop:`<ol><li><strong>播種法：</strong>春季播種，種子以溫水浸泡24小時，點播於排水良好土壤，覆土1公分，約5〜7天發芽，幼苗生長快速，播種後約50〜60天開花，需提供細支架讓藤蔓攀爬。</li></ol>` },
+
+  { name:'黑眼花', sci:'Thunbergia alata', cat:5, catName:'蔓藤植物',
+    desc:'橘黃色花朵中心有黑色花心，對比強烈如一雙黑眼睛，花期長，生長快速，適合小型棚架或吊盆。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['一年生藤本','橘黃花','長花期','黑色花心'],
+    prop:`<ol><li><strong>播種法：</strong>春至夏季播種，覆土0.5公分，約7〜10天發芽，幼苗長出3〜4片葉後移植，播種後約40〜50天開花。扦插法亦可，取頂芽插入濕潤介質，約2〜3週發根。</li></ol>` },
+
+  // ══════════════════ 香草植物 cat:8 ══════════════════
+  { name:'九層塔（羅勒）', sci:'Ocimum basilicum', cat:8, catName:'香草植物',
+    desc:'台灣料理不可缺少的香草，葉片辛香，可用於三杯料理、炒蛤蜊等，易栽培，需摘花促葉，全年可種。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每兩週施氮肥', tags:['一年生香草','食用','台灣料理','容易栽培'],
+    prop:`<ol><li><strong>播種法：</strong>全年可播，春至秋最佳。撒播於疏鬆培養土，覆薄土，約3〜5天發芽，幼苗長出3〜4片葉後間苗，每株20公分間距，約1個月後開始採收嫩葉。</li><li><strong>扦插法：</strong>取頂芽8〜12公分插入水中，約1〜2週發根，適合快速補苗。花序出現後立即摘除可延長葉片採收期2〜3個月。</li></ol>` },
+
+  { name:'薄荷', sci:'Mentha spp.', cat:8, catName:'香草植物',
+    desc:'清涼香氣獨特，品種多樣（胡椒薄荷、綠薄荷、蘋果薄荷等），可泡茶、入菜，根莖擴張力強，建議盆植控制。',
+    sun:'半日照至全日照', water:'多量', soil:'保濕肥沃', fert:'每月施氮肥', tags:['多年生香草','食用','飲品材料','盆植推薦'],
+    prop:`<ol><li><strong>水插法：</strong>取帶葉頂芽10〜15公分放入水杯，約5〜10天見白色根系，根長2公分後移植至土壤，成功率接近100%。</li><li><strong>地下莖分株法：</strong>薄荷靠地下走莖向四周蔓延，春季將莖段帶根芽切斷移植，約1〜2週恢復生長。強烈建議盆植，防止地下莖入侵其他植物空間。</li></ol>` },
+
+  { name:'迷迭香', sci:'Rosmarinus officinalis', cat:8, catName:'香草植物',
+    desc:'地中海香草，葉如松針，香氣濃郁，可入菜、製香包或萃取精油，耐旱性強，台灣秋冬春季栽培最佳。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土', fert:'每季施緩效肥', tags:['多年生香草','食用','耐旱','地中海植物'],
+    prop:`<ol><li><strong>扦插法：</strong>秋至春季取充實頂芽8〜12公分，去下部葉片，沾生根粉，插入排水極佳砂質介質，不套袋，每2〜3天澆水，置於全日照通風處，約4〜6週發根。最常見死因是澆水過多根腐，土壤需完全乾燥後再等3〜5天才澆水。</li></ol>` },
+
+  { name:'薰衣草', sci:'Lavandula spp.', cat:8, catName:'香草植物',
+    desc:'香氣迷人的紫色花穗，可製精油、香皂或乾燥花，台灣平地以秋冬春季栽培最佳，夏季高溫期需特別照顧。',
+    sun:'全日照', water:'少量', soil:'排水良好鹼性砂土', fert:'少量緩效肥', tags:['多年生香草','紫花','香花','乾燥花'],
+    prop:`<ol><li><strong>扦插法：</strong>秋至春季取充實頂芽8〜10公分，去下葉，插入排水極佳的乾爽砂質介質（偏鹼pH 7〜8），不可套袋，每3〜4天澆水，約4〜8週發根。選擇齒葉薰衣草或甜薰衣草品種較能耐台灣氣候，不耐台灣夏季高溫高濕。</li></ol>` },
+
+  { name:'左手香', sci:'Plectranthus amboinicus', cat:8, catName:'香草植物',
+    desc:'葉片厚實有絨毛，揉搓有強烈香氣，台灣民間常用於喉嚨不適，極耐旱，陽台最容易種植的香草之一。',
+    sun:'半日照至全日照', water:'少量', soil:'排水良好', fert:'偶爾施氮肥', tags:['多年生香草','藥用','耐旱','陽台盆栽'],
+    prop:`<ol><li><strong>扦插法（極容易）：</strong>全年均可，取帶葉頂芽10〜15公分直接插入排水良好培養土，澆一次水置於半遮蔭處，約1〜2週發根，成功率接近100%。左手香幾乎不結實，僅能靠扦插繁殖，但幾乎零難度。</li></ol>` },
+
+  { name:'香蜂草', sci:'Melissa officinalis', cat:8, catName:'香草植物',
+    desc:'葉片有清新的檸檬香味，可泡茶、入菜，具舒緩情緒的功效，適合涼爽季節栽培，台灣秋冬春最佳。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施氮肥', tags:['多年生香草','食用','飲品材料','舒緩功效'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜10月）撒播於疏鬆保濕培養土，不覆土，噴霧保濕，置於涼爽（15〜20°C）明亮處，約10〜14天發芽。</li><li><strong>扦插法：</strong>取頂芽8〜12公分插入水中，約1〜2週發根，成功率高。</li><li><strong>分株法：</strong>老株根部萌發多個側芽，春秋季帶根分離移植，比播種更快採收。</li></ol>` },
+
+  { name:'百里香', sci:'Thymus vulgaris', cat:8, catName:'香草植物',
+    desc:'地中海香草，葉小濃香，可作燉肉、烤雞的香料，植株低矮，春季開粉紅小花極可愛，耐旱易管理。',
+    sun:'全日照', water:'少量', soil:'排水良好鹼性砂土', fert:'少量緩效肥', tags:['多年生香草','食用','耐旱','地中海植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春至秋季取充實頂芽5〜8公分，去下葉，插入排水極佳砂質介質，不套袋，約3〜5週發根。管理原則同迷迭香，偏乾爽通風。</li><li><strong>播種法：</strong>秋春季撒播於鹼性砂質培養土，不覆土，約10〜14天發芽，幼苗生長緩慢。</li></ol>` },
+
+  { name:'紫蘇', sci:'Perilla frutescens', cat:8, catName:'香草植物',
+    desc:'葉片紫色或綠色，香氣獨特，是日本料理不可缺的食材，也用於醃漬品，易栽培，台灣全年可種。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃壤土', fert:'每兩週施氮肥', tags:['一年生香草','食用','日本料理','容易栽培'],
+    prop:`<ol><li><strong>播種法：</strong>春至秋季均可，以春季（3〜5月）最佳。播於疏鬆肥沃培養土，覆薄土，約5〜7天發芽，幼苗長出3〜4片葉後間苗，保持25〜30公分間距，約30〜40天後採收嫩葉。</li><li><strong>自播特性：</strong>紫蘇種子成熟後自然脫落，在台灣溫暖氣候下可自播大量繁殖，栽培一次後往往每年自然更新。</li></ol>` },
+
+  { name:'檸檬草', sci:'Cymbopogon citratus', cat:8, catName:'香草植物',
+    desc:'香茅屬（Cymbopogon）植物，學名C. citratus，又稱「檸檬香茅」，為香茅屬中以檸檬香氣為特徵的食用香草種。有別於同屬的「香茅」（C. nardus，以驅蟲功能為主），本種以料理與飲品用途為主，為泰式料理不可或缺的香草。',
+    sun:'全日照', water:'中等', soil:'排水良好肥沃', fert:'每月施氮肥', tags:['多年生香草','食用','飲品材料','東南亞料理','耐熱'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，以春季最佳。將植株叢整叢挖起，用刀切分成每叢帶5〜8枝的小叢，修剪葉片至約20公分高，種植後澆透水，約2〜3週恢復旺盛生長。</li><li><strong>水插再生法：</strong>購買的新鮮檸檬草若帶有根部，放入水杯置於光線充足處，每2〜3天換水，約1〜2週可見新根及嫩芽，再移植至土壤。</li></ol>` },
+
+  { name:'貓薄荷', sci:'Nepeta cataria', cat:8, catName:'香草植物',
+    desc:'白色小花帶紫斑，全株有特殊薄荷香氣，對貓有吸引力，可入茶或作蜜源植物，涼季栽培最佳。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'少量有機肥', tags:['多年生香草','白花','蜜源植物','涼季植物'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜11月）播於疏鬆培養土，覆薄土，置於涼爽環境（15〜20°C），約10〜14天發芽，幼苗長出3〜4片葉後移植，間距30〜40公分，約2〜3個月後開始開花。</li><li><strong>扦插法：</strong>春秋季取頂芽10〜12公分，插入濕潤介質，約2〜3週發根，成功率約70%。</li></ol>` },
+
+  { name:'蘆薈', sci:'Aloe vera', cat:8, catName:'香草植物',
+    desc:'葉片肥厚含豐富膠質，具護膚及消炎效果，極耐旱，幾乎不需照顧，初學者首選植物，一年四季皆宜。',
+    sun:'全日照至半日照', water:'少量', soil:'排水良好砂質土', fert:'每季施少量緩效肥', tags:['多年生草本','藥用','耐旱','初學者推薦'],
+    prop:`<ol><li><strong>側芽分株法：</strong>母株基部不斷萌發側芽，待側芽長至5〜10公分高時，從基部分離（盡量帶些根系），晾乾傷口1〜2天後種植於排水極佳砂質土，初期每5〜7天澆水一次，約2〜3週恢復生長。澆水過多是蘆薈最常見的死因，土壤完全乾燥後再等3〜5天才澆水。</li></ol>` },
+
+  { name:'香茅', sci:'Cymbopogon nardus', cat:8, catName:'香草植物',
+    desc:'香茅屬（Cymbopogon）植物，學名C. nardus，與同屬的「檸檬草」（C. citratus）為近親。本種以高含量的香茅醛（Citronellal）著稱，主要功能為驅蟲，可製精油、蠟燭或薰香，有別於以料理為主的檸檬草，兩者在香草類中各有明確用途定位。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春夏施氮肥', tags:['多年生香草','驅蟲植物','精油植物','耐熱'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，從母株叢邊緣分離帶根小叢，每叢帶5〜8枝，修剪葉片至20〜30公分高，種植後澆透水，約1〜2週恢復生長，方法與檸檬草相同。香茅花粉不育，無法播種，市售主要以分株苗方式流通。</li></ol>` },
+
+  { name:'芳香萬壽菊', sci:'Tagetes lemmonii', cat:8, catName:'香草植物',
+    desc:'葉片揉搓後散發百香果般的清甜香氣，為台灣近年最熱門的香草植物之一，黃色小花全年盛開。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生香草','黃花','全年開花','百香果香','熱門香草'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽10〜15公分，去下葉，插入排水良好介質，約2〜3週發根，成功率高達90%以上，為最簡便的繁殖方式。</li></ol>` },
+
+  { name:'檸檬馬鞭草', sci:'Aloysia citrodora', cat:8, catName:'香草植物',
+    desc:'葉片揉碎後散發濃郁檸檬清香，可泡茶或製成香包，香氣比薄荷更細緻優雅，近年廣受喜愛。',
+    sun:'全日照', water:'少量', soil:'排水良好砂壤土', fert:'每季施有機肥', tags:['多年生香草','食用','飲品材料','檸檬香'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實頂芽10〜15公分，去下部葉片，保留上方3〜4片葉，沾生根粉，插入排水良好砂質介質，每3〜4天澆水，置於全日照通風處，約3〜5週發根，成功率約65〜75%。</li></ol>` },
+
+  { name:'鳳梨鼠尾草', sci:'Salvia elegans', cat:8, catName:'香草植物',
+    desc:'葉片有鳳梨般的甜香，秋冬開放亮麗的紅色管狀花，色彩吸睛，可泡茶或入菜，耐熱耐旱。',
+    sun:'全日照至半日照', water:'少量', soil:'排水良好', fert:'每月施磷鉀肥', tags:['多年生香草','紅花','秋冬開花','鳳梨香','食用'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實頂芽8〜12公分，去下葉，沾生根粉，插入排水良好砂質介質，約3〜4週發根，成功率約70〜80%。</li></ol>` },
+
+  { name:'奧勒岡', sci:'Origanum vulgare', cat:8, catName:'香草植物',
+    desc:'又名披薩草，葉片香氣濃郁，為義大利料理和披薩不可缺少的香料，耐旱耐寒，秋冬開放粉紫色小花。',
+    sun:'全日照', water:'少量', soil:'排水良好鹼性壤土', fert:'少量緩效肥', tags:['多年生香草','食用','義大利料理','耐旱'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實頂芽8〜10公分，去下葉，插入排水良好砂質介質，不套袋，每3〜4天澆水，約3〜4週發根，管理方式同迷迭香和百里香。</li><li><strong>播種法：</strong>秋春季撒播於鹼性砂質培養土，不覆土，約10〜14天發芽。</li><li><strong>分株法：</strong>春季老株可分叢移植，快速更新植株。</li></ol>` },
+
+  { name:'金蓮花', sci:'Tropaeolum majus', cat:8, catName:'香草植物',
+    desc:'花朵橘黃色鮮豔，葉片圓形如蓮，花葉均可食用，帶微辣芥末味，為食用花卉代表，秋冬春為盛花期。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好，不需太肥沃', fert:'少量磷鉀肥', tags:['一年生香草','橘黃花','食用花卉','冬春開花'],
+    prop:`<ol><li><strong>播種法（最主要）：</strong>秋季（9〜11月）播種，種子大型圓形，點播，每穴1〜2粒，覆土約1公分，澆透水，約7〜10天發芽，發芽率高。施氮肥過多會造成葉多花少，土壤不需太肥沃。不耐台灣夏季高溫，通常作為秋冬春季植物，播種後約40〜60天開花。</li></ol>` },
+
+  { name:'甜菊', sci:'Stevia rebaudiana', cat:8, catName:'香草植物',
+    desc:'葉片含有天然甜菊糖苷，甜度為蔗糖的100〜300倍，熱量近乎為零，可作天然代糖，耐熱好種植。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好肥沃', fert:'每月施緩效肥', tags:['多年生香草','天然代糖','食用','健康食材'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>春至夏季取頂芽8〜12公分，去下葉，插入保濕介質，套袋或置於高濕度環境，約2〜3週發根，成功率約65〜75%。</li><li><strong>播種法：</strong>春季播種，種子細小，撒播於疏鬆培養土，不覆土，約10〜14天發芽，但發芽率不穩定（30〜60%），扦插法更為可靠。</li></ol>` },
+
+  { name:'魚腥草', sci:'Houttuynia cordata', cat:8, catName:'香草植物',
+    desc:'葉片揉搓有獨特魚腥氣味，為台灣傳統藥草，具抗菌消炎功效，耐濕耐陰，常見於溝邊或潮濕環境。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕壤土', fert:'春季施有機肥', tags:['多年生藥草','藥用','耐濕','耐陰'],
+    prop:`<ol><li><strong>根莖扦插法：</strong>全年均可，將根莖切成5〜10公分的段，直接平埋於保濕土壤，覆土3〜5公分，充分澆水，約1〜2週即可萌芽，生命力極強，成活率接近100%。</li><li><strong>注意：</strong>魚腥草根莖擴張能力強，建議盆植或以陷盆法控制範圍，防止蔓延至其他植物空間。</li></ol>` },
+
+  { name:'艾草', sci:'Artemisia indica', cat:8, catName:'香草植物',
+    desc:'葉片有濃郁艾草香氣，為端午節驅邪的傳統植物，具有多種藥用功效，耐旱耐貧瘠，全台低地常見。',
+    sun:'全日照', water:'少量', soil:'適應力強', fert:'春季施少量有機肥', tags:['多年生藥草','藥用','民俗植物','台灣傳統'],
+    prop:`<ol><li><strong>分株法：</strong>春季將叢生株挖起，分成帶根的小叢，按30〜40公分間距種植，澆透水，約1〜2週恢復生長，生命力強，幾乎不需特別管理。</li><li><strong>播種法：</strong>春季撒播於排水良好土壤，覆薄土，約1〜2週發芽，幼苗生長快速。</li></ol>` },
+
+
+  // ══ 觀花喬木補充 cat:1 ══
+  { name:'掌葉蘋婆', sci:'Sterculia foetida', cat:1, catName:'觀花喬木',
+    desc:'夏季開放奇特的紅色花朵，氣味濃烈，果實成熟時裂開露出黑色種子，種子可食用，為熱帶大型景觀喬木。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'春季施有機肥', tags:['落葉喬木','紅花','夏季開花','熱帶植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟黑色種子，去除蠟質，立即播於排水良好肥沃土壤，覆土2公分，保持25〜30°C，約2〜3週發芽，幼苗生長快速。種子壽命短，需新鮮播種。</li></ol>` },
+
+  { name:'波羅蜜', sci:'Artocarpus heterophyllus', cat:2, catName:'觀葉喬木',
+    desc:'果實為世界上最大的樹生果實，可重達數十公斤，葉片深綠有光澤，為兼具食農與景觀功能的熱帶喬木。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每季施複合肥', tags:['常綠喬木','食農景觀','熱帶植物','觀果'],
+    prop:`<ol><li><strong>播種法（最主要）：</strong>採收成熟果實取出種子，去除黏液後立即播種（種子壽命僅數週），播於肥沃排水良好土壤，覆土3公分，保持25〜30°C，約2〜4週發芽，幼苗生長快速。</li></ol>` },
+
+  { name:'芒果樹', sci:'Mangifera indica', cat:2, catName:'觀葉喬木',
+    desc:'春季開放大型乳黃色花序，夏季果實纍纍，為台灣重要的果樹兼景觀樹，懷舊式景觀必備，老樹樹冠龐大遮蔭佳。',
+    sun:'全日照', water:'少量', soil:'排水良好砂壤土', fert:'花前施磷鉀肥', tags:['常綠喬木','食農景觀','熱帶植物','觀果'],
+    prop:`<ol><li><strong>嫁接法（商業繁殖首選）：</strong>以實生苗為砧木，春至夏季進行芽接或切接，可保持品種特性並提早結果（2〜3年），成活率約70〜80%。</li><li><strong>播種法：</strong>取成熟果核內種子，剝除硬殼後即播，覆土3公分，約2〜3週發芽，但實生苗結果需5〜8年。</li></ol>` },
+
+  { name:'大葉桃花心木', sci:'Swietenia macrophylla', cat:2, catName:'觀葉喬木',
+    desc:'高大常綠喬木，樹冠開展，為著名的高級木材樹種，也是優良的林蔭大道行道樹，深受園林工程喜愛。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'春季施有機肥', tags:['常綠喬木','林蔭大道','高價值木材','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟木質蒴果，取出帶翅種子，立即播於排水良好肥沃土壤，覆土0.5公分，約1〜2週發芽，發芽率高，幼苗生長旺盛。種子壽命短，需採後即播。</li></ol>` },
+
+  { name:'濕地松', sci:'Pinus elliottii', cat:3, catName:'針葉樹',
+    desc:'高大針葉喬木，雙針或三針束，樹幹筆直，垂直線條明顯，耐濕耐貧瘠，常用於公園及濕地周邊造景。',
+    sun:'全日照', water:'中等', soil:'排水良好至略濕', fert:'春季施緩效肥', tags:['常綠喬木','針葉樹','垂直線條','公園景觀'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟毬果，取出帶翅種子，播於砂質微酸性土壤，覆土0.5公分，約2〜3週發芽，發芽率約60〜80%，幼苗需充足日照。</li></ol>` },
+
+  { name:'錫蘭橄欖', sci:'Elaeocarpus serratus', cat:1, catName:'觀花喬木',
+    desc:'常綠喬木，白色串狀小花清雅，老葉落前轉為鮮紅色，新舊葉色對比強烈，果實橄欖形，具觀賞價值。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'春季施有機肥', tags:['常綠喬木','白花','紅殘葉','觀果'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實，洗去果肉後即播於肥沃壤土，覆土2公分，保持溫暖濕潤，約1〜2個月發芽，幼苗生長緩慢，需耐心培育。</li></ol>` },
+
+  { name:'烏心石', sci:'Michelia compressa', cat:2, catName:'觀葉喬木',
+    desc:'台灣原生重要木材樹種，學名Michelia compressa，與含笑花（No.63，M. figo）同屬木蘭科含笑屬，因此舊稱「台灣含笑」，容易與含笑花混淆。兩者區別：烏心石為高大喬木，花朵較大；含笑花為灌木，花朵含苞不全開且有特殊香蕉奶香。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'春季施有機肥', tags:['常綠喬木','白花','香花','台灣原生'],
+    prop:`<ol><li><strong>播種法：</strong>秋季採收成熟紅色種子，去除假種皮後即播，播於微酸性肥沃土壤，覆土1公分，約1〜2個月發芽，種子壽命短，需新鮮播種。</li><li><strong>扦插法：</strong>梅雨季取半木質化枝條，沾高濃度IBA生根粉，插入酸性泥炭土，套袋保濕，約8〜12週發根，成功率約40〜60%。</li></ol>` },
+
+  { name:'毛柿', sci:'Diospyros philippensis', cat:2, catName:'觀葉喬木',
+    desc:'台灣原生珍稀樹種，木材俗稱「黑檀」，葉片大型深綠，果實圓球形，為高價值的原生景觀喬木。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'春季施有機肥', tags:['常綠喬木','台灣原生','珍稀樹種','黑檀木'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟橙黃色果實，洗去果肉取出種子，即播於肥沃土壤，覆土2公分，保持溫暖濕潤，約1〜2個月發芽，幼苗生長緩慢，為主要繁殖方式。</li></ol>` },
+
+  { name:'象牙樹', sci:'Diospyros ferrea', cat:2, catName:'觀葉喬木',
+    desc:'精緻小葉喬木，葉片小巧深綠，耐鹽抗風，適合修剪造型，為海濱地區及精緻庭園的優良景觀樹種。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐鹽', fert:'春季施複合肥', tags:['常綠喬木','小葉精緻','耐鹽抗風','庭園造型'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實洗去果肉，即播於排水良好砂質土，覆土1公分，保持溫暖濕潤，約1〜2個月發芽，幼苗生長緩慢。</li><li><strong>扦插法：</strong>春夏取半木質化枝條，沾生根粉，插入蛭石介質，套袋，約6〜8週發根，成功率約40〜55%。</li></ol>` },
+
+  { name:'海檬果', sci:'Cerbera manghas', cat:1, catName:'觀花喬木',
+    desc:'白色花朵中心粉紅，花香清雅，果實青綠色形如芒果但全株劇毒，為台灣海岸常見的觀賞喬木。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐鹽', fert:'春季施複合肥', tags:['常綠喬木','白花','香花','海岸植物','注意有毒'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟果實取出種子（操作時需戴手套，全株有毒），播於排水良好土壤，覆土2公分，保持溫暖，約2〜4週發芽。注意全株含有毒性，種植位置需注意與兒童和寵物保持距離。</li></ol>` },
+
+  { name:'銀樺', sci:'Grevillea robusta', cat:1, catName:'觀花喬木',
+    desc:'羽狀葉片細緻優雅，春季開放金黃色穗狀花序，生長快速，耐旱耐貧瘠，為公園及庭園常用的快速遮蔭喬木。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐貧瘠', fert:'春季施少量緩效肥', tags:['常綠喬木','金黃花','快速生長','耐旱'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟蒴果取出種子，播於排水良好砂質土，覆薄土，約2〜3週發芽，發芽率約50〜70%，幼苗生長快速。</li><li><strong>扦插法：</strong>春夏取半木質化枝條，沾IBA生根粉，插入蛭石，套袋保濕，約4〜6週發根。</li></ol>` },
+
+  { name:'羅比親王海棗', sci:'Phoenix roebelenii', cat:11, catName:'棕櫚科',
+    desc:'小型精緻的椰子樹，葉片細長弓形展開，樹幹細緻，常以單株或叢植方式用於精緻庭園及室內大廳造景。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好砂壤土', fert:'每季施棕櫚專用肥', tags:['常綠喬木','棕櫚科','精緻庭園','室內外通用'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>採收成熟黑色核果，洗去果肉，即播於排水良好砂質土，覆土2公分，保持28〜32°C高溫，約1〜3個月發芽，棕櫚科植物不能扦插，播種為唯一繁殖方式。</li></ol>` },
+
+  { name:'棍棒椰子', sci:'Hyophorbe verschaffeltii', cat:11, catName:'棕櫚科',
+    desc:'樹幹中下部膨大呈棍棒形，造型獨特，頂端羽狀葉片優雅開展，為庭園及建築入口的視覺焦點植物。',
+    sun:'全日照', water:'少量', soil:'排水良好砂壤土', fert:'每季施棕櫚專用肥', tags:['常綠喬木','棕櫚科','獨特造型','庭園焦點'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>採收成熟核果，洗去果肉，即播於排水良好砂質土，覆土3公分，保持28〜32°C，約2〜4個月發芽，幼苗生長緩慢，需耐心培育。</li></ol>` },
+
+  { name:'澳洲茶樹', sci:'Leptospermum scoparium', cat:1, catName:'觀花喬木',
+    desc:'葉片細碎芳香，春季開放大量白色或粉紅色小花，具香氣，耐修剪，適合庭園造型或盆栽，精油具抗菌功效。',
+    sun:'全日照', water:'少量', soil:'排水良好微酸性', fert:'春季施酸性緩效肥', tags:['常綠灌木','白粉花','香葉','精油植物','耐修剪'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化頂芽枝條8〜12公分，去下葉，沾IBA生根粉，插入排水良好酸性砂質介質，不套袋，每3〜4天澆水，約4〜6週發根，成功率約55〜70%。</li><li><strong>播種法：</strong>春季播於酸性砂質培養土，種子細小不覆土，約2〜3週發芽。</li></ol>` },
+
+  // ══ 觀賞灌木補充 cat:4 ══
+  { name:'樹蘭', sci:'Aglaia odorata', cat:4, catName:'觀賞灌木',
+    desc:'枝葉細密，夏秋開放細小黃色花朵，花香濃郁，耐修剪，為台灣常見的香花綠籬灌木，也可作為盆景。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'每月施有機肥', tags:['常綠灌木','黃花','香花','綠籬植物'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，去下葉，沾生根粉，插入肥沃排水良好介質，套袋保濕，約4〜6週發根，成功率約55〜70%。</li><li><strong>播種法：</strong>採收成熟紅色果實洗去果肉，即播於肥沃培養土，約1〜2個月發芽，幼苗生長緩慢。</li></ol>` },
+
+  { name:'錫蘭葉下珠', sci:'Breynia disticha', cat:4, catName:'觀賞灌木',
+    desc:'葉片小巧，枝條水平排列，葉色有綠白斑紋品種，垂墜感強，耐陰耐修剪，為精緻的觀葉灌木。',
+    sun:'半日照至全日照', water:'中等', soil:'排水良好', fert:'每月施氮肥', tags:['常綠灌木','觀葉植物','垂墜感','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取半木質化枝條8〜12公分，去下葉，沾生根粉，插入排水良好保濕介質，套袋，置於半遮蔭處，約3〜5週發根，成功率約65〜75%。</li></ol>` },
+
+  { name:'草海桐', sci:'Scaevola taccada', cat:4, catName:'觀賞灌木',
+    desc:'葉片肉質光亮，白色半圓形花朵全年開放，耐鹽抗風性極強，為台灣海濱最重要的原生景觀灌木之一。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐鹽', fert:'春季施複合肥', tags:['常綠灌木','白花','耐鹽抗風','台灣原生','海岸植物'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取充實枝條10〜15公分，去下葉，插入排水良好砂質土，不需生根粉，草海桐發根能力極強，約2〜3週發根，成功率達90%以上。</li><li><strong>播種法：</strong>採收成熟白色核果，洗去果肉，即播，約2〜4週發芽。</li></ol>` },
+
+  { name:'金絲桃', sci:'Hypericum monogynum', cat:4, catName:'觀賞灌木',
+    desc:'花朵鮮黃色，雄蕊細長如金絲，花期長，為台灣常見的觀花灌木，耐修剪，適合庭園花境及盆栽。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好肥沃', fert:'春季施磷鉀肥', tags:['常綠灌木','黃花','長花期','觀賞灌木'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，沾生根粉，插入排水良好介質，套袋保濕，約3〜5週發根，成功率約65〜75%。</li><li><strong>播種法：</strong>採收成熟蒴果取種子，春季播於疏鬆培養土，覆薄土，約2〜3週發芽。</li></ol>` },
+
+  { name:'玉葉金花', sci:'Mussaenda pubescens', cat:4, catName:'觀賞灌木',
+    desc:'萼片特化為大型白色葉狀苞，與黃色真花形成奇特對比，花期長，觀賞效果獨特，為熱帶特色灌木。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['常綠灌木','白苞黃花','長花期','特殊花形'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條10〜15公分，去下葉，沾IBA生根粉，插入排水良好介質，套袋保濕，約4〜6週發根，成功率約60〜70%。</li></ol>` },
+
+  { name:'金鈴花', sci:'Abutilon striatum', cat:4, catName:'觀賞灌木',
+    desc:'橘紅色燈籠形花朵垂掛，脈紋深橘，花期長，全年可見花，耐半陰，為台灣庭園常見的觀花灌木。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['常綠灌木','橘紅花','燈籠花形','全年開花'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽枝條10〜15公分，去下葉，沾生根粉，插入排水良好介質，套袋保濕，約3〜4週發根，成功率約70〜80%。</li></ol>` },
+
+  { name:'黃金真柏', sci:'Juniperus chinensis "Aurea"', cat:3, catName:'針葉樹',
+    desc:'葉片終年呈現金黃色，植株低矮緊湊，耐修剪造型，為庭園色彩點綴的優良常綠灌木，具日式庭園風情。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土', fert:'春秋施緩效肥', tags:['常綠灌木','金黃葉','日式庭園','耐修剪'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，以秋至春季最佳。取充實頂芽枝條8〜12公分，去下葉，插入排水極佳砂質介質，不套袋，每3〜4天澆水，置於通風全日照處，約6〜10週發根，成功率約55〜70%。</li></ol>` },
+
+  { name:'彩葉山漆莖', sci:'Breynia nivosa', cat:4, catName:'觀賞灌木',
+    desc:'葉片上有如雪片般的白色斑紋，色彩清爽，耐陰耐修剪，為精緻的斑葉觀賞灌木，常用於色塊或盆栽。',
+    sun:'半日照至全日照', water:'中等', soil:'排水良好', fert:'每月施氮肥', tags:['常綠灌木','白斑葉','觀葉植物','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取半木質化枝條8〜12公分，去下葉，沾生根粉，插入排水良好介質，套袋保濕，約3〜5週發根，成功率約65〜75%。</li></ol>` },
+
+  { name:'紅龍草', sci:'Alternanthera dentata "Ruliginosa"', cat:4, catName:'觀賞灌木',
+    desc:'葉片終年呈現深紫紅色，植株低矮整齊，耐熱耐修剪，為台灣公園色塊植栽最常用的彩葉灌木之一。',
+    sun:'全日照', water:'中等', soil:'排水良好', fert:'每月施氮肥', tags:['常綠灌木','紫紅葉','色塊植栽','耐熱','耐修剪'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>全年均可，取頂芽枝條5〜8公分，去下葉，插入排水良好介質，約2〜3週發根，成功率高達90%以上，是公園大量繁殖的標準方式。</li></ol>` },
+
+  { name:'金脈爵床', sci:'Sanchezia speciosa', cat:4, catName:'觀賞灌木',
+    desc:'葉片大型深綠，葉脈金黃色對比鮮明，觀葉效果極佳，夏季開橘黃色管狀花，耐陰，為熱帶雨林風格灌木。',
+    sun:'半日照', water:'中等', soil:'肥沃保濕壤土', fert:'每月施氮肥', tags:['常綠灌木','金脈觀葉','橘花','耐陰','熱帶風格'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽枝條10〜15公分，去下葉，沾生根粉，插入保濕介質，套袋置於半遮蔭處，約3〜4週發根，成功率約70〜80%。</li></ol>` },
+
+  { name:'銀葉菊', sci:'Jacobaea maritima', cat:4, catName:'觀賞灌木',
+    desc:'葉片銀白色羽狀裂，質感如天鵝絨，為提供銀白色系對比的優良觀葉植物，秋冬春為台灣最佳栽培期。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土', fert:'少量緩效肥', tags:['多年生灌木','銀白葉','觀葉植物','色彩對比'],
+    prop:`<ol><li><strong>播種法：</strong>秋季播種，覆薄土，置於涼爽（15〜20°C）環境，約10〜14天發芽，幼苗生長較慢，需充足日照才能維持銀白葉色。</li><li><strong>扦插法：</strong>秋至春季取充實頂芽8〜10公分，插入排水良好砂質介質，不套袋，約3〜5週發根，成功率約60〜70%。</li></ol>` },
+
+  { name:'彩葉芋', sci:'Caladium bicolor', cat:4, catName:'觀賞灌木',
+    desc:'葉片色彩豐富，有白、粉、紅、綠等多色組合，近期文青風熱門植物，為球根植物，夏季旺盛生長。',
+    sun:'半日照至散射光', water:'中等', soil:'肥沃保濕排水良好', fert:'生長期每月施氮肥', tags:['球根植物','彩色葉','觀葉植物','熱帶風格'],
+    prop:`<ol><li><strong>球根分株法（最主要）：</strong>春季球根萌芽前，將較大的塊莖（球根）切分成帶有1〜2個芽點的段，切口塗抹草木灰防腐，晾乾後種植於肥沃保濕土壤，覆土3〜5公分，保持溫暖（25°C以上），約2〜3週萌芽。</li><li><strong>休眠管理：</strong>秋冬低溫期地上部枯萎後，停止澆水讓球根休眠，翌春氣溫回暖後重新澆水即可萌發新葉。</li></ol>` },
+
+  { name:'姑婆芋', sci:'Alocasia odora', cat:13, catName:'大型草本',
+    desc:'葉片大型，可達60〜120公分，耐陰性強，葉片寬大碩大，能營造熱帶雨林感，為常見的庭園觀葉植物。',
+    sun:'半日照至全陰', water:'多量', soil:'肥沃保濕壤土', fert:'生長期每月施氮肥', tags:['常綠草本','大型葉','耐陰','熱帶雨林風'],
+    prop:`<ol><li><strong>分株法（最主要）：</strong>全年均可，姑婆芋基部會不斷萌發側芽，待側芽長至30〜40公分高時，從基部切離帶根的側芽，直接移植，充分澆水，置於遮蔭處，約1〜2週恢復生長，成活率極高。</li></ol>` },
+
+  { name:'曼陀羅', sci:'Datura metel', cat:4, catName:'觀賞灌木',
+    desc:'大型喇叭狀花朵向下垂懸，有白、紫、黃等色，花香迷人，花期長，觀賞效果極佳，但全株劇毒需注意。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['常綠灌木','喇叭花','香花','注意劇毒'],
+    prop:`<ol><li><strong>播種法（最主要）：</strong>春至夏季播種，種子播於疏鬆培養土，覆土1公分，約7〜14天發芽，幼苗生長快速，播種後約60〜80天開花。注意：曼陀羅全株含莨菪鹼等劇毒生物鹼，種植時嚴禁兒童接觸，操作後需徹底洗手。</li></ol>` },
+
+  { name:'鐵莧', sci:'Acalypha wilkesiana', cat:4, catName:'觀賞灌木',
+    desc:'葉片有紅、橘、綠、複色等多種品種，部分品種具紅色貓尾狀花穗，觀葉觀花兼具，耐熱耐修剪。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施氮肥', tags:['常綠灌木','彩色葉','觀葉植物','耐熱','耐修剪'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽枝條10〜15公分，去下葉，沾生根粉，插入排水良好介質，套袋保濕，約3〜4週發根，成功率約70〜80%。</li></ol>` },
+
+  { name:'文殊蘭', sci:'Crinum asiaticum', cat:13, catName:'大型草本',
+    desc:'葉片大型深綠，白色百合形花朵成簇開放，花香清雅，耐鹽耐濕，常見於水岸、海濱或公園，生命力強。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃壤土，耐鹽', fert:'春季施磷鉀肥', tags:['常綠草本','白花','香花','海岸植物','水岸植物'],
+    prop:`<ol><li><strong>分球法（最主要）：</strong>秋季或春季將母球旁生長的子球帶根分離，切口晾乾後種植，頂部露出土面1/3，充分澆水，約1〜2個月恢復生長，2〜3年後開花。</li></ol>` },
+
+  { name:'蜘蛛蘭', sci:'Hymenocallis littoralis', cat:13, catName:'大型草本',
+    desc:'白色花朵具細長如蜘蛛腳般的花瓣，花型奇特，香氣宜人，耐鹽耐濕，夏季盛開，常見於濱海公園。',
+    sun:'全日照至半日照', water:'中等', soil:'肥沃壤土，耐鹽', fert:'春夏施磷鉀肥', tags:['球根植物','白花','香花','特殊花形','海岸植物'],
+    prop:`<ol><li><strong>分球法：</strong>春秋季將母球旁的子球帶根分離，種植時頂部露出土面1/3，充分澆水，約1〜2個月恢復生長，1〜2年後開花。</li></ol>` },
+
+  { name:'倒地鈴', sci:'Cardiospermum halicacabum', cat:4, catName:'觀賞灌木',
+    desc:'攀援草本，果實為三室氣球形蒴果，種子黑色帶白色心形斑紋，極為可愛，為台灣常見的自然趣味植物。',
+    sun:'全日照', water:'中等', soil:'排水良好', fert:'播種時施基肥', tags:['一年生攀援','氣球果實','心形種子','趣味植物'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>春至夏季播種，種子播於排水良好土壤，覆土1公分，約7〜10天發芽，幼苗生長快速，播種後約60天可見可愛的氣球形果實，需提供支架讓藤蔓攀爬。</li></ol>` },
+
+  { name:'百合竹', sci:'Dracaena reflexa', cat:4, catName:'觀賞灌木',
+    desc:'葉片細長深綠，部分品種帶金邊或銀邊，株形優雅，耐陰耐旱，為室內外通用的優良觀葉植物。',
+    sun:'半日照至全日照', water:'少量', soil:'排水良好', fert:'每月施緩效肥', tags:['常綠灌木','觀葉植物','耐陰','室內外通用'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽帶葉枝條10〜15公分，或取老莖切段5〜10公分，插入排水良好保濕介質，約3〜5週發根，成功率高達80〜90%。</li></ol>` },
+
+  { name:'五彩千年木', sci:'Dracaena marginata "Tricolor"', cat:4, catName:'觀賞灌木',
+    desc:'葉片細長，邊緣有紅、粉、綠三色條紋，現代感強，耐旱耐陰，莖幹扭曲造型獨特，適合現代風格庭園。',
+    sun:'半日照至全日照', water:'少量', soil:'排水良好', fert:'每季施緩效肥', tags:['常綠灌木','三色葉','現代景觀','耐旱','耐陰'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽帶葉枝條10〜15公分，或老莖切段5〜10公分，插入排水良好保濕介質，約3〜5週發根，成功率約75〜85%。</li></ol>` },
+
+  { name:'斑葉插角樹', sci:'Pseuderanthemum carruthersii', cat:4, catName:'觀賞灌木',
+    desc:'葉片有金黃色斑塊，春季開白色花朵帶紫斑，觀葉觀花兼具，耐陰性佳，為高級景觀細節的優選灌木。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施氮肥', tags:['常綠灌木','金黃斑葉','白花','耐陰','高端景觀'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽枝條8〜12公分，去下葉，沾生根粉，插入保濕介質，套袋，置於半遮蔭處，約3〜4週發根，成功率約65〜75%。</li></ol>` },
+
+  { name:'金連木', sci:'Ochna serrulata', cat:4, catName:'觀賞灌木',
+    desc:'又名米老鼠樹，鮮紅色萼片托著黑色圓形果實，形似米老鼠，觀賞期長，為趣味性十足的特色灌木。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好肥沃', fert:'春季施磷鉀肥', tags:['常綠灌木','米老鼠樹','紅萼黑果','趣味植物'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟的黑色種子（紅萼中的核果），即播於排水良好土壤，覆土1公分，約4〜6週發芽，幼苗生長緩慢，需耐心培育。</li><li><strong>扦插法：</strong>春夏取半木質化枝條，沾生根粉，插入蛭石介質，套袋保濕，約6〜8週發根，成功率約40〜55%。</li></ol>` },
+
+  { name:'單藥花', sci:'Aphelandra squarrosa', cat:4, catName:'觀賞灌木',
+    desc:'葉片大型深綠，具白色葉脈對比強烈，黃色穗狀花序亮麗，觀葉觀花兼具，耐陰，為熱帶雨林風格灌木。',
+    sun:'半日照至散射光', water:'中等', soil:'肥沃保濕排水良好', fert:'生長期每月施複合肥', tags:['常綠灌木','白脈觀葉','黃色花序','耐陰','熱帶風格'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取頂芽帶葉枝條8〜12公分，去下葉，沾生根粉，插入保濕介質，套袋，置於半遮蔭溫暖處，約4〜6週發根，成功率約60〜70%。</li></ol>` },
+
+  { name:'馬鞍藤', sci:'Ipomoea pes-caprae', cat:5, catName:'蔓藤植物',
+    desc:'台灣海岸常見的原生植物，葉形如馬鞍，粉紫色花朵全年盛開，匍匐蔓延固沙護岸，生命力極強。',
+    sun:'全日照', water:'少量', soil:'排水良好砂質土，耐鹽', fert:'不需特別施肥', tags:['常綠地被','粉紫花','台灣原生','海岸固沙','耐鹽'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取帶節莖段15〜20公分，插入砂質土，不需生根粉，馬鞍藤發根能力極強，約1〜2週即可發根蔓延，成活率接近100%。</li></ol>` },
+
+  { name:'金絲竹', sci:'Bambusa vulgaris "Vittata"', cat:4, catName:'觀賞灌木',
+    desc:'竹稈金黃色帶綠色縱條紋，葉片翠綠，叢生型竹類，觀賞效果極佳，為台灣庭園最常用的觀賞竹種之一。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'春夏施氮肥', tags:['常綠竹類','金黃竹稈','觀賞竹','庭園景觀'],
+    prop:`<ol><li><strong>分株法（最主要）：</strong>春季將竹叢邊緣的新筍帶根分離，每叢帶2〜3枝竹稈及完整根系，修剪竹葉至1/3，種植後充分澆水，約1〜2個月恢復生長，竹類不能用扦插繁殖，分株為唯一實用方式。</li></ol>` },
+
+  // ══ 地被植物補充 cat:6 ══
+  { name:'翠蘆莉（高種）', sci:'Ruellia simplex', cat:12, catName:'觀賞草',
+    desc:'翠蘆莉（Ruellia simplex）高性品系，株高可達1〜1.5公尺，與矮種翠蘆莉（No.84）為同物種不同品系。因株高超出地被範疇，已重新歸類為「觀賞草」類別，適合作為中景背景植栽或群植色塊。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每季施磷鉀肥', tags:['常綠地被','紫花','全年開花','耐旱','耐熱'],
+    prop:`<ol><li><strong>分株法：</strong>春季整叢挖起，分成每叢3〜5枝，按30〜40公分間距種植，約1〜2週恢復生長。</li><li><strong>扦插法：</strong>取充實枝條10〜15公分，插入濕潤土壤，約2〜3週發根，成功率高。</li></ol>` },
+
+  { name:'噴泉草', sci:'Pennisetum alopecuroides', cat:12, catName:'觀賞草',
+    desc:'葉片細長柔軟，秋季抽出褐色或白色羽毛狀花穗，如噴泉般飄逸，為近年台灣景觀設計最受歡迎的觀賞草之一。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春季施緩效肥', tags:['觀賞草','秋季觀賞','羽毛狀花穗','柔美飄逸'],
+    prop:`<ol><li><strong>分株法：</strong>早春2〜3月將老叢齊地剪除後挖起，分成帶3〜5個芽的叢，按40〜50公分間距種植，澆透水，約2〜3週恢復生長。</li><li><strong>播種法：</strong>春季播種，覆薄土，約1〜2週發芽。</li></ol>` },
+
+  { name:'細葉芒', sci:'Miscanthus sinensis "Gracillimus"', cat:12, catName:'觀賞草',
+    desc:'葉片極細如絲，比一般芒草更纖細優雅，秋季花穗銀白細緻，現代風景觀設計必備的優雅觀賞草。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春季施緩效肥', tags:['觀賞草','細葉優雅','秋季觀賞','現代景觀'],
+    prop:`<ol><li><strong>分株法：</strong>早春2〜3月將老叢齊地剪除後挖起，用鋒利工具分成帶3〜5個芽的叢，按50公分間距種植，方法同台灣芒草。</li></ol>` },
+
+  { name:'斑葉芒', sci:'Miscanthus sinensis "Variegatus"', cat:12, catName:'觀賞草',
+    desc:'葉片具有橫向金黃色條紋斑，對比強烈，為觀賞草中色彩最豐富的品種之一，常用於庭園點景。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春季施緩效肥', tags:['觀賞草','金黃斑葉','秋季觀賞','庭園點景'],
+    prop:`<ol><li><strong>分株法：</strong>早春將老叢挖起分叢，按50公分間距種植，方法同台灣芒草。注意斑葉芒為選育品種，需以分株保持葉色特性，播種後代葉色可能分離。</li></ol>` },
+
+  { name:'糖蜜草', sci:'Melinis minutiflora', cat:12, catName:'觀賞草',
+    desc:'葉片有特殊甜糖蜜香氣，秋季抽出紅棕色花序，質感獨特，耐旱耐貧瘠，適合自然風格或坡地綠化。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐貧瘠', fert:'不需特別施肥', tags:['觀賞草','紅棕色花序','香葉','耐旱','自然風格'],
+    prop:`<ol><li><strong>播種法：</strong>春季撒播於排水良好土壤，覆薄土，約1〜2週發芽，發芽率高，幼苗生長快速，當年即可形成覆蓋。</li><li><strong>分株法：</strong>春季將叢生株挖起，分成帶根小叢，按30〜40公分間距種植。</li></ol>` },
+
+  { name:'銀紋沿階草', sci:'Ophiopogon japonicus "Variegatus"', cat:6, catName:'地被植物',
+    desc:'葉片邊緣有白色銀紋條紋，比一般麥冬草更具觀賞性，耐陰耐旱，常用於林下地被增加亮度。',
+    sun:'半日照至全陰', water:'中等', soil:'適應力強', fert:'春季施緩效肥', tags:['常綠地被','白邊葉','耐陰','林下植栽'],
+    prop:`<ol><li><strong>分株法：</strong>春秋季將叢生株挖起，分成每叢3〜5株的小束，按10〜15公分間距種植，澆透水，約1〜2個月恢復生長。銀紋品種需以分株保持葉色，播種後代葉色可能分離。</li></ol>` },
+
+  { name:'金邊麥門冬', sci:'Ophiopogon japonicus "Aureovariegatus"', cat:6, catName:'地被植物',
+    desc:'葉片邊緣有金黃色條紋，色彩明亮溫暖，耐陰耐旱，為林下地被增添金色光澤，觀賞效果佳。',
+    sun:'半日照至全陰', water:'中等', soil:'適應力強', fert:'春季施緩效肥', tags:['常綠地被','金邊葉','耐陰','林下植栽'],
+    prop:`<ol><li><strong>分株法：</strong>方法同銀紋沿階草，春秋季分株，按10〜15公分間距種植。金邊品種需以分株保持葉色特性。</li></ol>` },
+
+  { name:'越橘葉蔓榕', sci:'Ficus vaccinioides', cat:6, catName:'地被植物',
+    desc:'台灣原生蔓性榕樹，葉片細碎小巧，匍匐貼地生長，耐陰耐踩踏，為低維護的優良地被植物。',
+    sun:'半日照至全陰', water:'少量', soil:'適應力強', fert:'春季施有機肥', tags:['常綠地被','細小葉','台灣原生','耐陰','耐踩踏'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取帶節莖段5〜10公分，直接壓埋於濕潤土壤，約1〜2週自然發根蔓延，越橘葉蔓榕不定根發達，扦插極易成功。</li></ol>` },
+
+  { name:'波士頓腎蕨', sci:'Nephrolepis exaltata "Bostoniensis"', cat:6, catName:'地被植物',
+    desc:'葉片比一般腎蕨更長更柔軟，垂墜感強烈，為室內外吊盆的首選蕨類，耐陰耐濕，觀賞效果優雅。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕排水兼具', fert:'生長期施氮肥', tags:['常綠地被','蕨類','耐陰','吊盆植物','垂墜感'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，腎蕨靠走莖向外延伸產生子株，待子株長出4〜5片葉後從走莖切斷帶根移植，約1〜2週恢復生長，成活率極高。</li></ol>` },
+
+  { name:'過溝菜蕨', sci:'Diplazium esculentum', cat:6, catName:'地被植物',
+    desc:'台灣原生食用蕨類，嫩葉可食用（龍鬚菜），葉片大型翠綠，耐濕耐陰，常見於溝渠旁或濕潤林下。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕肥沃壤土', fert:'生長期施氮肥', tags:['常綠地被','蕨類','台灣原生','可食用','耐濕'],
+    prop:`<ol><li><strong>分株法：</strong>春季將叢生株挖起，分成帶根的小叢，種植於保濕肥沃土壤，充分澆水，約1〜2週恢復生長，為主要繁殖方式。</li><li><strong>孢子繁殖：</strong>採集葉背孢子播於無菌保濕泥炭土，套袋保濕，約2〜3個月可見幼苗。</li></ol>` },
+
+  { name:'地毯草', sci:'Axonopus compressus', cat:6, catName:'地被植物',
+    desc:'葉片扁平寬大，匍匐生長緻密，耐陰耐濕耐踩踏，管理粗放，為公園、路邊及輕度遮蔭地區常用草坪。',
+    sun:'半日照至全日照', water:'中等', soil:'排水良好', fert:'生長期施氮肥', tags:['草坪','耐陰','耐踩踏','低維護','粗放管理'],
+    prop:`<ol><li><strong>草皮鋪植法：</strong>整地後緊密鋪設草皮，壓緊澆水，約2〜3週發根，約1〜2個月形成緻密草坪。</li><li><strong>分株點播：</strong>分成小束按10〜15公分間距種植，約2〜3個月全面覆蓋。</li></ol>` },
+
+  { name:'假儉草', sci:'Eremochloa ophiuroides', cat:6, catName:'地被植物',
+    desc:'又名蜈蚣草，葉片細緻，匍匐莖向外蔓延，低維護，耐旱耐陰，為台灣常見的低管理草坪草種之一。',
+    sun:'半日照至全日照', water:'少量', soil:'適應力強', fert:'生長期施少量氮肥', tags:['草坪','耐旱','耐陰','低維護'],
+    prop:`<ol><li><strong>草皮鋪植法：</strong>整地後鋪設草皮，壓緊澆水，約1〜2個月形成草坪。假儉草匍匐莖蔓延速度略慢，需較長時間覆蓋。</li><li><strong>分株點播：</strong>按10公分間距點植，約3〜4個月全面覆蓋。</li></ol>` },
+
+  { name:'聖奧古斯丁草', sci:'Stenotaphrum secundatum', cat:6, catName:'地被植物',
+    desc:'葉片寬扁鮮綠，匍匐莖節間長，蔓延速度快，耐鹽耐潮濕，為海濱及濕潤地區常用的草坪草種。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好，耐鹽耐濕', fert:'生長期施氮肥', tags:['草坪','耐鹽','耐濕','海岸草坪','快速蔓延'],
+    prop:`<ol><li><strong>草皮鋪植法：</strong>整地後鋪設草皮，壓緊充分澆水，約2〜3週發根蔓延，聖奧古斯丁草蔓延速度快，約1〜2個月即可全面覆蓋。</li></ol>` },
+
+  { name:'白脈爵床', sci:'Fittonia albivenis', cat:6, catName:'地被植物',
+    desc:'葉片小巧，葉脈白色或粉紅色極為顯眼，耐陰耐濕，為室內外遮蔭環境的優雅彩色地被植物。',
+    sun:'半日照至全陰', water:'多量', soil:'保濕肥沃', fert:'每月施氮肥', tags:['常綠地被','白脈觀葉','耐陰','室內植物'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取頂芽5〜8公分，去下葉，插入保濕介質，套袋，置於明亮遮蔭處，約2〜3週發根，成功率高達85%以上。白脈爵床喜高濕度，保濕是成功關鍵。</li></ol>` },
+
+  { name:'一葉蘭', sci:'Pleione formosana', cat:6, catName:'地被植物',
+    desc:'台灣原生蘭花，春季先開花後長葉，花色有粉紫色，花型如小型卡特蘭，為中高海拔珍貴的景觀植物。',
+    sun:'半日照至散射光', water:'中等', soil:'排水良好保濕蘭花介質', fert:'花後施蘭花液肥', tags:['球莖蘭花','台灣原生','粉紫花','春季開花','珍稀植物'],
+    prop:`<ol><li><strong>假球莖分株法：</strong>花後葉片生長旺盛期，每個假球莖（黃豆大小的球狀莖）均可獨立發育，秋季葉片枯萎後收集假球莖，低溫乾燥保存（冰箱4°C），翌春種植於排水良好的蘭花介質，僅略覆蓋球莖即可，約2〜3週萌芽。</li></ol>` },
+
+  { name:'小葉赤楠', sci:'Syzygium buxifolium', cat:6, catName:'地被植物',
+    desc:'台灣原生灌木，新芽呈現鮮豔的紅色，葉片小巧光亮，耐修剪，可作綠籬或地被，觀賞新芽為一大特色。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'春季施有機肥', tags:['常綠灌木','紅色新芽','台灣原生','耐修剪'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，去下葉，沾IBA生根粉，插入酸性泥炭土混蛭石，套袋保濕，約4〜6週發根，成功率約55〜70%。</li><li><strong>播種法：</strong>採收成熟果實洗去果肉，即播於微酸性土壤，約1〜2個月發芽。</li></ol>` },
+
+  { name:'鋪地黍', sci:'Panicum repens', cat:6, catName:'地被植物',
+    desc:'台灣原生草類，匍匐莖蔓延快速，耐鹽耐旱耐踩踏，常用於海岸固沙及坡地保護，為重要的生態保育植物。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐鹽耐貧瘠', fert:'不需特別施肥', tags:['草類','台灣原生','耐鹽','海岸固沙','坡地保護'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，剪取帶節莖段15〜20公分，直接鋪放於濕潤土面，壓緊覆薄土，澆水後約1〜2週從節點發根蔓延，成活率接近100%，與蟛蜞菊一樣是快速覆蓋坡地的好方法。</li></ol>` },
+
+  { name:'五節芒', sci:'Miscanthus floridulus', cat:12, catName:'觀賞草',
+    desc:'台灣原生大型草類，株高可達2〜3公尺，秋季白色大型花穗壯觀，常見於台灣低中海拔山坡，具重要生態功能。',
+    sun:'全日照', water:'少量', soil:'排水良好，耐貧瘠', fert:'不需特別施肥', tags:['大型觀賞草','台灣原生','秋季觀賞','生態植物'],
+    prop:`<ol><li><strong>播種法：</strong>春季撒播，覆薄土，約1〜2週發芽，幼苗生長快速，當年可達1公尺以上高度。</li><li><strong>分株法：</strong>早春將老叢齊地剪除後挖起，分成帶芽的叢，按60〜80公分間距種植，適合需要快速建立大型植群的工程用途。</li></ol>` },
+
+  { name:'紫背萬年青', sci:'Tradescantia spathacea', cat:6, catName:'地被植物',
+    desc:'葉片正面深綠，背面鮮豔紫紅色，形成強烈對比，耐旱耐陰，生命力強，為台灣公園最常見的地被植物之一。',
+    sun:'半日照至全日照', water:'少量', soil:'排水良好', fert:'偶爾施氮肥', tags:['常綠地被','紫色葉背','耐旱','耐陰'],
+    prop:`<ol><li><strong>分株法：</strong>全年均可，將叢生株從基部分離，每叢帶3〜5枝，按20〜25公分間距種植，澆透水，約1〜2週恢復生長，成活率接近100%，生命力極強。</li><li><strong>扦插法：</strong>取頂芽10〜15公分，插入濕潤介質，約1〜2週發根。</li></ol>` },
+
+  // ══ 花卉植物補充 cat:7 ══
+  { name:'香堇菜', sci:'Viola odorata', cat:7, catName:'花卉植物',
+    desc:'花朵小巧精緻，有紫、白、粉等色，部分品種具濃郁香氣，冬春為盛花期，耐寒，為優雅的小型觀花植物。',
+    sun:'半日照至全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['多年生','紫白花','冬春開花','香花','精緻小花'],
+    prop:`<ol><li><strong>播種法：</strong>秋季（9〜10月）播種，種子需低溫層積（4°C，2〜4週）或冰箱處理後春季播種，覆薄土，約10〜14天發芽。</li><li><strong>分株法：</strong>老株春秋季可分叢移植，帶根的小叢直接種植，約2〜3週恢復生長，為最常用的方式。</li></ol>` },
+
+  { name:'魯冰花', sci:'Lupinus hybridus', cat:7, catName:'花卉植物',
+    desc:'塔形花序色彩豐富，有紫、粉、白、黃、橘等多色，花期冬至春，為台灣茶園景觀最具代表性的花卉。',
+    sun:'全日照', water:'中等', soil:'微酸性排水良好', fert:'少量磷鉀肥，忌過多氮肥', tags:['一年生','多色花','冬春開花','茶園景觀'],
+    prop:`<ol><li><strong>播種法（唯一方式）：</strong>秋季（10〜11月）播種，種子以砂紙輕磨或溫水浸泡24小時，點播於排水良好微酸性土壤，每穴1〜2粒，覆土2公分，約7〜10天發芽，幼苗不耐移植，建議直播。播種後約90〜120天開花，施氮肥過多會造成只長葉不開花。</li></ol>` },
+
+  { name:'嘉蘭', sci:'Gloriosa superba', cat:7, catName:'花卉植物',
+    desc:'又名火焰百合，花瓣邊緣波浪狀，花色由黃橘至深紅，如火焰般燃燒，為球根攀援植物，夏季盛開，極具視覺衝擊力。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施磷鉀肥', tags:['球根攀援','火焰百合','橘紅花','夏季開花'],
+    prop:`<ol><li><strong>球根種植法：</strong>春季將V形或Y形球根水平種植於肥沃排水良好土壤，覆土5〜8公分，保持溫暖（25°C以上），約2〜3週萌芽，夏季開花，花後地上部枯萎，秋冬挖起球根乾燥保存。注意全株劇毒，操作時需戴手套。</li></ol>` },
+
+  { name:'虎眼萬年青', sci:'Ornithogalum caudatum', cat:7, catName:'花卉植物',
+    desc:'大型球根植物，半露地面呈翠綠色球形，春季抽出細長花莖開放白色星形花朵，觀葉觀花皆宜，耐旱耐陰。',
+    sun:'半日照至全日照', water:'少量', soil:'排水良好', fert:'春季施磷鉀肥', tags:['球根植物','白花','春季開花','特殊球根','耐旱'],
+    prop:`<ol><li><strong>側球分株法（最主要）：</strong>母球每年在基部產生多個小側球，春季換盆時將側球分離，種植時球根頂部露出土面，充分澆水，約1〜2個月恢復生長，2〜3年後可開花。</li></ol>` },
+
+  // ══ 蔓藤植物補充 cat:5 ══
+  { name:'大花藤', sci:'Beaumontia grandiflora', cat:5, catName:'蔓藤植物',
+    desc:'又名大花貝蒙藤，春夏季盛開大型純白色喇叭狀花朵，花香馥郁，攀爬力強，適合大型棚架或圍牆種植。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每月施磷鉀肥', tags:['常綠藤本','白花','香花','春夏開花','大型棚架'],
+    prop:`<ol><li><strong>扦插法：</strong>春夏季取半木質化枝條10〜15公分，去下葉，沾IBA生根粉，插入排水良好介質，套袋保濕，約4〜6週發根，成功率約55〜70%。</li><li><strong>高壓法：</strong>在充實枝條環狀剝皮2公分，包覆濕水苔，約4〜6週生根後剪下移植，適合大花藤難以扦插的情況。</li></ol>` },
+
+  { name:'白蟬', sci:'Wrightia antidysenterica', cat:4, catName:'觀賞灌木',
+    desc:'梔子花的重瓣大花品種（Gardenia jasminoides var. fortuneana），花白色濃香，株型為常綠灌木，無攀爬能力，前版誤置於蔓藤類。花期夏季，適合庭園種植或盆栽觀賞。',
+    sun:'全日照至半日照', water:'中等', soil:'排水良好壤土', fert:'每月施磷鉀肥', tags:['常綠藤本','白花','香花','長花期'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取半木質化枝條8〜12公分，去下葉，沾生根粉，插入排水良好介質，套袋保濕，置於半遮蔭溫暖處，約3〜5週發根，成功率約60〜70%。</li></ol>` },
+
+  { name:'三星果藤', sci:'Tristellateia australasiae', cat:5, catName:'蔓藤植物',
+    desc:'夏秋季節盛開大量金黃色花朵，花量豐盛且花期長，攀爬力強，果實三星形，台灣南部廣泛種植於棚架。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'每季施磷鉀肥', tags:['常綠藤本','金黃花','夏秋開花','耐旱','棚架植物'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>全年均可，以春夏最佳。取半木質化枝條10〜15公分，去下葉，沾生根粉，插入排水良好砂質介質，置於全日照或半遮蔭處，約3〜5週發根，成功率約65〜75%。</li></ol>` },
+
+  // ══ 室內觀葉/多肉/特殊類 cat:9（歸為觀賞灌木） ══
+  { name:'龜背芋', sci:'Monstera deliciosa', cat:14, catName:'室內觀葉',
+    desc:'葉片大型，成熟葉具天然裂孔，為近年最流行的室內觀葉植物，耐陰性強，氣根發達，攀爬效果壯觀。',
+    sun:'半日照至散射光', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施氮肥', tags:['常綠草本','裂孔大葉','耐陰','室內植物','熱門觀葉'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取帶2〜3節的莖段，保留頂端葉片，插入保濕介質或水培，置於明亮遮蔭處，約3〜5週發根，成功率高達85%以上。</li><li><strong>高壓法：</strong>在充實莖節上環狀剝皮，包覆濕水苔套袋，約3〜4週生根後剪下移植，適合獲得較大植株。</li></ol>` },
+
+  { name:'琴葉榕', sci:'Ficus lyrata', cat:14, catName:'室內觀葉',
+    desc:'葉片大型，形如小提琴，葉色深綠有光澤，為近年最受歡迎的室內景觀樹，株形端正優雅，具現代設計感。',
+    sun:'半日照至散射光', water:'少量', soil:'排水良好肥沃', fert:'生長期每月施氮肥', tags:['常綠灌木','琴葉造型','室內植物','現代景觀'],
+    prop:`<ol><li><strong>扦插法：</strong>春夏季取頂芽帶葉枝條15〜20公分，切口讓乳汁流出後晾乾30分鐘，沾生根粉，插入排水良好保濕介質，套袋，置於明亮遮蔭溫暖處，約4〜8週發根，成功率約50〜65%。</li><li><strong>高壓法：</strong>在充實枝條環狀剝皮，包覆濕水苔，約4〜6週生根，適合從現有大植株取材。</li></ol>` },
+
+  { name:'虎尾蘭', sci:'Sansevieria trifasciata', cat:13, catName:'大型草本',
+    desc:'葉片直立挺拔，有深綠橫紋和金邊品種，極耐旱耐陰，淨化空氣效果佳，為最易栽培的室內植物之一。',
+    sun:'半日照至全陰', water:'極少', soil:'排水良好砂質土', fert:'每季施少量緩效肥', tags:['常綠草本','觀葉植物','耐旱','耐陰','淨化空氣'],
+    prop:`<ol><li><strong>分株法：</strong>春季換盆時，將基部萌發的側芽連根帶土分離，直接移植，成活率極高。</li><li><strong>葉插法：</strong>取葉片切成5〜8公分段，稍晾乾後插入乾爽砂質土，每2〜3週澆水一次，約1〜2個月從基部長出新芽，注意金邊品種葉插後代可能失去金邊，需以分株保持品種特性。</li></ol>` },
+
+  { name:'天堂鳥', sci:'Strelitzia reginae', cat:13, catName:'大型草本',
+    desc:'又名鶴望蘭，橘色花瓣搭配藍紫色花冠，花型如熱帶鳥，為台灣重要的高級切花和庭園景觀植物，花期長。',
+    sun:'全日照', water:'少量', soil:'排水良好肥沃', fert:'每月施磷鉀肥', tags:['多年生草本','橘藍花','特殊花形','切花','現代景觀'],
+    prop:`<ol><li><strong>分株法（最主要）：</strong>春季換盆或植株過大時，將叢生的植株分成每叢帶2〜3個葉扇的小叢，用鋒利刀具切分，切口塗炭粉防腐，種植後充分澆水，約2〜3個月恢復生長，1〜2年後開花。</li><li><strong>播種法：</strong>採收成熟種子，去除橘色假種皮，播於排水良好肥沃土壤，覆土1公分，約1〜3個月發芽，實生苗需5〜7年才能開花，較少使用。</li></ol>` },
+
+  { name:'旅人蕉', sci:'Ravenala madagascariensis', cat:13, catName:'大型草本',
+    desc:'葉片大型，呈扇形排列在同一平面，形象壯觀，為熱帶度假風景觀的代表植物，葉鞘內可儲水。',
+    sun:'全日照', water:'中等', soil:'肥沃排水良好', fert:'每季施複合肥', tags:['常綠草本','扇形葉','熱帶風情','度假風景觀'],
+    prop:`<ol><li><strong>分株法：</strong>春季將基部萌發的側芽（帶根的子株）分離，每叢至少帶3〜5片葉及完整根系，種植後充分澆水，置於遮蔭處1〜2週，待恢復生長後移至全日照，約2〜3個月恢復旺盛生長。</li><li><strong>播種法：</strong>採收成熟種子，去除藍色假種皮，即播於肥沃土壤，保持25〜30°C，約1〜2個月發芽，幼苗生長緩慢。</li></ol>` },
+
+  { name:'龍舌蘭', sci:'Agave americana', cat:13, catName:'大型草本',
+    desc:'葉片厚實肉質，邊緣有硬刺，植株大型壯觀，耐旱耐貧瘠，極少需要照顧，一生僅開花一次，花後枯死但留下側芽。',
+    sun:'全日照', water:'極少', soil:'排水良好砂質土', fert:'幾乎不需施肥', tags:['多肉植物','大型葉','耐旱','質感粗獷','低維護'],
+    prop:`<ol><li><strong>側芽分株法：</strong>母株基部會萌發側芽（吸芽），待側芽長至20〜30公分高時，用鋒利鋸子或鏟子切離母株，帶根移植於排水極佳砂質土，初期少澆水（每2〜3週一次），約1〜2個月發根穩固，成活率高。</li></ol>` },
+
+  { name:'沙漠玫瑰', sci:'Adenium obesum', cat:14, catName:'室內觀葉',
+    desc:'莖幹基部膨大如酒瓶，春至夏季開放豔麗的粉紅至深紅色花朵，極耐旱，為近年台灣極受歡迎的特色觀花多肉植物。',
+    sun:'全日照', water:'極少', soil:'排水極佳砂質土', fert:'生長期每月施磷鉀肥', tags:['多肉植物','粉紅花','春夏開花','耐旱','獨特造型'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟豆莢形果實，取出帶毛的種子，立即播於排水極佳砂質土，不覆土，保持30〜35°C高溫，約5〜7天發芽，幼苗莖基部逐漸膨大，1〜2年後開花。種子壽命短，採後需盡快播種。</li><li><strong>扦插法：</strong>取頂芽枝條15〜20公分，讓乳汁流出後晾乾3〜5天（非常重要），插入乾爽砂質土，初期完全不澆水（約2週後才開始少量澆水），約3〜6週發根，成功率約50〜65%。</li></ol>` },
+
+  { name:'琴葉蔓綠絨', sci:'Philodendron bipennifolium', cat:14, catName:'室內觀葉',
+    desc:'葉片大型深裂，形如馬頭，攀爬生長，耐陰性強，為室內大空間常用的熱帶觀葉植物，葉形極具觀賞性。',
+    sun:'半日照至散射光', water:'中等', soil:'肥沃排水良好', fert:'生長期每月施氮肥', tags:['常綠攀援','大型裂葉','耐陰','室內植物'],
+    prop:`<ol><li><strong>扦插法：</strong>全年均可，取帶2〜3節的莖段，保留頂端葉片，插入保濕介質或直接水培，置於明亮遮蔭處，約2〜4週發根，成功率高達85%以上。</li></ol>` },
+
+  { name:'霸王鞭', sci:'Euphorbia royleana', cat:13, catName:'大型草本',
+    desc:'莖幹多稜角，綠色肉質，高大直立，外型如大型仙人掌，極耐旱，適合現代極簡風格庭園作為焦點植物。',
+    sun:'全日照', water:'極少', soil:'排水極佳砂質土', fert:'幾乎不需施肥', tags:['多肉植物','大型肉質莖','耐旱','現代極簡','庭園焦點'],
+    prop:`<ol><li><strong>扦插法：</strong>春至夏季取充實莖段10〜20公分，讓白色乳汁流出後晾乾3〜5天（極重要，乳汁有毒且若切口潮濕容易腐爛），插入乾爽砂質土，初期不澆水，約3〜6週發根。全株乳汁有毒，操作時需戴手套並避免接觸眼睛。</li></ol>` },
+
+  { name:'鹿角蕨', sci:'Platycerium bifurcatum', cat:13, catName:'大型草本',
+    desc:'葉片分為營養葉（盾形貼著基質）和孢子葉（鹿角形向外伸展），造型獨特，為近年高端景觀裝飾的焦點植物。',
+    sun:'半日照至散射光', water:'中等', soil:'附生介質（水苔、椰纖）', fert:'生長期每月施稀薄液肥', tags:['附生蕨類','鹿角葉形','耐陰','高端景觀','室內植物'],
+    prop:`<ol><li><strong>側芽分株法（最主要）：</strong>成熟植株基部會萌發側芽（小鹿角），待側芽長出3〜4片孢子葉並有明顯的盾形營養葉後，從基部切離，固定於水苔球或木板上，保持高濕度，約1〜2個月恢復生長，成活率約70〜80%。</li><li><strong>孢子繁殖法：</strong>採集孢子葉背面成熟孢子，播於無菌保濕水苔表面，套袋保濕，置於明亮遮蔭處，約2〜4個月可見原葉體，整個發育過程需1〜2年，耐心培育。</li></ol>` },
+
+
+  { name:'金心吊蘭', sci:'Chlorophytum comosum "Mediopictum"', cat:6, catName:'地被植物',
+    desc:'葉片中央具金黃色條紋，走莖頂端產生子株垂掛，植株活潑可愛，耐陰耐旱，為室內外最受歡迎的觀葉植物之一。',
+    sun:'半日照至全陰', water:'少量', soil:'排水良好', fert:'每月施稀薄氮肥', tags:['常綠草本','金心葉','觀葉植物','耐陰'],
+    prop:`<ol><li><strong>走莖子株分株法：</strong>吊蘭走莖頂端產生的子株，待其長出根系後剪下，移植至新盆，充分澆水，約1〜2週恢復生長，成活率極高，為最常用也最快速的繁殖方式。</li></ol>` },
+
+  { name:'大花紫薇', sci:'Lagerstroemia speciosa', cat:1, catName:'觀花喬木',
+    desc:'熱帶大型喬木，夏季盛開大型紫色花朵，葉片秋天轉紅，四季均具觀賞價值，台灣中南部常見行道樹。有別於同屬的紫薇（L. indica），本種花朵更大，樹形更高大壯觀。',
+    sun:'全日照', water:'中等', soil:'肥沃壤土', fert:'春夏施磷鉀肥', tags:['落葉喬木','紫花','夏季開花','行道樹'],
+    prop:`<ol><li><strong>播種法：</strong>採收成熟褐色蒴果取種子，春季播於疏鬆肥沃土，覆薄土，約2〜3週發芽，幼苗需充足日照。</li><li><strong>扦插法：</strong>夏季取半木質化枝條10〜15公分，沾生根素，插入蛭石或河砂混合介質，保持濕潤和高濕度，約4〜6週發根，大花紫薇扦插比紫薇略難，成功率約50〜60%。</li></ol>` },
+
+  { name:'苦楝', sci:'Melia azedarach', cat:1, catName:'觀花喬木',
+    desc:'台灣原生喬木，春季開淡紫色小花，香氣迷人如蜂蜜，秋冬黃色果實累累，是生態與景觀兼具的優良樹種，具有誘鳥功能。',
+    sun:'全日照', water:'少量', soil:'適應力強', fert:'春季施有機肥', tags:['落葉喬木','紫花','春季開花','台灣原生','行道樹'],
+    prop:`<ol><li><strong>播種法（最主要）：</strong>秋冬採收成熟黃色果實，洗去果肉取出硬核，以清水浸泡24〜48小時，播於排水良好壤土，覆土1〜2公分，春季氣溫回暖後約2〜4週發芽，發芽率高，管理容易。苦楝果實和種子具有輕微毒性，操作後應洗手。</li></ol>` },
+
+  { name:'刺桐', sci:'Erythrina variegata', cat:1, catName:'觀花喬木',
+    desc:'春季開豔紅花朵，為台灣原生海岸樹種，耐潮風耐鹽，樹幹有刺，是台灣重要的海岸防護景觀樹。花色鮮豔，為綠繡眼等鳥類的重要蜜源。',
+    sun:'全日照', water:'少量', soil:'排水良好', fert:'春季施複合肥', tags:['落葉喬木','紅花','春季開花','台灣原生','海岸植物'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>春季或夏初取充實粗枝20〜40公分，切口晾乾1〜2天，插入濕潤砂質土壤約1/3深度，保持土壤濕潤，約3〜4週萌芽並發根，成活率極高，為台灣沿海護岸常用的快速育苗方式。</li><li><strong>播種法：</strong>採成熟紅色種子即播於排水良好土壤，覆土1公分，約2〜3週發芽。</li></ol>` },
+
+  { name:'黃連木', sci:'Pistacia chinensis', cat:10, catName:'色葉喬木',
+    desc:'又稱楷木，秋冬葉片轉為橙紅至深紅色，為著名的秋色觀葉樹種，與楓香齊名。春季新葉鮮紅，雌株秋冬結藍紫色果實亦具觀賞價值，為台灣優良原生色葉喬木。',
+    sun:'全日照', water:'少量', soil:'排水良好壤土', fert:'春季施有機肥', tags:['落葉喬木','秋冬紅葉','台灣原生','色葉喬木'],
+    prop:`<ol><li><strong>播種法：</strong>秋冬採收成熟藍紫色核果，洗去果肉，低溫層積（4°C，60〜90天）後春季播種，覆土1公分，約3〜4週發芽。</li><li><strong>扦插法：</strong>夏季取半木質化枝條10〜15公分，沾IBA生根粉，插入蛭石介質，套袋保濕，約4〜8週發根，成功率約40〜55%。</li></ol>` },
+
+  { name:'倒卵葉珊瑚', sci:'Aucuba japonica', cat:4, catName:'觀賞灌木',
+    desc:'常綠灌木，葉片大型深綠有光澤，部分品種有金黃色斑點（又稱灑金桃葉珊瑚），秋冬結鮮紅色漿果，觀葉觀果兼具，耐陰性強，適合林下或牆面植栽。',
+    sun:'半日照至全陰', water:'中等', soil:'肥沃排水良好', fert:'春秋施有機肥', tags:['常綠灌木','觀葉植物','紅果','耐陰','景觀綠牆'],
+    prop:`<ol><li><strong>扦插法（最主要）：</strong>春至夏季取充實頂芽枝條10〜15公分，去除下部葉片，沾IBA生根粉，插入排水良好保濕介質，套袋置於半遮蔭處，約4〜6週發根，成功率約65〜75%。</li><li><strong>播種法：</strong>秋冬採收成熟紅色漿果，洗去果肉，低溫層積後春季播種，約1〜2個月發芽，需雌雄株一起種植才能結果。</li></ol>` },
+
+];
+
+// ── Render ──────────────────────────────────────────────
+const grid = document.getElementById('plantGrid');
+const countLabel = document.getElementById('countLabel');
+const noResult = document.getElementById('noResult');
+
+// Image loader: Wikipedia REST API (open CORS) → Wikimedia Commons search fallback
+const imgCache = {};
+
+async function loadPlantImage(sciName, chName, imgEl, wrapEl) {
+  const cacheKey = sciName;
+  if (imgCache[cacheKey] !== undefined) {
+    if (imgCache[cacheKey] === null) { showPlaceholder(wrapEl, imgEl); return; }
+    applyImage(imgEl, imgCache[cacheKey]);
+    return;
+  }
+  // Try 1: Wikipedia EN page summary (has thumbnail, open CORS)
+  const url = await tryWikipediaEN(sciName) ||
+              await tryWikipediaZH(chName) ||
+              await tryCommonsSearch(sciName);
+  if (url) {
+    imgCache[cacheKey] = url;
+    applyImage(imgEl, url);
+  } else {
+    imgCache[cacheKey] = null;
+    showPlaceholder(wrapEl, imgEl);
+  }
+}
+
+function applyImage(imgEl, url) {
+  imgEl.onload  = () => { imgEl.style.opacity = '1'; };
+  imgEl.onerror = () => { showPlaceholder(imgEl.closest('.card-img-wrap'), imgEl); };
+  imgEl.src = url;
+}
+
+async function tryWikipediaEN(sciName) {
+  try {
+    const title = encodeURIComponent(sciName.split(' ').slice(0,2).join('_'));
+    const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${title}`, {headers:{Accept:'application/json'}});
+    if (!r.ok) return null;
+    const d = await r.json();
+    return d.thumbnail && d.thumbnail.source ? d.thumbnail.source.replace(/\/\d+px-/, '/400px-') : null;
+  } catch { return null; }
+}
+
+async function tryWikipediaZH(chName) {
+  try {
+    const title = encodeURIComponent(chName.replace(/（.*）/,'').replace(/\(.*\)/,'').trim());
+    const r = await fetch(`https://zh.wikipedia.org/api/rest_v1/page/summary/${title}`, {headers:{Accept:'application/json'}});
+    if (!r.ok) return null;
+    const d = await r.json();
+    return d.thumbnail && d.thumbnail.source ? d.thumbnail.source.replace(/\/\d+px-/, '/400px-') : null;
+  } catch { return null; }
+}
+
+async function tryCommonsSearch(sciName) {
+  try {
+    const q = encodeURIComponent(sciName.split(' ').slice(0,2).join(' '));
+    const r = await fetch(`https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrsearch=${q}&prop=imageinfo&iiprop=url&iiurlwidth=400&format=json&origin=*`);
+    if (!r.ok) return null;
+    const d = await r.json();
+    const pages = d.query && d.query.pages;
+    if (!pages) return null;
+    const first = Object.values(pages).find(p => p.imageinfo && p.imageinfo[0] && /\.(jpg|jpeg|png|webp)/i.test(p.title));
+    return first ? first.imageinfo[0].thumburl || first.imageinfo[0].url : null;
+  } catch { return null; }
+}
+
+function showPlaceholder(wrap, img) {
+  img.style.display = 'none';
+  if (wrap.querySelector('.img-placeholder')) return;
+  const div = document.createElement('div');
+  div.className = 'img-placeholder';
+  div.innerHTML = '<span>🌿</span>';
+  wrap.insertBefore(div, img);
+}
+
+function renderCards(plants) {
+  grid.innerHTML = '';
+  if (plants.length === 0) {
+    grid.appendChild(noResult);
+    noResult.style.display = 'block';
+    countLabel.textContent = `顯示 0 / ${PLANTS.length} 種`;
+    return;
+  }
+  noResult.style.display = 'none';
+  plants.forEach(p => {
+    const card = document.createElement('div');
+    card.className = `card cat-${p.cat}`;
+    card.dataset.search = `${p.name} ${p.sci} ${p.desc} ${p.tags.join(' ')} ${p.catName}`.toLowerCase();
+
+    card.innerHTML = `
+      <div class="card-img-wrap">
+        <img alt="${p.name}" data-sci="${p.sci}" data-ch="${p.name}" loading="lazy" style="opacity:0;transition:opacity .5s">
+        <div class="cat-stripe"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-header">
+          <div class="card-name">${p.name}</div>
+          <div class="card-badge">${p.catName}</div>
+        </div>
+        <div class="card-sci">${p.sci}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="care-grid">
+          <div class="care-item"><span class="care-icon">☀️</span><span class="care-label">日照</span>${p.sun}</div>
+          <div class="care-item"><span class="care-icon">💧</span><span class="care-label">澆水</span>${p.water}</div>
+          <div class="care-item"><span class="care-icon">🌱</span><span class="care-label">土壤</span>${p.soil}</div>
+          <div class="care-item"><span class="care-icon">🧪</span><span class="care-label">施肥</span>${p.fert}</div>
+        </div>
+        <div class="prop-section">
+          <div class="prop-title">🔄 繁殖方式詳解</div>
+          <div class="prop-content">${p.prop}</div>
+        </div>
+        <div class="tag-row">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+  countLabel.textContent = `顯示 ${plants.length} / ${PLANTS.length} 種`;
+
+  // Lazy-load images with IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      const wrap = img.closest('.card-img-wrap');
+      observer.unobserve(img);
+      loadPlantImage(img.dataset.sci, img.dataset.ch, img, wrap);
+    });
+  }, { rootMargin: '200px' });
+
+  grid.querySelectorAll('img[data-sci]').forEach(img => observer.observe(img));
+}
+
+renderCards(PLANTS);
+
+let currentCat = 'all';
+document.querySelectorAll('.filter-tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    applyFilter();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', applyFilter);
+
+function applyFilter() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const filtered = PLANTS.filter(p => {
+    const catOk = currentCat === 'all' || String(p.cat) === currentCat;
+    const txtOk = !q ||
+      p.name.toLowerCase().includes(q) ||
+      p.sci.toLowerCase().includes(q) ||
+      p.desc.toLowerCase().includes(q) ||
+      p.tags.some(t => t.toLowerCase().includes(q)) ||
+      p.catName.includes(q);
+    return catOk && txtOk;
+  });
+  renderCards(filtered);
+}
+</script>
+</body>
+</html>
